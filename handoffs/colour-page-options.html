@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Colour page — design options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Nanum+Myeongjo:wght@400&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --violet-400:#9886ff; --violet-500:#7655fd; --violet-600:#6330f5;
+    --stone-50:#fafaf9; --stone-100:#f5f5f4; --stone-200:#e7e5e4;
+    --stone-300:#d6d3d1; --stone-400:#a8a29e; --stone-500:#78716c;
+    --stone-600:#57534e; --stone-700:#44403c; --stone-800:#292524;
+    --stone-900:#1c1917; --stone-950:#0c0a09;
+    --warm:#f5f0ec;
+    --font-sans:'Inter',system-ui,sans-serif;
+    --font-serif:'Nanum Myeongjo',serif;
+    --font-mono:'JetBrains Mono',monospace;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    background: var(--stone-100);
+    color: var(--stone-950);
+    -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 1200px; margin: 0 auto; padding: 64px 48px 96px; }
+  .doc-title {
+    font-family: var(--font-serif);
+    font-size: 56px;
+    line-height: 1.05;
+    margin: 0 0 12px;
+  }
+  .doc-lede {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--stone-500);
+    margin: 0 0 64px;
+  }
+
+  .option {
+    background: #fff;
+    border-radius: 2px;
+    margin-bottom: 48px;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 8px 32px rgba(0,0,0,0.04);
+  }
+  .option-header {
+    padding: 32px 40px 24px;
+    border-bottom: 1px solid var(--stone-200);
+  }
+  .option-header .num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--violet-600);
+    margin: 0 0 8px;
+  }
+  .option-header h2 {
+    font-family: var(--font-serif);
+    font-size: 36px;
+    margin: 0 0 8px;
+    line-height: 1.1;
+  }
+  .option-header p {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--stone-500);
+    margin: 0;
+    max-width: 720px;
+    line-height: 1.6;
+  }
+  .option-body { padding: 40px; }
+  .option-body h3 {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--stone-600);
+    margin: 0 0 16px;
+  }
+  .option-body h3:not(:first-child) { margin-top: 40px; }
+
+  /* ========================================================
+     Option A — Split-tile swatches
+     ======================================================== */
+  .split-row {
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    gap: 4px;
+  }
+  .split-tile {
+    aspect-ratio: 1 / 1.4;
+    border-radius: 2px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+  }
+  .split-tile .half {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 8px 10px;
+  }
+  .split-tile .half.dark { background: var(--stone-950); }
+  .split-tile .half.light { background: var(--stone-50); }
+
+  /* ========================================================
+     Option B — Stacked scales, dark + light
+     ======================================================== */
+  .stacked-band {
+    border-radius: 2px;
+    padding: 32px;
+    margin-bottom: 24px;
+  }
+  .stacked-band.dark { background: var(--stone-950); }
+  .stacked-band.light { background: var(--warm); }
+  .stacked-band .band-label {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin: 0 0 20px;
+  }
+  .stacked-band.dark .band-label { color: var(--stone-400); }
+  .stacked-band.light .band-label { color: var(--stone-500); }
+  .stacked-row {
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    gap: 4px;
+  }
+  .stacked-tile {
+    aspect-ratio: 1 / 1;
+    border-radius: 2px;
+    display: flex;
+    align-items: flex-end;
+    padding: 10px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+  }
+
+  /* ========================================================
+     Option C — Role-based pairing table
+     ======================================================== */
+  .role-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-sans);
+  }
+  .role-table thead th {
+    text-align: left;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--stone-500);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--stone-200);
+  }
+  .role-table tbody td {
+    padding: 0;
+    border-bottom: 1px solid var(--stone-100);
+  }
+  .role-table .role-name {
+    padding: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--stone-950);
+    width: 220px;
+  }
+  .role-table .role-cell {
+    padding: 20px 24px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .role-cell.dark { background: var(--stone-950); color: var(--stone-300); }
+  .role-cell.light { background: var(--warm); color: var(--stone-700); }
+  .role-cell .chip {
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .role-cell .token { color: inherit; opacity: 0.7; }
+
+  /* ========================================================
+     Option D — Contextual UI mockups
+     ======================================================== */
+  .mockup-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .mockup {
+    border-radius: 2px;
+    padding: 48px;
+    aspect-ratio: 4 / 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .mockup.dark { background: var(--stone-950); }
+  .mockup.light { background: var(--warm); }
+  .mockup .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin: 0 0 32px;
+  }
+  .mockup.dark .eyebrow { color: var(--violet-500); }
+  .mockup.light .eyebrow { color: var(--violet-600); }
+  .mockup h4 {
+    font-family: var(--font-serif);
+    font-size: 36px;
+    line-height: 1.1;
+    margin: 0;
+    font-weight: 400;
+  }
+  .mockup.dark h4 { color: var(--stone-50); }
+  .mockup.light h4 { color: var(--stone-950); }
+  .mockup h4 em {
+    font-style: italic;
+  }
+  .mockup.dark h4 em { color: var(--violet-500); }
+  .mockup.light h4 em { color: var(--violet-600); }
+  .mockup .actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 32px;
+  }
+  .btn {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    cursor: pointer;
+  }
+  .mockup.dark .btn-primary { background: var(--stone-200); color: var(--stone-950); }
+  .mockup.dark .btn-secondary { background: transparent; border-color: var(--stone-700); color: var(--stone-300); }
+  .mockup.light .btn-primary { background: var(--stone-950); color: #fff; }
+  .mockup.light .btn-secondary { background: transparent; border-color: var(--stone-200); color: var(--stone-700); }
+
+  .mockup-meta {
+    margin-top: 16px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--stone-500);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <p class="doc-lede">Brand system · sketch · 2026-05-07</p>
+  <h1 class="doc-title">Colour page — design options.</h1>
+  <p style="font-family:var(--font-mono); font-size:14px; color:var(--stone-600); max-width:720px; line-height:1.7;">
+    Four ways to show how the palette behaves across dark and light contexts.
+    Pick one — or a hybrid — and I'll integrate it into <code>brand-guidelines.html</code>.
+  </p>
+
+  <!-- ============================================================
+       OPTION A — Split-tile swatches
+       ============================================================ -->
+  <section class="option">
+    <div class="option-header">
+      <p class="num">Option A</p>
+      <h2>Split-tile swatches.</h2>
+      <p>Each chip is split horizontally — top half rendered on dark <code>stone-950</code>, bottom half on light <code>stone-50</code>. One tile, both contexts. Most compact.</p>
+    </div>
+    <div class="option-body">
+      <h3>Stone</h3>
+      <div class="split-row" style="background:linear-gradient(to bottom, var(--stone-950) 50%, var(--stone-50) 50%); padding: 12px;">
+        <div class="split-tile" style="background:#fafaf9;"><div class="half" style="color:#44403c;">50</div><div class="half" style="color:#44403c;">50</div></div>
+        <div class="split-tile" style="background:#f5f5f4;"><div class="half" style="color:#44403c;">100</div><div class="half" style="color:#44403c;">100</div></div>
+        <div class="split-tile" style="background:#e7e5e4;"><div class="half" style="color:#44403c;">200</div><div class="half" style="color:#44403c;">200</div></div>
+        <div class="split-tile" style="background:#d6d3d1;"><div class="half" style="color:#44403c;">300</div><div class="half" style="color:#44403c;">300</div></div>
+        <div class="split-tile" style="background:#a8a29e;"><div class="half" style="color:#292524;">400</div><div class="half" style="color:#292524;">400</div></div>
+        <div class="split-tile" style="background:#78716c;"><div class="half" style="color:#fafaf9;">500</div><div class="half" style="color:#fafaf9;">500</div></div>
+        <div class="split-tile" style="background:#57534e;"><div class="half" style="color:#fafaf9;">600</div><div class="half" style="color:#fafaf9;">600</div></div>
+        <div class="split-tile" style="background:#44403c;"><div class="half" style="color:#fafaf9;">700</div><div class="half" style="color:#fafaf9;">700</div></div>
+        <div class="split-tile" style="background:#292524;"><div class="half" style="color:#fafaf9;">800</div><div class="half" style="color:#fafaf9;">800</div></div>
+        <div class="split-tile" style="background:#1c1917;"><div class="half" style="color:#fafaf9;">900</div><div class="half" style="color:#fafaf9;">900</div></div>
+        <div class="split-tile" style="background:#0c0a09;"><div class="half" style="color:#fafaf9;">950</div><div class="half" style="color:#fafaf9;">950</div></div>
+      </div>
+      <p style="font-family:var(--font-mono); font-size:12px; color:var(--stone-500); margin-top:12px;">The split background bezel shows the dark/light surfaces — each chip floats between them so you can read it against either.</p>
+
+      <h3>Violet</h3>
+      <div class="split-row" style="background:linear-gradient(to bottom, var(--stone-950) 50%, var(--stone-50) 50%); padding: 12px;">
+        <div class="split-tile" style="background:#f4f2ff;"><div class="half" style="color:#3d189a;">50</div><div class="half" style="color:#3d189a;">50</div></div>
+        <div class="split-tile" style="background:#e9e8ff;"><div class="half" style="color:#3d189a;">100</div><div class="half" style="color:#3d189a;">100</div></div>
+        <div class="split-tile" style="background:#d7d4ff;"><div class="half" style="color:#3d189a;">200</div><div class="half" style="color:#3d189a;">200</div></div>
+        <div class="split-tile" style="background:#bab2ff;"><div class="half" style="color:#230c69;">300</div><div class="half" style="color:#230c69;">300</div></div>
+        <div class="split-tile" style="background:#9886ff;"><div class="half" style="color:#230c69;">400</div><div class="half" style="color:#230c69;">400</div></div>
+        <div class="split-tile" style="background:#7655fd;"><div class="half" style="color:#fff;">500</div><div class="half" style="color:#fff;">500</div></div>
+        <div class="split-tile" style="background:#6330f5;"><div class="half" style="color:#fff;">600</div><div class="half" style="color:#fff;">600</div></div>
+        <div class="split-tile" style="background:#5620e1;"><div class="half" style="color:#fff;">700</div><div class="half" style="color:#fff;">700</div></div>
+        <div class="split-tile" style="background:#481abd;"><div class="half" style="color:#fff;">800</div><div class="half" style="color:#fff;">800</div></div>
+        <div class="split-tile" style="background:#3d189a;"><div class="half" style="color:#fff;">900</div><div class="half" style="color:#fff;">900</div></div>
+        <div class="split-tile" style="background:#230c69;"><div class="half" style="color:#fff;">950</div><div class="half" style="color:#fff;">950</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       OPTION B — Stacked scales, dark + light
+       ============================================================ -->
+  <section class="option">
+    <div class="option-header">
+      <p class="num">Option B</p>
+      <h2>Stacked scales — dark band, light band.</h2>
+      <p>The full scale rendered twice, framed by its surface. Closest to the current layout; the doubling makes context legible without re-explaining anything.</p>
+    </div>
+    <div class="option-body">
+      <h3>Stone</h3>
+      <div class="stacked-band dark">
+        <p class="band-label">On dark — stone-950</p>
+        <div class="stacked-row">
+          <div class="stacked-tile" style="background:#fafaf9; color:#44403c;">50</div>
+          <div class="stacked-tile" style="background:#f5f5f4; color:#44403c;">100</div>
+          <div class="stacked-tile" style="background:#e7e5e4; color:#44403c;">200</div>
+          <div class="stacked-tile" style="background:#d6d3d1; color:#44403c;">300</div>
+          <div class="stacked-tile" style="background:#a8a29e; color:#292524;">400</div>
+          <div class="stacked-tile" style="background:#78716c; color:#fafaf9;">500</div>
+          <div class="stacked-tile" style="background:#57534e; color:#fafaf9;">600</div>
+          <div class="stacked-tile" style="background:#44403c; color:#fafaf9;">700</div>
+          <div class="stacked-tile" style="background:#292524; color:#fafaf9;">800</div>
+          <div class="stacked-tile" style="background:#1c1917; color:#fafaf9;">900</div>
+          <div class="stacked-tile" style="background:#0c0a09; color:#fafaf9;">950</div>
+        </div>
+      </div>
+      <div class="stacked-band light">
+        <p class="band-label">On light — warm #f5f0ec</p>
+        <div class="stacked-row">
+          <div class="stacked-tile" style="background:#fafaf9; color:#44403c;">50</div>
+          <div class="stacked-tile" style="background:#f5f5f4; color:#44403c;">100</div>
+          <div class="stacked-tile" style="background:#e7e5e4; color:#44403c;">200</div>
+          <div class="stacked-tile" style="background:#d6d3d1; color:#44403c;">300</div>
+          <div class="stacked-tile" style="background:#a8a29e; color:#292524;">400</div>
+          <div class="stacked-tile" style="background:#78716c; color:#fafaf9;">500</div>
+          <div class="stacked-tile" style="background:#57534e; color:#fafaf9;">600</div>
+          <div class="stacked-tile" style="background:#44403c; color:#fafaf9;">700</div>
+          <div class="stacked-tile" style="background:#292524; color:#fafaf9;">800</div>
+          <div class="stacked-tile" style="background:#1c1917; color:#fafaf9;">900</div>
+          <div class="stacked-tile" style="background:#0c0a09; color:#fafaf9;">950</div>
+        </div>
+      </div>
+
+      <h3>Violet</h3>
+      <div class="stacked-band dark">
+        <p class="band-label">On dark</p>
+        <div class="stacked-row">
+          <div class="stacked-tile" style="background:#f4f2ff; color:#3d189a;">50</div>
+          <div class="stacked-tile" style="background:#e9e8ff; color:#3d189a;">100</div>
+          <div class="stacked-tile" style="background:#d7d4ff; color:#3d189a;">200</div>
+          <div class="stacked-tile" style="background:#bab2ff; color:#230c69;">300</div>
+          <div class="stacked-tile" style="background:#9886ff; color:#230c69;">400</div>
+          <div class="stacked-tile" style="background:#7655fd; color:#fff;">500</div>
+          <div class="stacked-tile" style="background:#6330f5; color:#fff;">600</div>
+          <div class="stacked-tile" style="background:#5620e1; color:#fff;">700</div>
+          <div class="stacked-tile" style="background:#481abd; color:#fff;">800</div>
+          <div class="stacked-tile" style="background:#3d189a; color:#fff;">900</div>
+          <div class="stacked-tile" style="background:#230c69; color:#fff;">950</div>
+        </div>
+      </div>
+      <div class="stacked-band light">
+        <p class="band-label">On light</p>
+        <div class="stacked-row">
+          <div class="stacked-tile" style="background:#f4f2ff; color:#3d189a;">50</div>
+          <div class="stacked-tile" style="background:#e9e8ff; color:#3d189a;">100</div>
+          <div class="stacked-tile" style="background:#d7d4ff; color:#3d189a;">200</div>
+          <div class="stacked-tile" style="background:#bab2ff; color:#230c69;">300</div>
+          <div class="stacked-tile" style="background:#9886ff; color:#230c69;">400</div>
+          <div class="stacked-tile" style="background:#7655fd; color:#fff;">500</div>
+          <div class="stacked-tile" style="background:#6330f5; color:#fff;">600</div>
+          <div class="stacked-tile" style="background:#5620e1; color:#fff;">700</div>
+          <div class="stacked-tile" style="background:#481abd; color:#fff;">800</div>
+          <div class="stacked-tile" style="background:#3d189a; color:#fff;">900</div>
+          <div class="stacked-tile" style="background:#230c69; color:#fff;">950</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       OPTION C — Role-based pairing table
+       ============================================================ -->
+  <section class="option">
+    <div class="option-header">
+      <p class="num">Option C</p>
+      <h2>Role pairing — what each role looks like in both themes.</h2>
+      <p>Drops the abstract scale view (or pairs it with one). Each row names a role; the two halves show the actual chosen colour rendered on its real surface. Most useful for designers and engineers picking tokens.</p>
+    </div>
+    <div class="option-body">
+      <table class="role-table">
+        <thead>
+          <tr>
+            <th>Role</th>
+            <th colspan="1" style="background:var(--stone-950); color:var(--stone-300); border-bottom:none;">Dark context</th>
+            <th colspan="1" style="background:var(--warm); color:var(--stone-700); border-bottom:none;">Light context</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="role-name">Background</td>
+            <td><div class="role-cell dark"><span class="chip" style="background:#0c0a09; outline:1px solid var(--stone-800);"></span>stone-950 <span class="token">#0c0a09</span></div></td>
+            <td><div class="role-cell light"><span class="chip" style="background:#f5f0ec; outline:1px solid var(--stone-200);"></span>warm <span class="token">#f5f0ec</span></div></td>
+          </tr>
+          <tr>
+            <td class="role-name">Surface / card</td>
+            <td><div class="role-cell dark"><span class="chip" style="background:#1c1917;"></span>stone-900 <span class="token">#1c1917</span></div></td>
+            <td><div class="role-cell light"><span class="chip" style="background:#ffffff; outline:1px solid var(--stone-200);"></span>white <span class="token">#ffffff</span></div></td>
+          </tr>
+          <tr>
+            <td class="role-name">Border</td>
+            <td><div class="role-cell dark"><span class="chip" style="background:#44403c;"></span>stone-700 <span class="token">#44403c</span></div></td>
+            <td><div class="role-cell light"><span class="chip" style="background:#e7e5e4;"></span>stone-200 <span class="token">#e7e5e4</span></div></td>
+          </tr>
+          <tr>
+            <td class="role-name">Text — primary</td>
+            <td><div class="role-cell dark"><span class="chip" style="background:#fafaf9;"></span>stone-50 <span class="token">#fafaf9</span></div></td>
+            <td><div class="role-cell light"><span class="chip" style="background:#0c0a09;"></span>stone-950 <span class="token">#0c0a09</span></div></td>
+          </tr>
+          <tr>
+            <td class="role-name">Text — body / muted</td>
+            <td><div class="role-cell dark"><span class="chip" style="background:#a8a29e;"></span>stone-400 <span class="token">#a8a29e</span></div></td>
+            <td><div class="role-cell light"><span class="chip" style="background:#78716c;"></span>stone-500 <span class="token">#78716c</span></div></td>
+          </tr>
+          <tr>
+            <td class="role-name">Accent — violet</td>
+            <td><div class="role-cell dark"><span class="chip" style="background:#7655fd;"></span>violet-500 <span class="token">#7655fd</span></div></td>
+            <td><div class="role-cell light"><span class="chip" style="background:#6330f5;"></span>violet-600 <span class="token">#6330f5</span></div></td>
+          </tr>
+          <tr>
+            <td class="role-name">Hover fill</td>
+            <td><div class="role-cell dark"><span class="chip" style="background:#7655fd;"></span>violet-500</div></td>
+            <td><div class="role-cell light"><span class="chip" style="background:#6330f5;"></span>violet-600</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       OPTION D — Contextual UI mockups
+       ============================================================ -->
+  <section class="option">
+    <div class="option-header">
+      <p class="num">Option D</p>
+      <h2>Show the colours doing their job.</h2>
+      <p>Two mini-compositions side-by-side using identical content — one rendered in dark, one in light. Shows the violet rule, eyebrow colour, button hierarchy, and surface choices in situ. Best for marketing / brand storytelling, weakest for token reference.</p>
+    </div>
+    <div class="option-body">
+      <div class="mockup-grid">
+        <div>
+          <div class="mockup dark">
+            <p class="eyebrow">03 — Colour</p>
+            <h4>Design becomes <em>a systems function.</em></h4>
+            <div class="actions">
+              <button class="btn btn-primary">Get started →</button>
+              <button class="btn btn-secondary">View tokens</button>
+            </div>
+          </div>
+          <p class="mockup-meta">Dark · stone-950 surface · violet-500 accent</p>
+        </div>
+        <div>
+          <div class="mockup light">
+            <p class="eyebrow">03 — Colour</p>
+            <h4>Design becomes <em>a systems function.</em></h4>
+            <div class="actions">
+              <button class="btn btn-primary">Get started →</button>
+              <button class="btn btn-secondary">View tokens</button>
+            </div>
+          </div>
+          <p class="mockup-meta">Light · warm surface · violet-600 accent</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <p style="font-family:var(--font-mono); font-size:12px; color:var(--stone-500); margin-top:64px; text-align:center;">
+    Tell me which option (or hybrid — e.g. B + C, or A + D) and I'll integrate it into <code>guidelines/brand-guidelines.html</code>.
+  </p>
+
+</div>
+</body>
+</html>

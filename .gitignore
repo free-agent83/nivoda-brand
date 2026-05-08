@@ -1,0 +1,17 @@
+# PowerPoint templates — share via Google Drive instead
+*.pptx
+*.ppt
+
+# Cowork local settings
+.claude/settings.local.json
+
+# Stray files
+docs/Untitled
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/

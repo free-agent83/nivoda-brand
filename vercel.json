@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/guidelines/editorial-guidelines.html" }
+  ]
+}

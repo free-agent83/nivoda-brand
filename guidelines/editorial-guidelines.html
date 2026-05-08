@@ -1,0 +1,1778 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Nivoda — Brand Guidelines (Editorial)</title>
+<style>
+/* ============================================================
+   Self-hosted fonts
+   ============================================================ */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../assets/fonts/Inter-Variable.ttf') format('truetype-variations');
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+  src: url('../assets/fonts/JetBrainsMono-Variable.ttf') format('truetype-variations');
+}
+@font-face {
+  font-family: 'Nanum Myeongjo';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/NanumMyeongjo-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Nanum Myeongjo';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../assets/fonts/NanumMyeongjo-Bold.ttf') format('truetype');
+}
+
+/* ============================================================
+   Tokens
+   ============================================================ */
+:root {
+  --violet-50:  #f4f2ff;
+  --violet-100: #e9e8ff;
+  --violet-200: #d7d4ff;
+  --violet-300: #bab2ff;
+  --violet-400: #9886ff;
+  --violet-500: #7655fd;
+  --violet-600: #6330f5;
+  --violet-700: #5620e1;
+  --violet-800: #481abd;
+  --violet-900: #3d189a;
+  --violet-950: #230c69;
+
+  --stone-50:  #fafaf9;
+  --stone-100: #f5f5f4;
+  --stone-200: #e7e5e4;
+  --stone-300: #d6d3d1;
+  --stone-400: #a8a29e;
+  --stone-500: #78716c;
+  --stone-600: #57534e;
+  --stone-700: #44403c;
+  --stone-800: #292524;
+  --stone-900: #1c1917;
+  --stone-950: #0c0a09;
+
+  --green-500: #59b186;
+  --red-500:   #ef4444;
+  --amber-500: #f59e0b;
+  --blue-500:  #326cff;
+
+  --font-serif: 'Nanum Myeongjo', 'Times New Roman', serif;
+  --font-sans:  'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono:  'JetBrains Mono', ui-monospace, monospace;
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #f5f0ec;
+  color: var(--stone-950);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================================
+   Layout
+   ============================================================ */
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 64px;
+}
+
+section {
+  padding: 128px 0;
+  border-bottom: 1px solid var(--stone-200);
+}
+section:last-child { border-bottom: none; }
+
+/* Dark sections — full-bleed dark background */
+.dark {
+  background: var(--stone-950);
+  color: var(--stone-50);
+  margin: 0 -9999px;
+  padding: 128px 9999px;
+  border-bottom-color: var(--stone-800);
+}
+
+/* Legacy light class */
+.light {
+  background: #f5f0ec;
+  color: var(--stone-950);
+}
+
+/* ============================================================
+   Typography
+   ============================================================ */
+.hero-title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 96px;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+h2 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0 0 64px 0;
+}
+
+h3 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 80px 0 28px 0;
+}
+
+h4 {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--stone-500); /* Mono labels are grey by default — naming, not performing */
+  margin: 48px 0 20px 0;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--stone-500);
+  margin: 0 0 0 0;
+}
+.dark .eyebrow { color: var(--stone-400); }
+.eyebrow::after {
+  content: '';
+  display: block;
+  width: 96px;
+  height: 1px;
+  background: var(--violet-600);
+  margin: 20px 0 32px 0;
+}
+.dark .eyebrow::after {
+  background: var(--violet-400);
+}
+
+.lede {
+  font-size: 22px;
+  line-height: 1.5;
+  color: var(--stone-600);
+  margin: 0 0 64px 0;
+  max-width: 800px;
+}
+.dark .lede { color: var(--stone-400); }
+
+p {
+  margin: 0 0 24px 0;
+  color: var(--stone-600);
+  line-height: 1.6;
+}
+.dark p { color: var(--stone-400); }
+
+strong { color: var(--stone-950); font-weight: 500; }
+.dark strong { color: var(--stone-50); }
+
+em { font-style: italic; }
+
+.violet { color: var(--violet-600); }
+.dark .violet { color: var(--violet-400); }
+.dark h4 { color: var(--stone-400); }
+
+/* ============================================================
+   Nav
+   ============================================================ */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--stone-950);
+  border-bottom: 1px solid var(--stone-800);
+  padding: 20px 64px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  backdrop-filter: blur(12px);
+}
+nav a {
+  color: var(--stone-400);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+nav a:hover { color: var(--stone-50); }
+nav .brand {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  color: var(--stone-50);
+  letter-spacing: 0;
+  text-transform: none;
+  margin-right: auto;
+}
+
+/* ============================================================
+   Cards & Grids
+   ============================================================ */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+
+.card {
+  background: #ffffff;
+  border: 1px solid var(--stone-200);
+  border-radius: 2px;
+  padding: 40px;
+}
+.dark .card {
+  background: var(--stone-900);
+  border-color: var(--stone-700);
+}
+
+/* Card violet divider — sits between h4 eyebrow and the content below */
+.card h4::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--violet-600);
+  margin-top: 14px;
+}
+.dark .card h4::after {
+  background: var(--violet-400);
+}
+
+/* ============================================================
+   Colour swatches
+   ============================================================ */
+.swatch-row {
+  display: flex;
+  gap: 0;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+.swatch {
+  flex: 1;
+  height: 72px;
+  display: flex;
+  align-items: flex-end;
+  padding: 8px 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+.swatch.tall { height: 96px; }
+.swatch-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--stone-500);
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Role pairing table — role rows, dark + light columns */
+.role-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 24px 0 24px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--stone-200);
+  background: transparent;
+}
+.role-table thead th {
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--stone-200);
+  color: var(--stone-500);
+  background: rgba(255,255,255,0.5);
+}
+.role-table .role-th-dark { background: var(--stone-950); color: var(--stone-400); border-bottom-color: var(--stone-800); }
+.role-table .role-th-light { background: #f5f0ec; color: var(--stone-600); }
+.role-table tbody td {
+  padding: 0;
+  border-bottom: 1px solid var(--stone-200);
+}
+.role-table tbody tr:last-child td { border-bottom: none; }
+.role-table .role-name {
+  padding: 16px 20px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--stone-950);
+  width: 220px;
+  background: rgba(255,255,255,0.5);
+}
+.role-cell {
+  padding: 18px 20px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 100%;
+  min-height: 56px;
+}
+.role-cell.on-dark { background: var(--stone-950); color: var(--stone-200); border-bottom: 1px solid var(--stone-800); }
+.role-cell.on-light { background: #f5f0ec; color: var(--stone-700); }
+.role-table tbody tr:last-child .role-cell { border-bottom: none; }
+.role-cell .chip {
+  width: 28px;
+  height: 28px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.role-cell .token { opacity: 0.6; margin-left: 4px; }
+
+/* Theme mockups — paired dark/light mini-compositions */
+.theme-mockups {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 24px 0 40px;
+}
+.theme-mockup {
+  border-radius: 2px;
+  padding: 48px;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.theme-mockup.on-dark { background: var(--stone-950); }
+.theme-mockup.on-light { background: #ffffff; border: 1px solid var(--stone-200); }
+.theme-mockup .mock-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin: 0 0 0;
+}
+.theme-mockup.on-dark .mock-eyebrow { color: var(--stone-400); }
+.theme-mockup.on-light .mock-eyebrow { color: var(--stone-500); }
+.theme-mockup .mock-eyebrow::after {
+  content: '';
+  display: block;
+  width: 96px;
+  height: 1px;
+  margin: 20px 0 32px 0;
+}
+.theme-mockup.on-dark .mock-eyebrow::after { background: var(--violet-400); }
+.theme-mockup.on-light .mock-eyebrow::after { background: var(--violet-600); }
+.theme-mockup h4 {
+  font-family: var(--font-serif);
+  font-size: 36px;
+  line-height: 1.1;
+  margin: 0;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: -0.01em;
+}
+.theme-mockup.on-dark h4 { color: var(--stone-50); }
+.theme-mockup.on-light h4 { color: var(--stone-950); }
+.theme-mockup h4 em { font-style: italic; }
+.theme-mockup.on-dark h4 em { color: var(--violet-500); }
+.theme-mockup.on-light h4 em { color: var(--violet-600); }
+.theme-mockup .mock-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+}
+.theme-mockup .mock-btn {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.theme-mockup.on-dark .mock-btn-primary { background: var(--stone-200); color: var(--stone-950); }
+.theme-mockup.on-dark .mock-btn-primary:hover { background: var(--violet-500); color: #fff; }
+.theme-mockup.on-dark .mock-btn-secondary { background: transparent; border-color: var(--stone-700); color: var(--stone-300); }
+.theme-mockup.on-dark .mock-btn-secondary:hover { border-color: var(--violet-400); color: var(--violet-400); }
+.theme-mockup.on-light .mock-btn-primary { background: var(--stone-950); color: #fff; }
+.theme-mockup.on-light .mock-btn-primary:hover { background: var(--violet-600); color: #fff; }
+.theme-mockup.on-light .mock-btn-secondary { background: transparent; border-color: var(--stone-200); color: var(--stone-700); }
+.theme-mockup.on-light .mock-btn-secondary:hover { border-color: var(--violet-600); color: var(--violet-600); }
+.theme-mockup-caption {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--stone-500);
+  text-align: center;
+  margin-top: 12px;
+}
+
+/* ============================================================
+   Tables
+   ============================================================ */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 24px 0 40px 0;
+  font-size: 15px;
+  background: #ffffff;
+  border-radius: 4px;
+  border: 1px solid var(--stone-200);
+  overflow: hidden;
+}
+th {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--stone-500);
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  background: rgba(255, 255, 255, 0.50);
+}
+.dark table {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--stone-800);
+}
+.dark th {
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom-color: rgba(255,255,255,0.08);
+}
+td {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  color: var(--stone-600);
+  vertical-align: top;
+}
+tr:last-child td { border-bottom: none; }
+.dark td { border-bottom-color: rgba(255,255,255,0.06); color: var(--stone-400); }
+td:first-child { color: var(--stone-700); font-weight: 400; }
+.dark td:first-child { color: var(--stone-300); }
+
+code {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  background: var(--stone-100);
+  padding: 2px 8px;
+  border-radius: 2px;
+  color: var(--stone-700);
+}
+.dark code {
+  background: var(--stone-800);
+  color: var(--stone-400);
+}
+
+/* ============================================================
+   Do / Don't
+   ============================================================ */
+.do-dont {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 32px 0;
+}
+.do-card, .dont-card {
+  padding: 32px;
+  border-radius: 2px;
+}
+.do-card {
+  background: rgba(89, 177, 134, 0.06);
+  border: 1px solid var(--green-500);
+  border-top: 3px solid var(--green-500);
+}
+.dont-card {
+  background: rgba(239, 68, 68, 0.06);
+  border: 1px solid var(--red-500);
+  border-top: 3px solid var(--red-500);
+}
+.do-card h5, .dont-card h5 {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 16px 0;
+  font-weight: 400;
+}
+.do-card h5 { color: var(--green-500); }
+.dont-card h5 { color: var(--red-500); }
+
+/* ============================================================
+   Font specimen
+   ============================================================ */
+.specimen {
+  padding: 48px;
+  background: rgba(255, 255, 255, 0.70);
+  border: 1px solid var(--stone-200);
+  border-radius: 4px;
+  margin-bottom: 24px;
+}
+.dark .specimen {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--stone-700);
+}
+.specimen-serif {
+  font-family: var(--font-serif);
+  font-size: 48px;
+  line-height: 1.2;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+.specimen-sans {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--stone-600);
+}
+.specimen-mono {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--stone-500); /* Naming a specimen — grey, per the mono-label rule */
+  margin-bottom: 8px;
+}
+
+/* ============================================================
+   Call & Response example
+   ============================================================ */
+.cr-example {
+  font-family: var(--font-serif);
+  font-size: 42px;
+  line-height: 1.15;
+  font-weight: 400;
+  padding: 48px;
+  background: rgba(255, 255, 255, 0.70);
+  border: 1px solid var(--stone-200);
+  border-radius: 4px;
+  margin: 24px 0;
+}
+.dark .cr-example {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--stone-700);
+}
+.cr-example .response { color: var(--violet-600); font-style: italic; }
+.dark .cr-example .response { color: var(--violet-500); }
+.dark .specimen-mono { color: var(--stone-400); }
+
+/* ============================================================
+   Cover
+   ============================================================ */
+.cover {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 96px;
+  background: var(--stone-950);
+  color: var(--stone-50);
+  margin: 0 -9999px;
+  padding: 0 9999px 96px 9999px;
+  border-bottom: 1px solid var(--stone-800);
+}
+.cover .brand-rule {
+  width: 96px;
+  height: 1px;
+  background: var(--violet-500);
+  margin-bottom: 32px;
+}
+.cover .meta {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--stone-400);
+  margin-top: 48px;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+.cover .meta .dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--violet-400);
+}
+
+/* ============================================================
+   Logo display
+   ============================================================ */
+.logo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 32px 0;
+}
+.logo-box {
+  padding: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  min-height: 200px;
+}
+.logo-box.on-dark {
+  background: var(--stone-950);
+  border: 1px solid var(--stone-700);
+}
+.logo-box.on-white {
+  background: #ffffff;
+  border: 1px solid var(--stone-200);
+}
+.logo-box img { height: 28px; }
+
+/* ============================================================
+   Spacing specimen
+   ============================================================ */
+.spacing-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+.spacing-bar {
+  height: 24px;
+  background: var(--violet-600);
+  opacity: 0.4;
+  border-radius: 2px;
+}
+
+/* ============================================================
+   Buttons (interactive)
+   ============================================================ */
+.btn-row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn-dark-primary {
+  padding: 14px 32px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 999px;
+  background: #e7e5e4;
+  border: 1px solid #e7e5e4;
+  color: var(--stone-950);
+}
+.btn-dark-primary:hover {
+  background: var(--violet-500);
+  border-color: var(--violet-500);
+  color: #ffffff;
+}
+
+.btn-dark-secondary {
+  padding: 14px 32px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 999px;
+  background: transparent;
+  border: 1px solid var(--stone-700);
+  color: var(--stone-400);
+}
+.btn-dark-secondary:hover {
+  border-color: var(--violet-400);
+  color: var(--violet-400);
+}
+
+.btn-dark-sm {
+  padding: 8px 20px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 999px;
+  background: #e7e5e4;
+  border: 1px solid #e7e5e4;
+  color: var(--stone-950);
+}
+.btn-dark-sm:hover {
+  background: var(--violet-500);
+  border-color: var(--violet-500);
+  color: #ffffff;
+}
+
+.btn-light-primary {
+  padding: 14px 32px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 999px;
+  background: var(--stone-950);
+  border: 1px solid var(--stone-950);
+  color: #ffffff;
+}
+.btn-light-primary:hover {
+  background: var(--violet-600);
+  border-color: var(--violet-600);
+  color: #ffffff;
+}
+
+.btn-light-secondary {
+  padding: 14px 32px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 999px;
+  background: transparent;
+  border: 1px solid var(--stone-200);
+  color: var(--stone-950);
+}
+.btn-light-secondary:hover {
+  border-color: var(--violet-600);
+  color: var(--violet-600);
+}
+
+.btn-light-sm {
+  padding: 8px 20px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 999px;
+  background: var(--stone-950);
+  border: 1px solid var(--stone-950);
+  color: #ffffff;
+}
+.btn-light-sm:hover {
+  background: var(--violet-600);
+  border-color: var(--violet-600);
+  color: #ffffff;
+}
+/* Violet focus rings — keyboard parity with hover reveal */
+.btn-dark-primary:focus-visible, .btn-dark-secondary:focus-visible, .btn-dark-sm:focus-visible {
+  outline: 2.5px solid var(--violet-400);
+  outline-offset: 2px;
+}
+.btn-light-primary:focus-visible, .btn-light-secondary:focus-visible, .btn-light-sm:focus-visible {
+  outline: 2.5px solid var(--violet-600);
+  outline-offset: 2px;
+}
+.spacing-label {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--stone-500);
+  min-width: 80px;
+}
+
+/* ============================================================
+   Interactive demo containers (violet reveal section)
+   ============================================================ */
+.interactive-demo {
+  padding: 48px;
+  background: rgba(255,255,255,0.7);
+  border: 1px solid var(--stone-200);
+  border-radius: 2px;
+  margin: 8px 0 32px;
+}
+.interactive-demo-dark {
+  padding: 48px;
+  background: var(--stone-950);
+  border-radius: 2px;
+  margin: 8px 0 32px;
+}
+/* Inline links inside demos — stone at rest, violet on hover */
+.interactive-demo p a {
+  color: var(--stone-600);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color 0.2s;
+}
+.interactive-demo p a:hover { color: var(--violet-600); }
+.interactive-demo-dark p { color: var(--stone-300); }
+.interactive-demo-dark p a {
+  color: var(--stone-300);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+.interactive-demo-dark p a:hover { color: var(--violet-400); }
+/* Form inputs */
+.ui-input {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  padding: 12px 16px;
+  border: 1px solid var(--stone-200);
+  background: #ffffff;
+  color: var(--stone-950);
+  border-radius: 2px;
+  transition: border-color 0.2s;
+  width: 100%;
+  max-width: 360px;
+  display: block;
+  margin-top: 32px;
+}
+.ui-input::placeholder { color: var(--stone-400); }
+.ui-input:focus { outline: none; border-color: var(--violet-600); }
+.ui-input:focus-visible { outline: 2.5px solid var(--violet-600); outline-offset: 2px; }
+.ui-input-dark {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  padding: 12px 16px;
+  border: 1px solid var(--stone-700);
+  background: var(--stone-900);
+  color: var(--stone-50);
+  border-radius: 2px;
+  transition: border-color 0.2s;
+  width: 100%;
+  max-width: 360px;
+  display: block;
+  margin-top: 32px;
+}
+.ui-input-dark::placeholder { color: var(--stone-500); }
+.ui-input-dark:focus { outline: none; border-color: var(--violet-400); }
+.ui-input-dark:focus-visible { outline: 2.5px solid var(--violet-400); outline-offset: 2px; }
+
+/* ============================================================
+   Iconography contact sheet
+   ============================================================ */
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  margin: 24px 0 40px;
+}
+.icon-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px 8px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--stone-800);
+  border-radius: 2px;
+  transition: background 0.2s, border-color 0.2s;
+  aspect-ratio: 1 / 1;
+}
+.icon-cell:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: var(--stone-700);
+}
+.icon-cell svg {
+  width: 28px;
+  height: 28px;
+  stroke-width: 1.5;
+  color: var(--stone-200);
+}
+.icon-cell .label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--stone-500);
+  text-transform: lowercase;
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 900px) {
+  .page { padding: 0 32px; }
+  nav { padding: 16px 32px; gap: 24px; }
+  .hero-title { font-size: 56px; }
+  h2 { font-size: 36px; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .do-dont { grid-template-columns: 1fr; }
+  .logo-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<nav>
+  <span class="brand"><img src="../assets/logos/wordmark-white.svg" alt="Nivoda" style="height:16px; vertical-align:middle;"/></span>
+  <a href="#identity">Identity</a>
+  <a href="#logo">Logo</a>
+  <a href="#colour">Colour</a>
+  <a href="#buttons">Buttons</a>
+  <a href="#typography">Typography</a>
+  <a href="#spacing">Spacing</a>
+  <a href="#imagery">Imagery</a>
+  <a href="#banners">Banners</a>
+  <a href="#voice">Voice</a>
+  <a href="#application">Application</a>
+</nav>
+
+<div class="page">
+
+<!-- ============================================================
+     COVER
+     ============================================================ -->
+<div class="cover dark">
+  <div class="eyebrow">Brand Guidelines</div>
+  <h1 class="hero-title">The Nivoda<br/>brand <em style="color:var(--violet-500); font-style:italic;">system.</em></h1>
+  <p class="lede" style="margin-top:32px;">Visual identity, voice, and application rules for every surface the brand touches. This is the single source of truth.</p>
+  <div class="meta">
+    <span>Version 2.0</span>
+    <span class="dot"></span>
+    <span>May 2026</span>
+    <span class="dot"></span>
+    <span>Design Lead: Chris Learey</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     WHERE THIS APPLIES
+     ============================================================ -->
+<section id="where">
+  <div class="eyebrow">Where this applies</div>
+  <h2>Editorial surfaces</h2>
+  <p class="lede">This document governs how the Nivoda brand expresses itself anywhere brand expression is the goal — anywhere the brand performs.</p>
+
+  <table>
+    <tr><td>Marketing pages</td><td>nivoda.com, blog, feature and campaign landing pages</td></tr>
+    <tr><td>Sales and investor decks</td><td>pitch materials, board updates, fundraise collateral</td></tr>
+    <tr><td>Conference handoffs</td><td>event signage, booths, partner collateral, JCK and similar</td></tr>
+    <tr><td>Longform documents</td><td>whitepapers, reports, brand books, lookbooks</td></tr>
+    <tr><td>Hero moments</td><td>splash screens, marketing emails, brand films, social hero assets</td></tr>
+    <tr><td>Internal materials</td><td>brand onboarding, all-hands presentations, launch decks</td></tr>
+  </table>
+
+  <p>Editorial is where the brand performs. The full vocabulary is on the table — decorative violet eyebrows, italic call-and-response, mono labels, hairlines, the two-violet rule on dark. Restraint still applies (violet is precious; maximum 2–3 violet roles per composition), but the full toolkit is permitted.</p>
+</section>
+
+<!-- ============================================================
+     BRAND DIRECTION
+     ============================================================ -->
+<section id="identity" class="dark">
+  <div class="eyebrow">01 — Identity</div>
+  <h2>Brand direction</h2>
+  <p class="lede">Nivoda's brand sits at the intersection of three identities. Every decision traces back to one of these.</p>
+
+  <div class="grid-3">
+    <div class="card">
+      <h4>Human, local, relational</h4>
+      <h3>People doing business with people</h3>
+      <p>Century-old tradition. Independent jewellers, family businesses, trusted suppliers. Manifests in warm photography, friendly imagery, approachable tone.</p>
+    </div>
+    <div class="card">
+      <h4>Luxury marketplace</h4>
+      <h3>High-end products, high-end presentation</h3>
+      <p>Diamonds, fine jewellery, certified stones. Manifests in serif display typography, restrained colour, generous whitespace, warm neutral palette.</p>
+    </div>
+    <div class="card">
+      <h4>Fintech backbone</h4>
+      <h3>Trust, reliability, infrastructure</h3>
+      <p>A serious credit business underpins the platform. Manifests in clean data presentation, confidence in tone, and a dual-context palette that works across light and dark surfaces.</p>
+    </div>
+  </div>
+
+  <div style="margin-top:64px; padding:48px; border:1px solid var(--stone-700); border-radius:2px;">
+    <p style="font-family:var(--font-serif); font-size:28px; line-height:1.4; color:var(--stone-50); margin:0;">The brand expression is <strong>warm and restrained</strong>. A dual-context palette — warm light surfaces with white cards, dark surfaces for immersive moments. Violet is precious and reserved. Photography and serif typography carry the warmth.</p>
+  </div>
+
+  <h3 style="margin-top:64px;">Core identity</h3>
+  <table>
+    <tr><td>Company name</td><td><strong>Nivoda</strong></td></tr>
+    <tr><td>Description</td><td>The global B2B marketplace for diamonds and jewellery</td></tr>
+    <tr><td>Brand colour</td><td><strong>Violet</strong> (not purple)</td></tr>
+    <tr><td>Neutral colour</td><td><strong>Stone</strong> (warm grey, not cool grey)</td></tr>
+    <tr><td>Black philosophy</td><td>Soft black <code>#0c0a09</code> — never true black <code>#000000</code></td></tr>
+    <tr><td>Theme</td><td><strong>Dual-context</strong> — warm light (<code>#f5f0ec</code>) with white cards, dark (<code>#0c0a09</code>) for immersive moments</td></tr>
+  </table>
+</section>
+
+<!-- ============================================================
+     LOGO
+     ============================================================ -->
+<section id="logo">
+  <div class="eyebrow">02 — Logo</div>
+  <h2>Logo</h2>
+  <p class="lede">Four approved variants. Use the canonical SVG assets — never recreate or approximate.</p>
+
+  <div class="logo-grid">
+    <div class="logo-box on-dark">
+      <img src="../assets/logos/wordmark-white.svg" alt="Nivoda wordmark white"/>
+    </div>
+    <div class="logo-box on-white">
+      <img src="../assets/logos/wordmark-black.svg" alt="Nivoda wordmark black"/>
+    </div>
+    <div class="logo-box on-dark">
+      <img src="../assets/logos/icon-white.svg" alt="Nivoda icon white" style="height:24px;"/>
+    </div>
+    <div class="logo-box on-white">
+      <img src="../assets/logos/icon-black.svg" alt="Nivoda icon black" style="height:24px;"/>
+    </div>
+  </div>
+
+  <h3>Usage rules</h3>
+  <table>
+    <tr><td>Safe backgrounds</td><td>Warm light <code>#f5f0ec</code>, white <code>#ffffff</code> (cards only), dark <code>#0c0a09</code>, dark photography</td></tr>
+    <tr><td>Minimum clear space</td><td>16px on all sides (or 1/4 of logo height, whichever is larger)</td></tr>
+    <tr><td>Minimum size (digital)</td><td>40px width (wordmark), 24px width (icon)</td></tr>
+    <tr><td>Minimum size (print)</td><td>1 inch / 25mm (wordmark), 0.5 inch / 12mm (icon)</td></tr>
+    <tr><td>Co-branding</td><td>Equal or greater visual weight. 16px minimum clear space between logos.</td></tr>
+  </table>
+
+  <div class="do-dont">
+    <div class="dont-card">
+      <h5>Never</h5>
+      <p>Stretch, rotate, or distort. Change logo colours. Place on backgrounds that reduce legibility. Recreate or approximate. Add effects (shadows, gradients, outlines).</p>
+    </div>
+    <div class="do-card">
+      <h5>Always</h5>
+      <p>Use canonical SVG assets from <code>/logos</code>. Maintain aspect ratio. Respect minimum clear space. Use white variant on dark, black variant on light.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     COLOUR
+     ============================================================ -->
+<section id="colour">
+  <div class="eyebrow">03 — Colour</div>
+  <h2>Colour</h2>
+  <p class="lede">Two scales — violet and stone — plus four status colours. Violet is precious. Stone does the heavy lifting.</p>
+
+  <h3>Roles</h3>
+  <p>The choices we actually make — one role per row, rendered on its real surface in both contexts. Violet is precious. Stone does the heavy lifting.</p>
+  <table class="role-table">
+    <thead>
+      <tr>
+        <th>Role</th>
+        <th class="role-th-dark">Dark context</th>
+        <th class="role-th-light">Light context</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="role-name">Background</td>
+        <td><div class="role-cell on-dark"><span class="chip" style="background:#0c0a09; outline:1px solid var(--stone-800);"></span>stone-950 <span class="token">#0c0a09</span></div></td>
+        <td><div class="role-cell on-light"><span class="chip" style="background:#f5f0ec; outline:1px solid var(--stone-200);"></span>warm <span class="token">#f5f0ec</span></div></td>
+      </tr>
+      <tr>
+        <td class="role-name">Surface / card</td>
+        <td><div class="role-cell on-dark"><span class="chip" style="background:#1c1917;"></span>stone-900 <span class="token">#1c1917</span></div></td>
+        <td><div class="role-cell on-light"><span class="chip" style="background:#ffffff; outline:1px solid var(--stone-200);"></span>white <span class="token">#ffffff</span></div></td>
+      </tr>
+      <tr>
+        <td class="role-name">Border</td>
+        <td><div class="role-cell on-dark"><span class="chip" style="background:#44403c;"></span>stone-700 <span class="token">#44403c</span></div></td>
+        <td><div class="role-cell on-light"><span class="chip" style="background:#e7e5e4;"></span>stone-200 <span class="token">#e7e5e4</span></div></td>
+      </tr>
+      <tr>
+        <td class="role-name">Text — primary</td>
+        <td><div class="role-cell on-dark"><span class="chip" style="background:#fafaf9;"></span>stone-50 <span class="token">#fafaf9</span></div></td>
+        <td><div class="role-cell on-light"><span class="chip" style="background:#0c0a09;"></span>stone-950 <span class="token">#0c0a09</span></div></td>
+      </tr>
+      <tr>
+        <td class="role-name">Text — body / muted</td>
+        <td><div class="role-cell on-dark"><span class="chip" style="background:#a8a29e;"></span>stone-400 <span class="token">#a8a29e</span></div></td>
+        <td><div class="role-cell on-light"><span class="chip" style="background:#78716c;"></span>stone-500 <span class="token">#78716c</span></div></td>
+      </tr>
+      <tr>
+        <td class="role-name">Accent — display / fill</td>
+        <td><div class="role-cell on-dark"><span class="chip" style="background:#7655fd;"></span>violet-500 <span class="token">#7655fd</span></div></td>
+        <td><div class="role-cell on-light"><span class="chip" style="background:#6330f5;"></span>violet-600 <span class="token">#6330f5</span></div></td>
+      </tr>
+      <tr>
+        <td class="role-name">Accent — text / thin border</td>
+        <td><div class="role-cell on-dark"><span class="chip" style="background:#9886ff;"></span>violet-400 <span class="token">#9886ff</span></div></td>
+        <td><div class="role-cell on-light"><span class="chip" style="background:#6330f5;"></span>violet-600 <span class="token">#6330f5</span></div></td>
+      </tr>
+      <tr>
+        <td class="role-name">Hover fill</td>
+        <td><div class="role-cell on-dark"><span class="chip" style="background:#7655fd;"></span>violet-500 <span class="token">#7655fd</span></div></td>
+        <td><div class="role-cell on-light"><span class="chip" style="background:#6330f5;"></span>violet-600 <span class="token">#6330f5</span></div></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Lighter on dark, darker on light — to avoid colour vibration against the surface. Violet always reads as the same role across contexts; the hex shifts to keep contrast right.</p>
+
+  <p><strong>The two-violet rule on dark.</strong> Saturated violet against near-black causes chromatic vibration in thin or small elements. Use <strong>violet-500</strong> <code>#7655fd</code> only where the violet has mass — Nanum display type, button hover fills, large accent blocks. Use <strong>violet-400</strong> <code>#9886ff</code> everywhere else on dark: small text, links, eyebrows, 1px borders and dividers, dots, and any decorative line under 2px. The lift in value desaturates the fringe and pushes contrast against stone-950 from ~4.7 to ~7.2. Light context doesn't need this split — violet-600 holds at every size on warm surfaces.</p>
+
+  <h3>Status colours</h3>
+  <div class="grid-4" style="margin-top:24px;">
+    <div style="text-align:center;">
+      <div style="height:64px; background:#59b186; border-radius:2px; margin-bottom:12px;"></div>
+      <span style="font-family:var(--font-mono); font-size:12px; color:var(--stone-500);">Green · Success</span>
+    </div>
+    <div style="text-align:center;">
+      <div style="height:64px; background:#ef4444; border-radius:2px; margin-bottom:12px;"></div>
+      <span style="font-family:var(--font-mono); font-size:12px; color:var(--stone-500);">Red · Error</span>
+    </div>
+    <div style="text-align:center;">
+      <div style="height:64px; background:#f59e0b; border-radius:2px; margin-bottom:12px;"></div>
+      <span style="font-family:var(--font-mono); font-size:12px; color:var(--stone-500);">Amber · Warning</span>
+    </div>
+    <div style="text-align:center;">
+      <div style="height:64px; background:#326cff; border-radius:2px; margin-bottom:12px;"></div>
+      <span style="font-family:var(--font-mono); font-size:12px; color:var(--stone-500);">Blue · Info</span>
+    </div>
+  </div>
+
+  <!-- The violet rule -->
+  <h3 style="margin-top:72px;">The violet rule: call &amp; response</h3>
+  <p class="lede">Violet is placed, never scattered. It responds at the final beat of a Nanum title, in italic — never mid-phrase, never in subtitles, never in Inter.</p>
+
+  <div class="cr-example">
+    Your partner in <span class="response">brilliance</span>
+  </div>
+  <p style="font-size:14px; color:var(--stone-500); margin-top:-16px;">Neutral text calls → violet responds in italic. The violet is always the final beat.</p>
+
+  <div class="cr-example">
+    This window opened in <span class="response">2026</span>
+  </div>
+  <p style="font-size:14px; color:var(--stone-500); margin-top:-16px;">The response lands at the end of the phrase. Never in the middle, never interrupting.</p>
+
+  <div class="do-dont" style="margin-top:32px;">
+    <div class="do-card">
+      <h5>Do — Nanum titles only</h5>
+      <p style="font-family:var(--font-serif); font-size:28px; line-height:1.15; margin:16px 0 0;">Design becomes a <em style="color:var(--violet-600);">systems function.</em></p>
+    </div>
+    <div class="dont-card">
+      <h5>Don't — never in Inter body</h5>
+      <p style="font-family:var(--font-sans); font-size:16px; line-height:1.5; margin:16px 0 0;">The platform is built for <em style="color:var(--violet-600);">scale.</em></p>
+    </div>
+    <div class="do-card">
+      <h5>Do — accent the title's final beat</h5>
+      <p style="font-family:var(--font-serif); font-size:28px; line-height:1.15; margin:16px 0 0;">A market built on <em style="color:var(--violet-600);">trust.</em></p>
+    </div>
+    <div class="dont-card">
+      <h5>Don't — never in subtitles or eyebrows mid-phrase</h5>
+      <p style="font-family:var(--font-sans); font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--stone-600); margin:16px 0 0;">A subtitle with a <em style="color:var(--violet-600);">violet</em> beat</p>
+    </div>
+  </div>
+
+  <h3 style="margin-top:64px;">Mono labels</h3>
+  <p>JetBrains Mono, uppercase — grey by default. <strong>Stone-500 on light, stone-400 on dark.</strong> The violet hairline beneath section eyebrows is where the brand accent lives; the text above it is neutral. Violet mono text is used only in deliberate editorial compositions where a label is itself a designed moment — rare, intentional, never in card labels, captions, or specimen headings.</p>
+
+  <div class="grid-2" style="margin-top:32px;">
+    <div class="card">
+      <h4 style="color:var(--green-500);">Violet text</h4>
+      <p><strong>Yes.</strong> On dark: violet-500 <code>#7655fd</code> for display and fills, violet-400 <code>#9886ff</code> for small text and thin borders. On light: violet-600 <code>#6330f5</code> at every size. Used for labels, eyebrows, metadata, and numbered indices — not italic. The italic call-and-response beat is reserved for Nanum Myeongjo titles only.</p>
+    </div>
+    <div class="card">
+      <h4 style="color:var(--green-500);">Violet button hovers</h4>
+      <p><strong>Yes.</strong> Both contexts use violet fills on hover — violet-500 on dark, violet-600 on light. Lighter on dark, darker on light, to avoid colour vibration against the surface.</p>
+    </div>
+  </div>
+
+  <h3 style="margin-top:64px;">Dark and light contexts</h3>
+  <p>The same composition rendered in both contexts. Identical content; only the surface and accent shift. Dark uses stone-400 for the eyebrow text, violet-500 for the display em, and stone-200 buttons. Light uses stone-500 for the eyebrow text, violet-600 for the display em, with stone-950 buttons. The violet hairline beneath the eyebrow is where the accent lives — the text above it is always neutral.</p>
+
+  <div class="theme-mockups">
+    <div>
+      <div class="theme-mockup on-dark">
+        <p class="mock-eyebrow">03 — Colour</p>
+        <h4>Design becomes <em>a systems function.</em></h4>
+        <div class="mock-actions">
+          <button class="mock-btn mock-btn-primary">Get started →</button>
+          <button class="mock-btn mock-btn-secondary">View tokens</button>
+        </div>
+      </div>
+      <p class="theme-mockup-caption">Dark · stone-950 surface · violet-500 accent</p>
+    </div>
+    <div>
+      <div class="theme-mockup on-light">
+        <p class="mock-eyebrow">03 — Colour</p>
+        <h4>Design becomes <em>a systems function.</em></h4>
+        <div class="mock-actions">
+          <button class="mock-btn mock-btn-primary">Get started →</button>
+          <button class="mock-btn mock-btn-secondary">View tokens</button>
+        </div>
+      </div>
+      <p class="theme-mockup-caption">Light · warm surface · violet-600 accent</p>
+    </div>
+  </div>
+
+  <div class="eyebrow" style="margin-top:64px;">Dark context — spec</div>
+  <p style="margin-top:32px;">For immersive sections, hero moments, and presentations. Violet-500 <code>#7655fd</code> for text accents. Button hover: violet-500 fill.</p>
+  <table>
+    <thead><tr><th>Element</th><th>Rest</th><th>Hover</th></tr></thead>
+    <tbody>
+      <tr><td>Button (primary)</td><td>stone-200 fill, dark text, 999px radius</td><td>Violet-500 fill, white text</td></tr>
+      <tr><td>Button (secondary)</td><td>Transparent, stone-700 border, 999px radius</td><td>Violet-400 text, violet-400 border</td></tr>
+      <tr><td>Card border</td><td>stone-700 <code>#44403c</code></td><td>stone-400 <code>#a8a29e</code></td></tr>
+      <tr><td>Labels / eyebrows</td><td>violet-400 <code>#9886ff</code></td><td>—</td></tr>
+      <tr><td>Text link</td><td>stone-400, underline</td><td>violet-400, underline</td></tr>
+    </tbody>
+  </table>
+
+  <div class="eyebrow" style="margin-top:64px;">Light context — spec</div>
+  <p style="margin-top:32px;">Warm light surface (<code>#f5f0ec</code>) with white cards. Violet-600 <code>#6330f5</code> for text accents. Button hover: violet-600 fill.</p>
+  <table>
+    <thead><tr><th>Element</th><th>Rest</th><th>Hover</th></tr></thead>
+    <tbody>
+      <tr><td>Button (filled)</td><td>stone-950 fill, white text, 999px radius</td><td>Violet-600 fill, white text</td></tr>
+      <tr><td>Button (outline)</td><td>Transparent, stone-200 border, 999px radius</td><td>Violet-600 text, violet-600 border</td></tr>
+      <tr><td>Card border</td><td>stone-200 <code>#e7e5e4</code></td><td>violet-600 <code>#6330f5</code></td></tr>
+      <tr><td>Labels / eyebrows</td><td>violet-600 <code>#6330f5</code></td><td>—</td></tr>
+      <tr><td>Text link</td><td>stone-500</td><td>violet-600</td></tr>
+    </tbody>
+  </table>
+
+</section>
+
+<!-- ============================================================
+     BUTTONS
+     ============================================================ -->
+<section id="buttons">
+  <div class="eyebrow">04 — Buttons</div>
+  <h2>Buttons</h2>
+  <p class="lede">All buttons are pill-shaped (<code>999px</code> border-radius). Sentence case. No icons in primary buttons unless absolutely necessary. Hover always reveals violet — 500 on dark, 600 on light.</p>
+
+  <h4>Dark background</h4>
+  <div style="padding:48px; background:var(--stone-950); border-radius:2px; margin:24px 0;">
+    <div class="btn-row">
+      <button class="btn-dark-primary">Place order</button>
+      <button class="btn-dark-secondary">Cancel</button>
+      <button class="btn-dark-sm">Small button</button>
+    </div>
+  </div>
+
+  <h4>Light background</h4>
+  <div style="padding:48px; background:#ffffff; border:1px solid var(--stone-200); border-radius:2px; margin:24px 0;">
+    <div class="btn-row">
+      <button class="btn-light-primary">Place order</button>
+      <button class="btn-light-secondary">Cancel</button>
+      <button class="btn-light-sm">Small button</button>
+    </div>
+  </div>
+
+  <h4>Button rules</h4>
+  <table>
+    <thead><tr><th>Rule</th><th>Detail</th></tr></thead>
+    <tbody>
+      <tr><td>Border radius</td><td><code>999px</code> — always pill-shaped. No squared or partially rounded buttons.</td></tr>
+      <tr><td>Label</td><td>Sentence case. One or two words preferred. Never all caps.</td></tr>
+      <tr><td>Font</td><td>Inter, weight 500, 16px (default) or 14px (small).</td></tr>
+      <tr><td>Padding</td><td>12px 32px (default), 8px 20px (small). Generous horizontal for the pill shape.</td></tr>
+      <tr><td>One CTA per view</td><td>One primary button per viewport. Secondary actions use outline or text buttons.</td></tr>
+      <tr><td>Rest (dark bg)</td><td>Primary: stone-200 fill, dark text. Secondary: transparent, stone-700 border.</td></tr>
+      <tr><td>Rest (light bg)</td><td>Primary: stone-950 fill, white text. Secondary: transparent, stone-200 border.</td></tr>
+      <tr><td>Hover (dark bg)</td><td>Primary fills to violet-500. Secondary gets violet-500 text + border.</td></tr>
+      <tr><td>Hover (light bg)</td><td>Primary fills to violet-600. Secondary gets violet-600 text + border.</td></tr>
+      <tr><td>Disabled</td><td>50% opacity, no cursor pointer. Never hide — always show disabled state.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="do-dont">
+    <div class="do-card">
+      <h5>Do</h5>
+      <p>Use pill shape consistently. Keep labels short and action-oriented. One primary CTA per view. Use sentence case.</p>
+    </div>
+    <div class="dont-card">
+      <h5>Don't</h5>
+      <p>Mix border radius values. Use all caps labels. Stack multiple primary buttons. Use different hover colours for primary and secondary — both go violet.</p>
+    </div>
+  </div>
+
+  <h3 style="margin-top:96px;">The violet reveal</h3>
+  <p class="lede">Shape signals interactivity. Colour rewards engagement. Buttons, links, and inputs carry no violet at rest — the chrome stays neutral until the moment a user reaches for the element.</p>
+  <p>Hover, focus, active: that is when violet appears. The pill shape, underline, or border already tells the user "this is touchable." Violet is not a badge — it is the reward of touching. This principle applies across all Nivoda surfaces, editorial and product alike.</p>
+
+  <h4>Light surface — live demo</h4>
+  <p>Hover the buttons and link. Focus the input field.</p>
+  <div class="interactive-demo">
+    <p>Inline text with an <a href="#">interactive link</a> — stone at rest, violet on hover. The underline persists in both states.</p>
+    <div class="btn-row" style="margin-top:32px;">
+      <button class="btn-light-primary">Place order</button>
+      <button class="btn-light-secondary">Cancel</button>
+      <button class="btn-light-sm">Small action</button>
+    </div>
+    <input class="ui-input" type="email" placeholder="your.email@nivoda.com" />
+    <p style="font-size:12px; color:var(--stone-500); margin-top:12px; margin-bottom:0;">Focus the input to see the violet border reveal. Tab to buttons to see the focus ring.</p>
+  </div>
+
+  <table>
+    <thead><tr><th>Element</th><th>Rest</th><th>Hover / focus</th></tr></thead>
+    <tbody>
+      <tr><td>Inline link</td><td>stone-600 <code>#57534e</code>, underlined</td><td>violet-600 <code>#6330f5</code>, underlined</td></tr>
+      <tr><td>Primary button</td><td>stone-950 fill, white text, pill</td><td>violet-600 fill, white text</td></tr>
+      <tr><td>Secondary button</td><td>transparent, stone-200 border, stone-950 text</td><td>violet-600 border + text</td></tr>
+      <tr><td>Form input</td><td>stone-200 border, white fill</td><td>violet-600 border</td></tr>
+      <tr><td>Focus ring (keyboard)</td><td>—</td><td>2.5px violet-600 outline, 2px offset</td></tr>
+    </tbody>
+  </table>
+
+  <h4>Dark surface — live demo</h4>
+  <p>Same principle, inverted surface. Rest states shift — stone-200 fills, stone-700 borders — but violet still appears only on interaction.</p>
+  <div class="interactive-demo-dark">
+    <p>Inline text with an <a href="#">interactive link</a> — stone-300 at rest, violet-400 on hover.</p>
+    <div class="btn-row" style="margin-top:32px;">
+      <button class="btn-dark-primary">Place order</button>
+      <button class="btn-dark-secondary">Cancel</button>
+    </div>
+    <input class="ui-input-dark" type="email" placeholder="your.email@nivoda.com" />
+    <p style="font-size:12px; color:var(--stone-500); margin-top:12px; margin-bottom:0;">Focus the input to see the violet-400 border reveal. Tab to buttons to see the focus ring.</p>
+  </div>
+
+  <table>
+    <thead><tr><th>Element</th><th>Rest</th><th>Hover / focus</th></tr></thead>
+    <tbody>
+      <tr><td>Inline link</td><td>stone-300 <code>#d6d3d1</code>, underlined</td><td>violet-400 <code>#9886ff</code>, underlined</td></tr>
+      <tr><td>Primary button</td><td>stone-200 fill, dark text, pill</td><td>violet-500 fill, white text</td></tr>
+      <tr><td>Secondary button</td><td>transparent, stone-700 border, stone-300 text</td><td>violet-400 border + text</td></tr>
+      <tr><td>Form input</td><td>stone-700 border, stone-900 fill</td><td>violet-400 border</td></tr>
+      <tr><td>Focus ring (keyboard)</td><td>—</td><td>2.5px violet-400 outline, 2px offset</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============================================================
+     TYPOGRAPHY
+     ============================================================ -->
+<section id="typography">
+  <div class="eyebrow">05 — Typography</div>
+  <h2>Typography</h2>
+  <p class="lede">Three typefaces, each with a strict role. The serif carries warmth, the sans carries clarity, the mono carries precision.</p>
+
+  <!-- Nanum Myeongjo -->
+  <div class="specimen">
+    <div class="specimen-mono">Display · Headlines</div>
+    <div class="specimen-serif">Nanum Myeongjo</div>
+    <div class="specimen-sans">Korean typeface with formal elegance. Display only — hero headings, page titles, section headers, card titles. Always weight 400. The serif carries its own weight through size, not boldness.</div>
+  </div>
+
+  <!-- Inter -->
+  <div class="specimen">
+    <div class="specimen-mono">Body · UI · Everything else</div>
+    <div style="font-family:var(--font-sans); font-size:48px; line-height:1.2; margin-bottom:16px;">Inter</div>
+    <div class="specimen-sans">Primary typeface for paragraphs, UI, labels, supporting text, navigation, buttons, form labels, captions. The workhorse.</div>
+  </div>
+
+  <!-- JetBrains Mono -->
+  <div class="specimen">
+    <div class="specimen-mono">Structure · Technical · Precision</div>
+    <div style="font-family:var(--font-mono); font-size:36px; line-height:1.2; margin-bottom:16px;">JetBrains Mono</div>
+    <div class="specimen-sans">Code, data tables, metadata labels, eyebrows, pagination, system-level text, and any content that signals structure or precision. Works especially well uppercase with wide letter-spacing — carries a systems-thinking tone that reinforces the fintech backbone.</div>
+  </div>
+
+  <h3>Approved weights</h3>
+  <table>
+    <thead><tr><th>Weight</th><th>Value</th><th>Usage</th></tr></thead>
+    <tbody>
+      <tr><td>Normal</td><td>400</td><td>Body text, supporting content. All Nanum Myeongjo display — the serif carries weight through size, not boldness.</td></tr>
+      <tr><td>Medium</td><td>500</td><td>Subsection headings (Inter), labels, JetBrains Mono labels</td></tr>
+      <tr><td>Semibold</td><td>600</td><td>Section headings (Inter), page titles (Inter), navigation</td></tr>
+      <tr><td>Bold</td><td>700</td><td>Strong emphasis (sparingly). Not for Nanum Myeongjo.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>UI type scale</h3>
+  <table>
+    <thead><tr><th>Token</th><th>Size</th><th>Usage</th></tr></thead>
+    <tbody>
+      <tr><td>xs</td><td>12px</td><td>Labels, metadata, helper text</td></tr>
+      <tr><td>sm</td><td>14px</td><td>Supporting text, captions, table cells</td></tr>
+      <tr><td>base</td><td>16px</td><td>Default body text</td></tr>
+      <tr><td>lg</td><td>18px</td><td>Emphasised body, lead paragraphs</td></tr>
+      <tr><td>xl</td><td>20px</td><td>Subsection headings</td></tr>
+      <tr><td>2xl</td><td>24px</td><td>Section headings</td></tr>
+      <tr><td>3xl</td><td>30px</td><td>Page titles</td></tr>
+      <tr><td>4xl</td><td>36px</td><td>Marketing headings</td></tr>
+      <tr><td>5xl</td><td>48px</td><td>Hero / display text</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Presentation type scale</h3>
+  <p>For 1920×1080 projected decks. Calibrated for readability at projection distance.</p>
+  <table>
+    <thead><tr><th>Token</th><th>Size</th><th>Usage</th></tr></thead>
+    <tbody>
+      <tr><td>pres-hero</td><td>180px</td><td>Title slide hero text (Nanum Myeongjo, 400)</td></tr>
+      <tr><td>pres-quote</td><td>96px</td><td>Pull quotes, section covers (Nanum Myeongjo)</td></tr>
+      <tr><td>pres-title</td><td>88px</td><td>Slide titles (Nanum Myeongjo, 400)</td></tr>
+      <tr><td>pres-lede</td><td>28–36px</td><td>Lead paragraphs, card titles</td></tr>
+      <tr><td>pres-body</td><td>22–26px</td><td>Card body, list items, descriptions</td></tr>
+      <tr><td>pres-body-sm</td><td>18–20px</td><td>Footnotes, supporting text, italic closers</td></tr>
+      <tr><td>pres-label</td><td>14–18px</td><td>Eyebrows, category labels (JetBrains Mono, uppercase)</td></tr>
+      <tr><td>pres-meta</td><td>13–14px</td><td>Pagination, chrome labels, footer text</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Typography rules</h3>
+  <div class="do-dont">
+    <div class="do-card">
+      <h5>Do</h5>
+      <p>Nanum Myeongjo always at weight 400. JetBrains Mono for structural and technical content — eyebrows, labels, metadata, pagination. UI contexts use the UI scale. Presentation contexts use the presentation scale.</p>
+    </div>
+    <div class="dont-card">
+      <h5>Don't</h5>
+      <p>Bold the serif. Use weights outside the four approved. Mix scales between contexts. Use JetBrains Mono for narrative body text.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SPACING & LAYOUT
+     ============================================================ -->
+<section id="spacing">
+  <div class="eyebrow">06 — Spacing &amp; Layout</div>
+  <h2>Spacing</h2>
+  <p class="lede">4px base unit. Consistent padding, margins, and gaps across every surface.</p>
+
+  <div style="margin:32px 0 48px 0;">
+    <div class="spacing-row"><span class="spacing-label">sp-1 · 4px</span><div class="spacing-bar" style="width:4px;"></div></div>
+    <div class="spacing-row"><span class="spacing-label">sp-2 · 8px</span><div class="spacing-bar" style="width:8px;"></div></div>
+    <div class="spacing-row"><span class="spacing-label">sp-3 · 12px</span><div class="spacing-bar" style="width:12px;"></div></div>
+    <div class="spacing-row"><span class="spacing-label">sp-4 · 16px</span><div class="spacing-bar" style="width:16px;"></div></div>
+    <div class="spacing-row"><span class="spacing-label">sp-6 · 24px</span><div class="spacing-bar" style="width:24px;"></div></div>
+    <div class="spacing-row"><span class="spacing-label">sp-8 · 32px</span><div class="spacing-bar" style="width:32px;"></div></div>
+    <div class="spacing-row"><span class="spacing-label">sp-10 · 40px</span><div class="spacing-bar" style="width:40px;"></div></div>
+    <div class="spacing-row"><span class="spacing-label">sp-12 · 48px</span><div class="spacing-bar" style="width:48px;"></div></div>
+    <div class="spacing-row"><span class="spacing-label">sp-16 · 64px</span><div class="spacing-bar" style="width:64px;"></div></div>
+    <div class="spacing-row"><span class="spacing-label">sp-20 · 80px</span><div class="spacing-bar" style="width:80px;"></div></div>
+    <div class="spacing-row"><span class="spacing-label">sp-24 · 96px</span><div class="spacing-bar" style="width:96px;"></div></div>
+  </div>
+
+  <h3>Border radius</h3>
+  <div class="grid-2">
+    <div class="card">
+      <div style="width:120px; height:48px; background:var(--stone-800); border-radius:999px; margin:24px auto;"></div>
+      <h4>Buttons &amp; Inputs</h4>
+      <p><code>999px</code> — pill-shaped. Soft, inviting, action-focused.</p>
+    </div>
+    <div class="card">
+      <div style="width:120px; height:80px; background:var(--stone-800); border:1px solid var(--stone-700); border-radius:2px; margin:0 auto 24px auto;"></div>
+      <h4>Cards</h4>
+      <p><code>2px</code> — near-square. Formal, structured, content-focused.</p>
+    </div>
+  </div>
+
+  <h3>Shadows</h3>
+  <table>
+    <thead><tr><th>Token</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td>sm</td><td><code>0 1px 2px 0 rgba(0,0,0,0.05)</code></td></tr>
+      <tr><td>md</td><td><code>0 4px 6px -1px rgba(0,0,0,0.1)</code></td></tr>
+      <tr><td>lg</td><td><code>0 10px 15px -3px rgba(0,0,0,0.1)</code></td></tr>
+      <tr><td>xl</td><td><code>0 20px 25px -5px rgba(0,0,0,0.1)</code></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Negative space</h3>
+  <p class="lede">Luxury is not packed. Breathing room is not wasted space — it is an active design decision that communicates authority, restraint, and confidence in the content.</p>
+
+  <p>The brand should never feel hurried. When in doubt, give it more room. A cramped layout signals anxiety; a generous layout signals that Nivoda knows its worth. This applies at every scale — between major sections, between subsections within a page, between cards in a grid, between a heading and its body text.</p>
+
+  <table>
+    <thead><tr><th>Context</th><th>Spacing intent</th></tr></thead>
+    <tbody>
+      <tr><td>Between major sections</td><td>128px — a full breath between subjects</td></tr>
+      <tr><td>Before a subsection heading (h3)</td><td>80–96px — clear separation from what came before</td></tr>
+      <tr><td>After a section eyebrow, before h2</td><td>32px hairline gap, then 64px to first content</td></tr>
+      <tr><td>Between cards in a grid</td><td>32px — enough to read as distinct objects</td></tr>
+      <tr><td>Inside a card</td><td>40px padding — content should not touch the edge</td></tr>
+      <tr><td>Between body paragraphs</td><td>24px — measured but unhurried</td></tr>
+    </tbody>
+  </table>
+
+  <div style="padding:64px; background:rgba(255,255,255,0.7); border:1px solid var(--stone-200); border-radius:2px; margin-top:8px; text-align:center;">
+    <p style="font-family:var(--font-serif); font-size:32px; line-height:1.4; color:var(--stone-950); margin:0; max-width:600px; margin:0 auto;">If it feels cramped, <em style="color:var(--violet-600);">it is cramped.</em></p>
+  </div>
+</section>
+
+<!-- ============================================================
+     IMAGERY
+     ============================================================ -->
+<section id="imagery" class="dark">
+  <div class="eyebrow">07 — Imagery</div>
+  <h2>Photography</h2>
+  <p class="lede">Three principles govern every Nivoda image: <strong>perspective, light, and palette</strong>. Real people in jewellery-trade settings, shot from inside the partner's world, lit like a luxury boutique, rendered in moody golden warmth.</p>
+
+  <!-- Hero specimen — the reference image -->
+  <figure style="margin: 0 0 32px; padding: 0;">
+    <img src="../assets/photography/customers/consultation-colour.jpg" alt="A consultation moment shot from the jeweller's side of the counter — soft golden studio light, cinematic depth of field, warm palette with measured colour" style="width: 100%; height: auto; display: block; border-radius: 2px;"/>
+    <figcaption style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--stone-500); margin-top: 16px;">Reference · Consultation · All three principles in one frame</figcaption>
+  </figure>
+
+  <!-- Principle 1: Perspective -->
+  <h3 style="margin-top: 64px;">01 — Perspective: through the jeweller's eyes</h3>
+  <p>Every photograph is shot from <strong>inside the partner's world, looking out</strong>. Never outside, looking in. The jeweller is not a subject we observe from a distance — we are sitting beside them, behind their counter, in their consultation, opening their shop door for the first time. Same posture Shopify takes with merchants: we help <em>you</em> do your business.</p>
+  <p>Practically: position the camera where the jeweller would stand. Subjects face the camera as if greeting the jeweller. Settings are jewellery-trade environments — workbenches, vault rooms, showroom floors, supplier offices, polished consultation desks. Avoid corporate-Nivoda settings; the empathy is always with the retailer.</p>
+
+  <!-- Principle 2: Light -->
+  <h3 style="margin-top:96px;">02 — Light: luxury studio, cinematic depth</h3>
+  <p>Soft directional studio lighting — <strong>boutique invite, not retail flood</strong>. High-end fashion-advertising aesthetic with cinematic depth of field: subject sharp, foreground and background falling soft. Reflection and refraction are welcomed — through glass, vitrines, polished surfaces, the diamond itself — adding sophistication and tactile richness. <a href="https://en.wikipedia.org/wiki/Saul_Leiter" target="_blank" rel="noopener" style="color: var(--violet-400); text-decoration: underline; text-underline-offset: 3px;">Saul Leiter</a> is the touchstone for the layered, semi-obscured quality.</p>
+  <p>Practically: shoot wide aperture (f/1.4–f/2.8). Diffuse the key light. Allow secondary planes to blur. Look for reflections in vitrines, refractions through diamonds, light catching on glass — anything that adds an extra layer of depth.</p>
+
+  <!-- Principle 3: Palette -->
+  <h3 style="margin-top:96px;">03 — Palette: moody and golden, with measured colour</h3>
+  <p>The dominant tonal vocabulary is <strong>black, white, and golden warmth</strong>. Tungsten skin tones, amber highlights, deep charcoal shadows. Cool whites, fluorescent blues, and clinical lighting are out — they read as retail, not boutique.</p>
+  <p>Photography is <strong>not pure monochrome</strong>. Selective colour — a flash of red on a velvet tray, the green of an emerald, the cobalt of a sapphire box, the warmth of skin — is welcome and earns its place. The rule is: warm and golden as the base, with colour as the accent that proves the photograph is alive. Never desaturated, never grayscale.</p>
+
+  <h3 style="margin-top:96px;">AI image generation</h3>
+  <div class="card">
+    <p style="font-size:16px; color:var(--stone-400); margin:0; line-height:1.7;"><span style="font-family:var(--font-mono); font-size:13px; letter-spacing:0.08em; color:var(--violet-400);">[subject/scene]</span>, shot from the jeweller's perspective looking out, soft directional studio light, cinematic depth of field at f/1.4–f/2.8, reflection or refraction in frame, warm golden tonal palette with selective colour accents, high-end fashion-advertising aesthetic, Saul Leiter inspiration, never sterile or retail</p>
+  </div>
+
+  <h3 id="banners" style="margin-top:72px;">Promotional banners — the procession</h3>
+  <p class="lede">A second photography mode for category banners in the marketplace. No human presence. The product is the subject — arranged in a receding line, one behind the other, the end always out of frame. Three ideas, one frame.</p>
+
+  <!-- Banner reference images -->
+  <figure style="margin: 32px 0 0;">
+    <img src="../assets/photography/banners/Tennis bracelets banner.png" alt="Tennis bracelets arranged in a receding procession on a dark surface — demonstrating scale and consistent supply" style="width:100%; height:auto; display:block; border-radius:2px; border:1px solid var(--stone-800);"/>
+    <figcaption style="font-family:var(--font-mono); font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--stone-500); margin-top:12px;">Tennis bracelets · Scale and infinite supply</figcaption>
+  </figure>
+  <figure style="margin: 24px 0 40px;">
+    <img src="../assets/photography/banners/TJ Banner.png" alt="Engagement rings arranged in a line receding into depth — demonstrating cadence and repeat purchase" style="width:100%; height:auto; display:block; border-radius:2px; border:1px solid var(--stone-800);"/>
+    <figcaption style="font-family:var(--font-mono); font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--stone-500); margin-top:12px;">Engagement rings · Cadence and repeat purchase</figcaption>
+  </figure>
+
+  <div class="grid-3" style="margin-top:8px;">
+    <div class="card">
+      <h4>01 — Scale</h4>
+      <p>The procession implies a supply chain that doesn't end. Products arranged in a line, receding until soft. The end is always out of frame. This is a big operation — an infinite handoff, always running.</p>
+    </div>
+    <div class="card">
+      <h4>02 — Consistency</h4>
+      <p>Every item in the line is identical. Same bracelet. Same ring setting. Same proportions. Whatever the order number, the quality doesn't vary. Reliability is built into the composition.</p>
+    </div>
+    <div class="card">
+      <h4>03 — Cadence</h4>
+      <p>The spacing between items is the rhythm of repeat business. First order. Second. Third. Fourth. The sequence is already drawn for you. The visual rhythm and the business relationship are the same thing.</p>
+    </div>
+  </div>
+
+  <h4 style="margin-top:48px;">Spec</h4>
+  <table>
+    <tr><td>Aspect ratio</td><td>Approximately 5:1 — wide, shallow banner format. Never square, never portrait.</td></tr>
+    <tr><td>Background</td><td>Near-black studio surface. No editorial warmth here — the dark field makes the products luminous.</td></tr>
+    <tr><td>Subject</td><td>Product only. No human presence, no jewellery-trade setting, no context. The product IS the message.</td></tr>
+    <tr><td>Arrangement</td><td>Products in a receding sequence. Minimum five items visible; the line must extend to blur. No scattered placement.</td></tr>
+    <tr><td>Depth of field</td><td>Sharp foreground, softening to blur as the line recedes. The blur amplifies the sense of infinite supply.</td></tr>
+    <tr><td>Colour</td><td>Warm product tones (gold, silver, diamond) against cool dark background. Never add artificial colour overlays.</td></tr>
+  </table>
+
+  <div class="card" style="margin-top:8px;">
+    <p style="font-size:16px; color:var(--stone-400); margin:0; line-height:1.7;"><span style="font-family:var(--font-mono); font-size:13px; letter-spacing:0.08em; color:var(--violet-400);">[product category]</span>, arranged in a receding procession on a dark studio surface, cinematic depth of field, sharp foreground softening to blur, warm metallic product tones against near-black background, infinite-supply framing, no human presence, no context, product-only, professional product photography</p>
+  </div>
+
+  <h3 style="margin-top:64px;">Iconography</h3>
+  <p class="lede">Lucide outlined icons, 1.5px stroke. Curated for <strong>brand-relevant concepts</strong> — gems, marketplace, partnership, craft, certification, origin — never generic UI plumbing. Inherits text colour. Used sparingly, with intent.</p>
+
+  <h4>Approved contact sheet</h4>
+  <p>Thirty icons that fit the diamond-marketplace voice — partner relationships, trust, provenance, craft. Designers should pick from this set first; introducing additional Lucide glyphs is a per-case decision flagged to Chris.</p>
+
+  <div class="icon-grid">
+    <!-- Jewellery & gems -->
+    <div class="icon-cell"><i data-lucide="gem"></i><span class="label">gem</span></div>
+    <div class="icon-cell"><i data-lucide="crown"></i><span class="label">crown</span></div>
+    <div class="icon-cell"><i data-lucide="sparkles"></i><span class="label">sparkles</span></div>
+    <div class="icon-cell"><i data-lucide="heart"></i><span class="label">heart</span></div>
+    <div class="icon-cell"><i data-lucide="flame"></i><span class="label">flame</span></div>
+    <div class="icon-cell"><i data-lucide="award"></i><span class="label">award</span></div>
+
+    <!-- Marketplace & commerce -->
+    <div class="icon-cell"><i data-lucide="store"></i><span class="label">store</span></div>
+    <div class="icon-cell"><i data-lucide="globe"></i><span class="label">globe</span></div>
+    <div class="icon-cell"><i data-lucide="handshake"></i><span class="label">handshake</span></div>
+    <div class="icon-cell"><i data-lucide="shopping-bag"></i><span class="label">shopping-bag</span></div>
+    <div class="icon-cell"><i data-lucide="package"></i><span class="label">package</span></div>
+    <div class="icon-cell"><i data-lucide="truck"></i><span class="label">truck</span></div>
+
+    <!-- Partnership & value -->
+    <div class="icon-cell"><i data-lucide="users"></i><span class="label">users</span></div>
+    <div class="icon-cell"><i data-lucide="user-check"></i><span class="label">user-check</span></div>
+    <div class="icon-cell"><i data-lucide="coins"></i><span class="label">coins</span></div>
+    <div class="icon-cell"><i data-lucide="badge-check"></i><span class="label">badge-check</span></div>
+    <div class="icon-cell"><i data-lucide="shield-check"></i><span class="label">shield-check</span></div>
+    <div class="icon-cell"><i data-lucide="lock"></i><span class="label">lock</span></div>
+
+    <!-- Craft & precision -->
+    <div class="icon-cell"><i data-lucide="key"></i><span class="label">key</span></div>
+    <div class="icon-cell"><i data-lucide="microscope"></i><span class="label">microscope</span></div>
+    <div class="icon-cell"><i data-lucide="scale"></i><span class="label">scale</span></div>
+    <div class="icon-cell"><i data-lucide="compass"></i><span class="label">compass</span></div>
+    <div class="icon-cell"><i data-lucide="pen-tool"></i><span class="label">pen-tool</span></div>
+    <div class="icon-cell"><i data-lucide="stamp"></i><span class="label">stamp</span></div>
+
+    <!-- Documentation & origin -->
+    <div class="icon-cell"><i data-lucide="file-check"></i><span class="label">file-check</span></div>
+    <div class="icon-cell"><i data-lucide="clipboard-check"></i><span class="label">clipboard-check</span></div>
+    <div class="icon-cell"><i data-lucide="book-open"></i><span class="label">book-open</span></div>
+    <div class="icon-cell"><i data-lucide="map-pin"></i><span class="label">map-pin</span></div>
+    <div class="icon-cell"><i data-lucide="mountain"></i><span class="label">mountain</span></div>
+    <div class="icon-cell"><i data-lucide="history"></i><span class="label">history</span></div>
+  </div>
+
+  <h4>Spec</h4>
+  <table>
+    <tr><td>Icon set</td><td><strong>Lucide</strong> — outlined style only, no filled variants</td></tr>
+    <tr><td>Stroke</td><td>1.5px</td></tr>
+    <tr><td>Sizes</td><td>16px (small), 20px (standard), 24px (large)</td></tr>
+    <tr><td>Colour</td><td>Inherits from text. Matches text colour in both dark and light contexts.</td></tr>
+    <tr><td>Avoid</td><td>Generic UI controls (settings cog, hamburger, chevrons, ellipsis) — use only when functionally required, never as decoration.</td></tr>
+  </table>
+</section>
+
+<!-- ============================================================
+     VOICE & TONE
+     ============================================================ -->
+<section id="voice">
+  <div class="eyebrow">08 — Voice &amp; Tone</div>
+  <h2>How Nivoda speaks</h2>
+  <p class="lede">Voice is constant — it's who we are. Tone shifts by context — it's how we adapt to the situation.</p>
+
+  <h3>Tone register by context</h3>
+  <table>
+    <thead><tr><th>Context</th><th>Register</th></tr></thead>
+    <tbody>
+      <tr><td>Product UI</td><td>Clear, concise, action-oriented</td></tr>
+      <tr><td>Error messages</td><td>Calm, helpful, never blaming</td></tr>
+      <tr><td>Marketing</td><td>Confident, professional, warm</td></tr>
+      <tr><td>Email</td><td>Personal, direct, value-focused</td></tr>
+      <tr><td>Documentation</td><td>Precise, patient, structured</td></tr>
+      <tr><td>Internal comms</td><td>Casual, direct, no jargon</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Writing style</h3>
+  <div class="grid-2">
+    <div>
+      <h4>Grammar rules</h4>
+      <p>Sentence case for headings and buttons. Oxford comma. Contractions in product UI, not in legal. Spell out one through nine, numerals for 10+.</p>
+    </div>
+    <div>
+      <h4>Punctuation in UI</h4>
+      <p>No full stops on single-sentence labels or buttons. No exclamation marks in product UI. Question marks only in confirmation dialogs.</p>
+    </div>
+  </div>
+
+  <h3 style="margin-top:48px;">Capitalisation</h3>
+  <table>
+    <thead><tr><th>Element</th><th>Style</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>Page titles</td><td>Sentence case</td><td>Order history</td></tr>
+      <tr><td>Buttons</td><td>Sentence case</td><td>Place order</td></tr>
+      <tr><td>Product names</td><td>Title Case</td><td>Nivoda Express</td></tr>
+      <tr><td>Navigation</td><td>Sentence case</td><td>My orders</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============================================================
+     APPLICATION RULES
+     ============================================================ -->
+<section id="application">
+  <div class="eyebrow">09 — Application</div>
+  <h2>Context-specific rules</h2>
+  <p class="lede">The brand adapts to where it shows up. Different contexts, different lines — same identity.</p>
+
+  <div class="grid-2">
+    <div class="card">
+      <h4>Product UI</h4>
+      <h3>Tool, not billboard</h3>
+      <p>Brand expression is restrained. Professional and functional, not promotional. Logo in nav only. Primary colour used sparingly — CTAs, active states, key accents. Users are here to transact. Brand builds trust, never competes with the task.</p>
+    </div>
+    <div class="card">
+      <h4>Marketing</h4>
+      <h3>Story, not shouting</h3>
+      <p>Brand expression is confident. Full visual palette available — hero imagery, brand colours, display typography. Polished, intentional, and human. Never generic, never hyperbolic.</p>
+    </div>
+    <div class="card">
+      <h4>Documentation</h4>
+      <h3>Precise, patient, structured</h3>
+      <p>Step-by-step instructions with numbered lists. Screenshots must use current UI. Technical terms defined on first use. Never assume the reader's expertise level.</p>
+    </div>
+    <div class="card">
+      <h4>Internal comms</h4>
+      <h3>Casual, direct, no inflation</h3>
+      <p>Lowest formality but the brand still applies. Never use internal shorthand in any context that might be forwarded externally.</p>
+    </div>
+  </div>
+
+  <h3 style="margin-top:64px;">Accessibility</h3>
+  <table>
+    <thead><tr><th>Requirement</th><th>Detail</th></tr></thead>
+    <tbody>
+      <tr><td>Contrast</td><td>WCAG AA minimum (4.5:1 body, 3:1 large text)</td></tr>
+      <tr><td>Colour alone</td><td>Never rely on colour alone to convey meaning — pair with text or iconography</td></tr>
+      <tr><td>Stone-50 on stone-950</td><td>High contrast, passes AAA</td></tr>
+      <tr><td>Violet-600 on white</td><td>3.97:1 — passes AA for large text. Use violet-700+ for small body text.</td></tr>
+      <tr><td>Violet-400 on stone-950</td><td>6.77:1 — passes AA for all text sizes.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<div style="padding:96px 9999px 48px 9999px; margin:0 -9999px; text-align:center; background:var(--stone-950);">
+  <div style="width:96px; height:1px; background:var(--violet-400); margin:0 auto 32px auto;"></div>
+  <p style="font-family:var(--font-mono); font-size:13px; letter-spacing:0.12em; text-transform:uppercase; color:var(--stone-400);">Nivoda Brand Guidelines · Version 2.0 · May 2026</p>
+</div>
+
+</div><!-- /.page -->
+
+<!-- Lucide icons — render <i data-lucide="name"> tags into inline SVG -->
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script>
+  if (window.lucide) {
+    lucide.createIcons({ attrs: { 'stroke-width': 1.5 } });
+  }
+</script>
+
+</body>
+</html>

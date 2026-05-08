@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(awk 'NR>=722 && NR<=805' /Users/nivodatest/Documents/PROJECTS/nivoda/Repos/brand-system/brand-guidelines.html)",
+      "Bash(git -C /Users/nivodatest/Documents/PROJECTS/nivoda/Repos/brand-system status --short)",
+      "Bash(git -C /Users/nivodatest/Documents/PROJECTS/nivoda/Repos/brand-system branch --show-current)",
+      "Bash(git -C /Users/nivodatest/Documents/PROJECTS/nivoda/Repos/brand-system ls-tree -r HEAD --name-only)",
+      "Bash(git -C /Users/nivodatest/Documents/PROJECTS/nivoda/Repos/brand-system check-ignore -v fonts/ logos/ fonts.zip logos.zip claude/fonts/ claude/logos/)",
+      "Bash(brew list *)",
+      "Bash(set -e)",
+      "Bash(grep -v \"^\\\\.$\\\\|LICENSES/\")",
+      "Bash(grep -v \"^[0-9]*://\\\\|\\\\.css\\\\|\\\\.dark\\\\|font-style: italic;$\\\\|em { font-style\")",
+      "Bash(grep -n 'specimen-mono\\\\|^h4\\\\|color: var\\(--violet-600\\);$\\\\|\"call.*response\\\\|cr-example\\\\|<section id=\"typography\"\\\\|<section id=\"colour\"' guidelines/editorial-guidelines.html)"
+    ]
+  }
+}
