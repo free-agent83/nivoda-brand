@@ -930,6 +930,259 @@ code {
 }
 
 /* ============================================================
+   Print & Conference — exact JCK component CSS
+   ============================================================ */
+.app-block { margin-bottom: 96px; }
+.app-block:last-child { margin-bottom: 0; }
+.app-meta { display: flex; gap: 24px; align-items: flex-start; margin-bottom: 24px; }
+.app-stage {
+  background: var(--stone-900);
+  border: 1px solid var(--stone-800);
+  border-radius: 2px;
+  padding: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+.app-notes {
+  margin: 0; padding-left: 0; list-style: none;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 32px;
+}
+.app-notes li {
+  font-size: 14px;
+  color: var(--stone-600);
+  line-height: 1.5;
+  padding-left: 16px;
+  position: relative;
+}
+.app-notes li::before {
+  content: ''; position: absolute; left: 0; top: 9px;
+  width: 8px; height: 1px; background: var(--violet-600);
+}
+/* pull-up */
+.app-stage--pullup { padding: 48px; }
+.pullup {
+  width: 240px;
+  aspect-ratio: 850 / 2000;
+  background:
+    radial-gradient(ellipse 95% 50% at 78% 14%, rgba(120, 113, 108, 0.32), transparent 80%),
+    var(--stone-950);
+  border: 1px solid var(--stone-700);
+  padding: 32px 24px;
+  display: flex; flex-direction: column;
+  position: relative;
+}
+.pullup-logo img { width: 80px; }
+.pullup-headline {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  line-height: 1.05;
+  color: #ffffff;
+  margin-top: 56px;
+  letter-spacing: -0.015em;
+  font-weight: 400;
+}
+.pullup-headline em { font-weight: 700; color: #9886ff; }
+.pullup-sub {
+  font-size: 11px;
+  color: var(--stone-400);
+  margin-top: 24px;
+  line-height: 1.5;
+}
+.pullup-foot {
+  margin-top: auto;
+  display: flex; justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--stone-500);
+  padding-top: 24px;
+  border-top: 1px solid var(--stone-800);
+}
+/* backwall */
+.backwall {
+  width: 100%;
+  max-width: 720px;
+  aspect-ratio: 5 / 4;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--stone-700);
+  border-radius: 2px;
+}
+.bw-photo {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 90% 70% at 18% 18%, rgba(120, 113, 108, 0.32), transparent 80%),
+    radial-gradient(ellipse 85% 65% at 82% 82%, rgba(68, 64, 60, 0.4), transparent 80%),
+    linear-gradient(135deg, #1c1917, #0c0a09 75%);
+}
+.bw-scrim {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 70%);
+}
+.bw-content {
+  position: absolute; inset: 0;
+  padding: 56px;
+  display: flex; flex-direction: column; justify-content: flex-end;
+}
+.bw-eyebrow { font-size: 11px; letter-spacing: 0.18em; color: var(--stone-300); margin-bottom: 16px; font-weight: 500; }
+.bw-headline {
+  font-family: var(--font-serif);
+  font-size: 56px;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  margin-bottom: 40px;
+  max-width: 80%;
+}
+.bw-headline em { font-weight: 700; color: #9886ff; }
+.bw-foot {
+  display: flex; align-items: center; justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  padding-top: 20px;
+}
+.bw-logo { width: 100px; }
+.bw-booth { font-family: var(--font-sans); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone-200); font-weight: 500; }
+/* bifold */
+.app-stage--bifold {
+  background: var(--stone-100);
+  padding: 56px 48px;
+  display: block;
+}
+.bifold-spread {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 24px;
+  align-items: end;
+}
+.bf-piece { display: flex; flex-direction: column; gap: 12px; }
+.bf-piece-meta { font-family: var(--font-mono); font-size: 11px; color: var(--stone-500); letter-spacing: 0.05em; text-transform: uppercase; }
+.pc-stage {
+  background: #ffffff;
+  border: 1px solid var(--stone-200);
+  border-radius: 2px;
+  padding: 32px;
+  display: flex; flex-direction: column;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.10);
+}
+.bf-cover { aspect-ratio: 148 / 210; padding: 36px 32px; }
+.bf-inside {
+  min-height: 280px;
+  padding: 36px;
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 32px;
+  align-items: stretch;
+}
+.bf-inside::before {
+  content: ''; grid-column: 2; grid-row: 1;
+  width: 1px; background: var(--stone-200);
+}
+.bf-eyebrow { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--stone-500); font-weight: 400; margin-bottom: 0; }
+.bf-eyebrow::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--violet-600);
+  margin: 10px 0 16px 0;
+}
+.bf-headline-lg {
+  font-family: var(--font-serif);
+  font-size: 44px;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  color: var(--stone-950);
+  font-weight: 400;
+}
+.bf-headline-lg em { font-weight: 400; color: var(--violet-600); }
+.bf-foot {
+  margin-top: auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 16px; border-top: 1px solid var(--stone-200);
+}
+.bf-foot img { width: 70px; }
+.bf-foot span { font-size: 10px; color: var(--stone-500); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; }
+.bi-col { display: flex; flex-direction: column; }
+.bi-col:nth-child(3) { grid-column: 3; }
+.bi-eyebrow { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; color: var(--stone-500); text-transform: uppercase; font-weight: 400; margin-bottom: 0; }
+.bi-eyebrow::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--violet-600);
+  margin: 10px 0 14px 0;
+}
+.bi-h { font-family: var(--font-serif); font-size: 22px; line-height: 1.2; font-weight: 400; color: var(--stone-950); margin-bottom: 12px; letter-spacing: -0.005em; }
+.bi-p { font-size: 12px; color: var(--stone-700); line-height: 1.55; margin: 0 0 20px; }
+.bi-stat {
+  border-top: 1px solid var(--stone-200);
+  padding-top: 12px; margin-bottom: 16px;
+  display: flex; flex-direction: column; gap: 2px;
+}
+.bi-stat-num { font-family: var(--font-serif); font-size: 26px; line-height: 1; color: var(--stone-950); font-weight: 400; }
+.bi-stat-lbl { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone-500); font-weight: 500; }
+.bi-cta {
+  margin-top: auto;
+  font-size: 11px; letter-spacing: 0.05em; font-weight: 500;
+  color: var(--stone-950);
+  display: flex; align-items: center; gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--violet-600);
+}
+.bi-arrow { color: var(--violet-600); font-weight: 400; }
+.bf-spec {
+  background: #ffffff;
+  border: 1px solid var(--stone-200);
+  border-radius: 2px;
+  padding: 28px;
+  position: sticky; top: 32px;
+}
+.bf-spec-h {
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--stone-500); font-weight: 500;
+  padding-bottom: 16px; margin-bottom: 16px;
+  border-bottom: 1px solid var(--stone-200);
+}
+.bf-spec-list {
+  margin: 0; padding: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+}
+.bf-spec-list dt {
+  font-family: var(--font-mono);
+  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--stone-500); font-weight: 500;
+  margin-bottom: 4px;
+}
+.bf-spec-list dd {
+  margin: 0 0 4px;
+  font-size: 13px; line-height: 1.55; color: var(--stone-800);
+}
+.bf-spec-list dd code {
+  font-family: var(--font-mono); font-size: 11px;
+  background: var(--stone-100); padding: 1px 5px; border-radius: 2px;
+  color: var(--stone-900);
+}
+.bf-spec-note {
+  margin-top: 20px; padding-top: 20px;
+  border-top: 1px solid var(--stone-200);
+  font-size: 12px; line-height: 1.55; color: var(--stone-700);
+}
+.bf-spec-note strong {
+  display: block; font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--violet-600); font-weight: 500;
+  margin-bottom: 6px;
+}
+
+/* ============================================================
    Responsive
    ============================================================ */
 @media (max-width: 900px) {
@@ -960,6 +1213,7 @@ code {
   <a href="#banners">Banners</a>
   <a href="#voice">Voice</a>
   <a href="#application">Application</a>
+  <a href="#print">Print</a>
 </nav>
 
 <div class="page">
@@ -1004,7 +1258,7 @@ code {
      BRAND DIRECTION
      ============================================================ -->
 <section id="identity" class="dark">
-  <div class="eyebrow">01 — Identity</div>
+  <div class="eyebrow">01 · Identity</div>
   <h2>Brand direction</h2>
   <p class="lede">Nivoda's brand sits at the intersection of three identities. Every decision traces back to one of these.</p>
 
@@ -1045,7 +1299,7 @@ code {
      LOGO
      ============================================================ -->
 <section id="logo">
-  <div class="eyebrow">02 — Logo</div>
+  <div class="eyebrow">02 · Logo</div>
   <h2>Logo</h2>
   <p class="lede">Four approved variants. Use the canonical SVG assets — never recreate or approximate.</p>
 
@@ -1089,7 +1343,7 @@ code {
      COLOUR
      ============================================================ -->
 <section id="colour">
-  <div class="eyebrow">03 — Colour</div>
+  <div class="eyebrow">03 · Colour</div>
   <h2>Colour</h2>
   <p class="lede">Two scales — violet and stone — plus four status colours. Violet is precious. Stone does the heavy lifting.</p>
 
@@ -1277,7 +1531,7 @@ code {
      BUTTONS
      ============================================================ -->
 <section id="buttons">
-  <div class="eyebrow">04 — Buttons</div>
+  <div class="eyebrow">04 · Buttons</div>
   <h2>Buttons</h2>
   <p class="lede">All buttons are pill-shaped (<code>999px</code> border-radius). Sentence case. No icons in primary buttons unless absolutely necessary. Hover always reveals violet — 500 on dark, 600 on light.</p>
 
@@ -1383,7 +1637,7 @@ code {
      TYPOGRAPHY
      ============================================================ -->
 <section id="typography">
-  <div class="eyebrow">05 — Typography</div>
+  <div class="eyebrow">05 · Typography</div>
   <h2>Typography</h2>
   <p class="lede">Three typefaces, each with a strict role. The serif carries warmth, the sans carries clarity, the mono carries precision.</p>
 
@@ -1468,7 +1722,7 @@ code {
      SPACING & LAYOUT
      ============================================================ -->
 <section id="spacing">
-  <div class="eyebrow">06 — Spacing &amp; Layout</div>
+  <div class="eyebrow">06 · Spacing &amp; Layout</div>
   <h2>Spacing</h2>
   <p class="lede">4px base unit. Consistent padding, margins, and gaps across every surface.</p>
 
@@ -1537,7 +1791,7 @@ code {
      IMAGERY
      ============================================================ -->
 <section id="imagery" class="dark">
-  <div class="eyebrow">07 — Imagery</div>
+  <div class="eyebrow">07 · Imagery</div>
   <h2>Photography</h2>
   <p class="lede">Three principles govern every Nivoda image: <strong>perspective, light, and palette</strong>. Real people in jewellery-trade settings, shot from inside the partner's world, lit like a luxury boutique, rendered in moody golden warmth.</p>
 
@@ -1582,15 +1836,15 @@ code {
 
   <div class="grid-3" style="margin-top:8px;">
     <div class="card">
-      <h4>01 — Scale</h4>
+      <h4>01 · Scale</h4>
       <p>The procession implies a supply chain that doesn't end. Products arranged in a line, receding until soft. The end is always out of frame. This is a big operation — an infinite handoff, always running.</p>
     </div>
     <div class="card">
-      <h4>02 — Consistency</h4>
+      <h4>02 · Consistency</h4>
       <p>Every item in the line is identical. Same bracelet. Same ring setting. Same proportions. Whatever the order number, the quality doesn't vary. Reliability is built into the composition.</p>
     </div>
     <div class="card">
-      <h4>03 — Cadence</h4>
+      <h4>03 · Cadence</h4>
       <p>The spacing between items is the rhythm of repeat business. First order. Second. Third. Fourth. The sequence is already drawn for you. The visual rhythm and the business relationship are the same thing.</p>
     </div>
   </div>
@@ -1671,7 +1925,7 @@ code {
      VOICE & TONE
      ============================================================ -->
 <section id="voice">
-  <div class="eyebrow">08 — Voice &amp; Tone</div>
+  <div class="eyebrow">08 · Voice &amp; Tone</div>
   <h2>How Nivoda speaks</h2>
   <p class="lede">Voice is constant — it's who we are. Tone shifts by context — it's how we adapt to the situation.</p>
 
@@ -1716,7 +1970,7 @@ code {
      APPLICATION RULES
      ============================================================ -->
 <section id="application">
-  <div class="eyebrow">09 — Application</div>
+  <div class="eyebrow">09 · Application</div>
   <h2>Context-specific rules</h2>
   <p class="lede">The brand adapts to where it shows up. Different contexts, different lines — same identity.</p>
 
@@ -1754,6 +2008,110 @@ code {
       <tr><td>Violet-400 on stone-950</td><td>6.77:1 — passes AA for all text sizes.</td></tr>
     </tbody>
   </table>
+</section>
+
+<!-- ============================================================
+     PRINT & CONFERENCE
+     ============================================================ -->
+<section id="print">
+  <div class="eyebrow">10 · Print &amp; Conference</div>
+  <h2>Print applications</h2>
+  <p class="lede">Compositional references for the formats produced at trade events. These show the system applied — sketch your own, don't copy these.</p>
+
+  <!-- Banner: vertical pull-up -->
+  <div class="app-block">
+    <h3>A — Vertical pull-up banner</h3>
+    <p>850 × 2000 mm typical · single sided · 200 dpi at final size · 5 mm bleed all sides.</p>
+    <div class="app-stage app-stage--pullup">
+      <div class="pullup">
+        <div class="pullup-logo"><img src="../assets/logos/wordmark-white.svg" alt=""></div>
+        <div class="pullup-headline">The marketplace<br><em>trusted by<br>jewelers.</em></div>
+        <div class="pullup-sub">Diamonds and jewelry from 50+ countries. Certified. Transparent. Yours on memo.</div>
+        <div class="pullup-foot">
+          <div class="pf-l">Booth B-42 · JCK Las Vegas</div>
+          <div class="pf-r">nivoda.com</div>
+        </div>
+      </div>
+    </div>
+    <ul class="app-notes">
+      <li>Display headline in Nanum Myeongjo, ~140pt at final size, italic on the emphasized word.</li>
+      <li>Logo top-left, locked at 25% panel width with 32mm clear space.</li>
+      <li>Soft-black background — no gradient, no texture.</li>
+      <li>Bottom strip carries booth + URL only. No QR code unless requested by the booth team.</li>
+    </ul>
+  </div>
+
+  <!-- Banner: horizontal -->
+  <div class="app-block">
+    <h3>B — Horizontal stand backwall</h3>
+    <p>3000 × 2400 mm typical · tiled panels · single full-bleed photograph + lock-up.</p>
+    <div class="app-stage">
+      <div class="backwall">
+        <div class="bw-photo"></div>
+        <div class="bw-scrim"></div>
+        <div class="bw-content">
+          <div class="bw-eyebrow" style="font-family: &quot;JetBrains Mono&quot;">NIVODA AT JCK 2026</div>
+          <div class="bw-headline">Diamonds on <em style="color: rgb(255, 255, 255)">terms</em><br>that <i style="color: rgb(152, 134, 255)">move with you</i></div>
+          <div class="bw-foot" style="height: 60px">
+            <img src="../assets/logos/wordmark-white.svg" class="bw-logo" alt="">
+            <span class="bw-booth" style="font-family: &quot;JetBrains Mono&quot;">Booth B-42 · Hall C</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul class="app-notes">
+      <li>Photography is full-bleed, with a <code>rgba(0,0,0,0.45)</code> dark scrim over the bottom two thirds.</li>
+      <li>Headline left-aligned, anchored to a vertical thirds line. Italic emphasis on a single noun.</li>
+      <li>Logo bottom-left, booth info typeset in Inter Medium, uppercase, with letter-spacing.</li>
+      <li>No violet anywhere on this surface. Dark context, white interaction color.</li>
+    </ul>
+  </div>
+
+  <!-- Bifold leave-behind -->
+  <div class="app-block">
+    <h3>C — Bifold leave-behind · light context</h3>
+    <p>The piece a buyer takes back to their hotel and reads on the flight home. <strong>This is where violet lives.</strong> Light surfaces give violet permission to appear — but still only on accents: a thin rule under the headline, the arrow on the call-to-action, never as a fill.</p>
+
+    <div class="app-stage app-stage--bifold">
+      <div class="bifold-spread">
+        <div class="bf-piece">
+          <div class="bf-piece-meta">Cover · 148 mm</div>
+          <div class="pc-stage bf-cover">
+            <div class="bf-eyebrow">A field guide for jewelers</div>
+            <div class="bf-headline-lg">Buying diamonds<br><em>on terms</em></div>
+            <div class="bf-foot" style="border-style: none">
+              <img src="../assets/logos/wordmark-black.svg" alt="">
+              <span style="text-align: right">JCK 2026<br>Booth B-42</span>
+            </div>
+          </div>
+        </div>
+        <div class="bf-piece bf-piece--spread">
+          <div class="bf-piece-meta">Interior spread · 296 mm</div>
+          <div class="pc-stage bf-inside">
+            <div class="bi-col">
+              <div class="bi-eyebrow">01 · Memo</div>
+              <div class="bi-h">Hold the stone before you commit to it</div>
+              <p class="bi-p">Receive certified diamonds on memo from suppliers in 50+ countries. Show your client. Decide after. Pay for what you keep — return the rest, no questions, no hidden fees.</p>
+              <div class="bi-stat" style="border-style: none; margin-top: auto"><span class="bi-stat-num">14 days</span><span class="bi-stat-lbl" style="font-family: &quot;JetBrains Mono&quot;">standard</span></div>
+            </div>
+            <div class="bi-col">
+              <div class="bi-eyebrow">02 · Credit</div>
+              <div class="bi-h">Working capital, sized for independents</div>
+              <p class="bi-p">Apply once. Transact across the marketplace with 30 to 90 day terms. Designed for jewelers running a single shop, not corporate procurement.</p>
+              <div class="bi-stat" style="border-style: none; margin-top: auto"><span class="bi-stat-num">90 days</span><span class="bi-stat-lbl" style="font-family: &quot;JetBrains Mono&quot;">maximum payment terms</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <ul class="app-notes">
+      <li>Headline is Nanum Myeongjo at 84pt with one italicised phrase ("on terms") carrying the emphasis. No subhead under it — the silence is the design.</li>
+      <li>Interior copy is two parallel modules — same length, same shape, same call-to-action structure. The discipline of the symmetry is the brand expression.</li>
+      <li>The violet accents print as a kiss-cut spot colour, not as part of the CMYK build. This is the only piece in the conference run that gets a spot pass — budget accordingly.</li>
+    </ul>
+  </div>
 </section>
 
 <!-- ============================================================
