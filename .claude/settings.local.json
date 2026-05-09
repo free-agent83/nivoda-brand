@@ -10,7 +10,8 @@
       "Bash(set -e)",
       "Bash(grep -v \"^\\\\.$\\\\|LICENSES/\")",
       "Bash(grep -v \"^[0-9]*://\\\\|\\\\.css\\\\|\\\\.dark\\\\|font-style: italic;$\\\\|em { font-style\")",
-      "Bash(grep -n 'specimen-mono\\\\|^h4\\\\|color: var\\(--violet-600\\);$\\\\|\"call.*response\\\\|cr-example\\\\|<section id=\"typography\"\\\\|<section id=\"colour\"' guidelines/editorial-guidelines.html)"
+      "Bash(grep -n 'specimen-mono\\\\|^h4\\\\|color: var\\(--violet-600\\);$\\\\|\"call.*response\\\\|cr-example\\\\|<section id=\"typography\"\\\\|<section id=\"colour\"' guidelines/editorial-guidelines.html)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }

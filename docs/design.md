@@ -488,6 +488,50 @@ Use canonical SVG assets from `assets/logos/`. Maintain aspect ratio. Respect mi
 
 ---
 
+## 07 — Tables and data display
+
+Tables are used for token references, colour roles, type scales, and structured data. They are always clean and minimal — no heavy header fills, no decorative chrome.
+
+### Table spec
+
+| Property | Value |
+|----------|-------|
+| Background | White `#ffffff` |
+| Border | 1px solid stone-200 `#e7e5e4` |
+| Border radius | 4px |
+| Font size | 15px body |
+
+**Header row (`th`):**
+- Font: JetBrains Mono, 12px, weight 400
+- Letter-spacing: 0.12em
+- Text: uppercase
+- Colour: stone-500 `#78716c`
+- Background: semi-transparent white (`rgba(255,255,255,0.5)`)
+- Border-bottom: 1px `rgba(0,0,0,0.06)`
+- Padding: 12px 16px
+
+**Data rows (`td`):**
+- Font: Inter, 15px, weight 400
+- Colour: stone-600 `#57534e`
+- First column colour: stone-700 `#44403c`
+- Padding: 14px 16px
+- Border-bottom: 1px `rgba(0,0,0,0.06)` (none on last row)
+
+**Dark context:**
+- Table background: `rgba(255,255,255,0.06)`
+- Border: stone-800
+- `th` background: `rgba(255,255,255,0.04)`
+- `td` colour: stone-400 `#a8a29e`
+- First column colour: stone-300 `#d6d3d1`
+
+### Hard rules
+
+- Never use a solid dark fill on table headers. The header is distinguished by font treatment (mono uppercase), not background colour.
+- Never bold table header text — JetBrains Mono uppercase with letter-spacing provides sufficient differentiation at weight 400.
+- Numbers and financial figures in tables use Inter weight 700. All other data uses weight 400.
+
+---
+
 ## 07 — Spacing and layout
 
 ### Spacing scale
