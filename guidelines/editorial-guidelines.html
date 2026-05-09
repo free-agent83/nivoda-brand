@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Nivoda — Brand Guidelines (Editorial)</title>
 <style>
 /* ============================================================
@@ -81,6 +82,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
@@ -93,6 +95,7 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
 }
 
 /* ============================================================
@@ -221,14 +224,14 @@ nav {
   z-index: 100;
   background: var(--stone-950);
   border-bottom: 1px solid var(--stone-800);
-  padding: 20px 64px;
+  padding: 20px 40px;
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 28px;
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 400;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   backdrop-filter: blur(12px);
 }
 nav a {
@@ -334,8 +337,11 @@ nav .brand {
 .role-table .role-th-dark { background: var(--stone-950); color: var(--stone-400); border-bottom-color: var(--stone-800); }
 .role-table .role-th-light { background: #f5f0ec; color: var(--stone-600); }
 .role-table tbody td {
-  padding: 0;
+  padding: 16px 20px;
   border-bottom: 1px solid var(--stone-200);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  vertical-align: middle;
 }
 .role-table tbody tr:last-child td { border-bottom: none; }
 .role-table .role-name {
@@ -343,26 +349,28 @@ nav .brand {
   font-family: var(--font-sans);
   font-size: 14px;
   font-weight: 500;
-  color: var(--stone-950);
+  color: var(--stone-700);
   width: 220px;
-  background: rgba(255,255,255,0.5);
+  background: transparent;
 }
+.role-table .on-dark {
+  background: var(--stone-950);
+  color: var(--stone-200);
+  border-bottom-color: var(--stone-800);
+}
+.role-table .on-light {
+  background: #f5f0ec;
+  color: var(--stone-700);
+}
+.role-table tbody tr:last-child .on-dark { border-bottom: none; }
 .role-cell {
-  padding: 18px 20px;
-  font-family: var(--font-mono);
-  font-size: 13px;
   display: flex;
   align-items: center;
   gap: 12px;
-  height: 100%;
-  min-height: 56px;
 }
-.role-cell.on-dark { background: var(--stone-950); color: var(--stone-200); border-bottom: 1px solid var(--stone-800); }
-.role-cell.on-light { background: #f5f0ec; color: var(--stone-700); }
-.role-table tbody tr:last-child .role-cell { border-bottom: none; }
 .role-cell .chip {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   border-radius: 2px;
   flex-shrink: 0;
 }
@@ -454,7 +462,8 @@ nav .brand {
 /* ============================================================
    Tables
    ============================================================ */
-table {
+/* Content tables (rules, specs etc) — scoped away from .compact-table */
+table:not(.compact-table) {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
@@ -465,7 +474,7 @@ table {
   border: 1px solid var(--stone-200);
   overflow: hidden;
 }
-th {
+table:not(.compact-table) th {
   font-family: var(--font-mono);
   font-size: 12px;
   letter-spacing: 0.12em;
@@ -477,24 +486,24 @@ th {
   border-bottom: 1px solid rgba(0,0,0,0.06);
   background: rgba(255, 255, 255, 0.50);
 }
-.dark table {
+.dark table:not(.compact-table) {
   background: rgba(255, 255, 255, 0.06);
   border-color: var(--stone-800);
 }
-.dark th {
+.dark table:not(.compact-table) th {
   background: rgba(255, 255, 255, 0.04);
   border-bottom-color: rgba(255,255,255,0.08);
 }
-td {
+table:not(.compact-table) td {
   padding: 14px 16px;
   border-bottom: 1px solid rgba(0,0,0,0.06);
   color: var(--stone-600);
   vertical-align: top;
 }
-tr:last-child td { border-bottom: none; }
-.dark td { border-bottom-color: rgba(255,255,255,0.06); color: var(--stone-400); }
-td:first-child { color: var(--stone-700); font-weight: 400; }
-.dark td:first-child { color: var(--stone-300); }
+table:not(.compact-table) tr:last-child td { border-bottom: none; }
+.dark table:not(.compact-table) td { border-bottom-color: rgba(255,255,255,0.06); color: var(--stone-400); }
+table:not(.compact-table) td:first-child { color: var(--stone-700); font-weight: 400; }
+.dark table:not(.compact-table) td:first-child { color: var(--stone-300); }
 
 code {
   font-family: var(--font-mono);
@@ -690,7 +699,9 @@ code {
   display: flex;
   gap: 16px;
   align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .btn-dark-primary {
@@ -888,6 +899,76 @@ code {
 .ui-input-dark::placeholder { color: var(--stone-500); }
 .ui-input-dark:focus { outline: none; border-color: var(--violet-400); }
 .ui-input-dark:focus-visible { outline: 2.5px solid var(--violet-400); outline-offset: 2px; }
+
+/* ============================================================
+   Principle callout
+   ============================================================ */
+.principle {
+  border-left: 3px solid var(--violet-600);
+  padding: 32px;
+  margin: 40px 0;
+  background: rgba(99, 48, 245, 0.04);
+  border-radius: 0 2px 2px 0;
+}
+.principle h5 {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--violet-600);
+  margin: 0 0 16px;
+}
+.principle p { margin: 0; color: var(--stone-700); font-size: 17px; line-height: 1.6; }
+.principle strong { color: var(--stone-950); font-weight: 500; }
+
+/* ============================================================
+   Demo blocks (buttons section)
+   ============================================================ */
+.demo-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin: 24px 0 0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.demo-block { display: flex; flex-direction: column; }
+.demo-block.is-dark  { background: var(--stone-950); border: 1px solid var(--stone-800); border-right: none; border-radius: 6px 0 0 6px; }
+.demo-block.is-light { background: #ffffff; border: 1px solid var(--stone-200); border-radius: 0 6px 6px 0; }
+.demo-header { padding: 12px 28px; border-bottom: 1px solid; }
+.demo-block.is-dark  .demo-header { background: var(--stone-900); border-color: var(--stone-800); }
+.demo-block.is-light .demo-header { background: var(--stone-50); border-color: var(--stone-200); }
+.demo-surface-tag { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--stone-500); }
+.demo-body { padding: 64px 64px; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.demo-block.is-dark  .demo-body p { color: var(--stone-300); }
+.demo-hint { font-size: 12px; color: var(--stone-500); margin: 16px 0 0; }
+.demo-block.is-dark  .demo-hint { color: var(--stone-500); }
+
+/* Compact table — sits flush at the bottom, no separate background */
+.compact-table { display: table; width: 100%; border-collapse: collapse; font-size: 14px; margin: 0; border: none; border-radius: 0; background: transparent; }
+.compact-table th {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em;
+  text-transform: uppercase; font-weight: 400;
+  padding: 14px 28px; text-align: left;
+  border-top: 1px solid; border-bottom: 1px solid;
+  background: transparent;
+}
+.compact-table td { padding: 16px 28px; border-bottom: 1px solid; vertical-align: top; }
+.compact-table tr:last-child td { border-bottom: none; }
+.compact-table td:first-child { font-weight: 500; white-space: nowrap; width: 30%; }
+.demo-block.is-dark  .compact-table th { color: var(--stone-500); border-color: var(--stone-800); background: var(--stone-950); }
+.demo-block.is-dark  .compact-table td { color: var(--stone-300); border-color: var(--stone-800); background: var(--stone-950); }
+.demo-block.is-dark  .compact-table td:first-child { color: var(--stone-100); }
+.demo-block.is-light .compact-table th { color: var(--stone-400); border-color: var(--stone-200); background: #ffffff; }
+.demo-block.is-light .compact-table td { color: var(--stone-600); border-color: var(--stone-200); background: #ffffff; }
+.demo-block.is-light .compact-table td:first-child { color: var(--stone-500); }
+
+@media (max-width: 700px) {
+  .demo-pair { grid-template-columns: 1fr; }
+  .demo-block.is-dark  { border-right: 1px solid var(--stone-800); border-bottom: none; border-radius: 6px 6px 0 0; }
+  .demo-block.is-light { border-top: none; border-radius: 0 0 6px 6px; }
+}
 
 /* ============================================================
    Iconography contact sheet
@@ -1185,14 +1266,151 @@ code {
 /* ============================================================
    Responsive
    ============================================================ */
+
+/* Nav — hamburger menu on mobile */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  padding: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.nav-hamburger span {
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background: var(--stone-400);
+  border-radius: 1px;
+  transition: background 0.2s, transform 0.25s, opacity 0.2s;
+  transform-origin: center;
+}
+.nav-hamburger:hover span { background: var(--stone-50); }
+.nav-hamburger.is-open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.is-open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.nav-icon { display: none; }
+.nav-wordmark { display: block; }
+
+.nav-links {
+  display: contents; /* transparent wrapper on desktop */
+}
+
+@media (max-width: 600px) {
+  nav {
+    flex-wrap: wrap;
+    overflow: visible;
+    white-space: normal;
+    padding: 14px 20px;
+    gap: 0;
+    align-items: center;
+  }
+  .nav-hamburger { display: flex; }
+  .nav-wordmark { display: none; }
+  .nav-icon { display: block; }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 0;
+    border-top: 1px solid var(--stone-800);
+    margin-top: 14px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  .nav-links.is-open { display: flex; }
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    border-bottom: 1px solid var(--stone-800);
+  }
+  .nav-links a:last-child { border-bottom: none; }
+}
+
+/* Nav — scrollable on mid-size screens too narrow to show all links */
+@media (min-width: 601px) {
+  nav {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+  }
+  nav::-webkit-scrollbar { display: none; }
+}
+
+/* Tables — horizontal scroll rather than overflow clipping */
+table:not(.compact-table) {
+  display: table;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 @media (max-width: 900px) {
   .page { padding: 0 32px; }
-  nav { padding: 16px 32px; gap: 24px; }
-  .hero-title { font-size: 56px; }
-  h2 { font-size: 36px; }
+  nav { padding: 16px 24px; gap: 20px; }
+  section { padding: 80px 0; }
+  .cover { padding-bottom: 72px !important; }
+  .hero-title { font-size: 72px; }
+  h2 { font-size: 48px; margin-bottom: 40px; }
+  h3 { font-size: 28px; }
+  .lede { font-size: 18px; }
+  .cr-example { font-size: 32px; padding: 32px; }
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
   .do-dont { grid-template-columns: 1fr; }
   .logo-grid { grid-template-columns: 1fr; }
+  .theme-mockups { grid-template-columns: 1fr; }
+  .icon-grid { grid-template-columns: repeat(4, 1fr); }
+  .role-table .role-name { width: 140px; }
+  .app-notes { grid-template-columns: 1fr; }
+  .bifold-spread { grid-template-columns: 1fr; }
+  .bw-headline { font-size: 40px; }
+  .bw-content { padding: 32px; }
+  .app-stage { padding: 40px; }
+  .specimen { padding: 32px; }
+  .specimen-serif { font-size: 36px; }
+  .card { padding: 28px; }
+  .theme-mockup { padding: 32px; min-height: 260px; }
+  .interactive-demo, .interactive-demo-dark { padding: 32px; }
+}
+
+@media (max-width: 600px) {
+  .page { padding: 0 20px; }
+  nav { padding: 14px 20px; gap: 16px; font-size: 11px; }
+  section { padding: 56px 0; }
+  .hero-title { font-size: 60px; line-height: 1; }
+  h2 { font-size: 40px; margin-bottom: 28px; }
+  h3 { font-size: 24px; margin-top: 48px; }
+  .lede { font-size: 16px; margin-bottom: 40px; }
+  .cr-example { font-size: 26px; padding: 24px; }
+  .icon-grid { grid-template-columns: repeat(3, 1fr); }
+  .role-table .role-name { width: 110px; font-size: 13px; }
+  .role-cell { font-size: 11px; padding: 12px; gap: 8px; }
+  .bw-headline { font-size: 28px; }
+  .bw-content { padding: 24px; }
+  .bw-eyebrow { font-size: 9px; }
+  .pullup { width: 180px; }
+  .logo-box { padding: 40px; }
+  .card { padding: 20px; }
+  .theme-mockup { padding: 24px; min-height: 220px; }
+  .specimen { padding: 24px; }
+  .specimen-serif { font-size: 28px; }
+  .interactive-demo, .interactive-demo-dark { padding: 24px; }
+  .app-stage { padding: 24px; }
+  .app-meta { flex-direction: column; gap: 12px; }
+  .cover .meta { flex-wrap: wrap; gap: 12px; }
 }
 </style>
 </head>
@@ -1202,18 +1420,28 @@ code {
      NAV
      ============================================================ -->
 <nav>
-  <span class="brand"><img src="../assets/logos/wordmark-white.svg" alt="Nivoda" style="height:16px; vertical-align:middle;"/></span>
-  <a href="#identity">Identity</a>
-  <a href="#logo">Logo</a>
-  <a href="#colour">Colour</a>
-  <a href="#buttons">Buttons</a>
-  <a href="#typography">Typography</a>
-  <a href="#spacing">Spacing</a>
-  <a href="#imagery">Imagery</a>
-  <a href="#banners">Banners</a>
-  <a href="#voice">Voice</a>
-  <a href="#application">Application</a>
-  <a href="#print">Print</a>
+  <a href="#" class="brand" style="text-decoration:none;">
+    <!-- Wordmark: shown on tablet/desktop -->
+    <span class="nav-wordmark"><svg style="height:16px;width:auto;display:block;" viewBox="0 0 945 156" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip-nav-ww)"><path d="M119.712 2.14577V101.088L0.215668 -0.27002V153.71H27.6703V55.8183L147.166 156.021V2.14577H119.712Z" fill="white"/><path d="M215.856 2.14578H187.034V153.71H215.856V2.14578Z" fill="white"/><path d="M380.373 2.14578L324.517 105.815L269.503 2.98606L269.082 2.14578H238.366L324.622 155.916L410.668 2.14578H380.373Z" fill="white"/><path d="M502.604 0.0450842C481.341 -0.242499 460.811 7.79903 445.414 22.446C430.018 37.093 420.981 57.1797 420.24 78.4006C421.538 99.3189 430.775 118.956 446.069 133.31C461.362 147.665 481.562 155.656 502.552 155.656C523.541 155.656 543.741 147.665 559.035 133.31C574.328 118.956 583.565 99.3189 584.863 78.4006C584.122 57.1981 575.1 37.1272 559.726 22.4831C544.353 7.83904 523.85 -0.214816 502.604 0.0450842ZM502.604 131.758C495.59 131.76 488.646 130.361 482.181 127.643C475.716 124.926 469.861 120.944 464.96 115.933C460.06 110.922 456.212 104.983 453.644 98.4652C451.077 91.9473 449.841 84.9825 450.009 77.9805C450.009 64.0521 455.55 50.6942 465.414 40.8453C475.277 30.9964 488.655 25.4634 502.604 25.4634C516.553 25.4634 529.931 30.9964 539.795 40.8453C549.658 50.6942 555.199 64.0521 555.199 77.9805C555.368 84.9825 554.132 91.9473 551.564 98.4652C548.996 104.983 545.149 110.922 540.248 115.933C535.347 120.944 529.492 124.926 523.027 127.643C516.563 130.361 509.619 131.76 502.604 131.758Z" fill="white"/><path d="M671.329 2.14578H618.734V153.71H671.329C733.076 153.71 767.052 126.821 767.052 77.8755C767.052 28.9295 733.076 2.14578 671.329 2.14578ZM671.329 130.288H646.925V25.8835H671.014C714.563 25.8835 738.441 44.4746 738.441 78.4007C738.441 112.327 714.563 130.288 671.014 130.288H671.329Z" fill="white"/><path d="M859.515 -0.0599365L774.837 151.294L773.469 153.71H803.764L825.643 113.062H893.281L914.319 152.87V153.71H944.929L859.515 -0.0599365ZM838.477 89.8494L859.515 50.0414L880.553 89.8494H838.477Z" fill="white"/></g><defs><clipPath id="clip-nav-ww"><rect width="945" height="155.856" fill="white"/></clipPath></defs></svg></span>
+    <!-- Icon (N mark only): shown on mobile -->
+    <span class="nav-icon"><svg style="height:24px;width:auto;display:block;" viewBox="0 0 345 169" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 6.60425L88.8292 164.575L177.4 6.60425H0Z" fill="white"/><path d="M260.61 0C214.048 0 176.298 37.7459 176.298 84.3126C176.298 130.875 214.048 168.625 260.61 168.625C307.173 168.625 344.923 130.875 344.923 84.3126C344.923 37.7459 307.173 0 260.61 0Z" fill="white"/></svg></span>
+  </a>
+  <button class="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="#identity">Identity</a>
+    <a href="#logo">Logo</a>
+    <a href="#colour">Colour</a>
+    <a href="#buttons">Buttons</a>
+    <a href="#callouts">Callouts</a>
+    <a href="#typography">Typography</a>
+    <a href="#spacing">Spacing</a>
+    <a href="#imagery">Imagery</a>
+    <a href="#voice">Voice</a>
+    <a href="#application">Application</a>
+    <a href="#print">Print</a>
+  </div>
 </nav>
 
 <div class="page">
@@ -1243,12 +1471,12 @@ code {
   <p class="lede">This document governs how the Nivoda brand expresses itself anywhere brand expression is the goal — anywhere the brand performs.</p>
 
   <table>
-    <tr><td>Marketing pages</td><td>nivoda.com, blog, feature and campaign landing pages</td></tr>
-    <tr><td>Sales and investor decks</td><td>pitch materials, board updates, fundraise collateral</td></tr>
-    <tr><td>Conference handoffs</td><td>event signage, booths, partner collateral, JCK and similar</td></tr>
-    <tr><td>Longform documents</td><td>whitepapers, reports, brand books, lookbooks</td></tr>
-    <tr><td>Hero moments</td><td>splash screens, marketing emails, brand films, social hero assets</td></tr>
-    <tr><td>Internal materials</td><td>brand onboarding, all-hands presentations, launch decks</td></tr>
+    <tr><td>Marketing pages</td><td>Nivoda.com, blog, feature and campaign landing pages</td></tr>
+    <tr><td>Sales and investor decks</td><td>Pitch materials, board updates, fundraise collateral</td></tr>
+    <tr><td>Conference handoffs</td><td>Event signage, booths, partner collateral, JCK and similar</td></tr>
+    <tr><td>Longform documents</td><td>Whitepapers, reports, brand books, lookbooks</td></tr>
+    <tr><td>Hero moments</td><td>Splash screens, marketing emails, brand films, social hero assets</td></tr>
+    <tr><td>Internal materials</td><td>Brand onboarding, all-hands presentations, launch decks</td></tr>
   </table>
 
   <p>Editorial is where the brand performs. The full vocabulary is on the table — decorative violet eyebrows, italic call-and-response, mono labels, hairlines, the two-violet rule on dark. Restraint still applies (violet is precious; maximum 2–3 violet roles per composition), but the full toolkit is permitted.</p>
@@ -1305,16 +1533,16 @@ code {
 
   <div class="logo-grid">
     <div class="logo-box on-dark">
-      <img src="../assets/logos/wordmark-white.svg" alt="Nivoda wordmark white"/>
+      <svg style="height:28px;width:auto;" viewBox="0 0 945 156" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip-lg-ww)"><path d="M119.712 2.14577V101.088L0.215668 -0.27002V153.71H27.6703V55.8183L147.166 156.021V2.14577H119.712Z" fill="white"/><path d="M215.856 2.14578H187.034V153.71H215.856V2.14578Z" fill="white"/><path d="M380.373 2.14578L324.517 105.815L269.503 2.98606L269.082 2.14578H238.366L324.622 155.916L410.668 2.14578H380.373Z" fill="white"/><path d="M502.604 0.0450842C481.341 -0.242499 460.811 7.79903 445.414 22.446C430.018 37.093 420.981 57.1797 420.24 78.4006C421.538 99.3189 430.775 118.956 446.069 133.31C461.362 147.665 481.562 155.656 502.552 155.656C523.541 155.656 543.741 147.665 559.035 133.31C574.328 118.956 583.565 99.3189 584.863 78.4006C584.122 57.1981 575.1 37.1272 559.726 22.4831C544.353 7.83904 523.85 -0.214816 502.604 0.0450842ZM502.604 131.758C495.59 131.76 488.646 130.361 482.181 127.643C475.716 124.926 469.861 120.944 464.96 115.933C460.06 110.922 456.212 104.983 453.644 98.4652C451.077 91.9473 449.841 84.9825 450.009 77.9805C450.009 64.0521 455.55 50.6942 465.414 40.8453C475.277 30.9964 488.655 25.4634 502.604 25.4634C516.553 25.4634 529.931 30.9964 539.795 40.8453C549.658 50.6942 555.199 64.0521 555.199 77.9805C555.368 84.9825 554.132 91.9473 551.564 98.4652C548.996 104.983 545.149 110.922 540.248 115.933C535.347 120.944 529.492 124.926 523.027 127.643C516.563 130.361 509.619 131.76 502.604 131.758Z" fill="white"/><path d="M671.329 2.14578H618.734V153.71H671.329C733.076 153.71 767.052 126.821 767.052 77.8755C767.052 28.9295 733.076 2.14578 671.329 2.14578ZM671.329 130.288H646.925V25.8835H671.014C714.563 25.8835 738.441 44.4746 738.441 78.4007C738.441 112.327 714.563 130.288 671.014 130.288H671.329Z" fill="white"/><path d="M859.515 -0.0599365L774.837 151.294L773.469 153.71H803.764L825.643 113.062H893.281L914.319 152.87V153.71H944.929L859.515 -0.0599365ZM838.477 89.8494L859.515 50.0414L880.553 89.8494H838.477Z" fill="white"/></g><defs><clipPath id="clip-lg-ww"><rect width="945" height="155.856" fill="white"/></clipPath></defs></svg>
     </div>
     <div class="logo-box on-white">
-      <img src="../assets/logos/wordmark-black.svg" alt="Nivoda wordmark black"/>
+      <svg style="height:28px;width:auto;" viewBox="0 0 945 156" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip-lg-wb)"><path d="M119.712 2.14577V101.088L0.215668 -0.27002V153.71H27.6703V55.8183L147.166 156.021V2.14577H119.712Z" fill="black"/><path d="M215.856 2.14578H187.034V153.71H215.856V2.14578Z" fill="black"/><path d="M380.373 2.14578L324.517 105.815L269.503 2.98606L269.082 2.14578H238.366L324.622 155.916L410.668 2.14578H380.373Z" fill="black"/><path d="M502.604 0.0450842C481.341 -0.242499 460.811 7.79903 445.414 22.446C430.018 37.093 420.981 57.1797 420.24 78.4006C421.538 99.3189 430.775 118.956 446.069 133.31C461.362 147.665 481.562 155.656 502.552 155.656C523.541 155.656 543.741 147.665 559.035 133.31C574.328 118.956 583.565 99.3189 584.863 78.4006C584.122 57.1981 575.1 37.1272 559.726 22.4831C544.353 7.83904 523.85 -0.214816 502.604 0.0450842ZM502.604 131.758C495.59 131.76 488.646 130.361 482.181 127.643C475.716 124.926 469.861 120.944 464.96 115.933C460.06 110.922 456.212 104.983 453.644 98.4652C451.077 91.9473 449.841 84.9825 450.009 77.9805C450.009 64.0521 455.55 50.6942 465.414 40.8453C475.277 30.9964 488.655 25.4634 502.604 25.4634C516.553 25.4634 529.931 30.9964 539.795 40.8453C549.658 50.6942 555.199 64.0521 555.199 77.9805C555.368 84.9825 554.132 91.9473 551.564 98.4652C548.996 104.983 545.149 110.922 540.248 115.933C535.347 120.944 529.492 124.926 523.027 127.643C516.563 130.361 509.619 131.76 502.604 131.758Z" fill="black"/><path d="M671.329 2.14578H618.734V153.71H671.329C733.076 153.71 767.052 126.821 767.052 77.8755C767.052 28.9295 733.076 2.14578 671.329 2.14578ZM671.329 130.288H646.925V25.8835H671.014C714.563 25.8835 738.441 44.4746 738.441 78.4007C738.441 112.327 714.563 130.288 671.014 130.288H671.329Z" fill="black"/><path d="M859.515 -0.0599365L774.837 151.294L773.469 153.71H803.764L825.643 113.062H893.281L914.319 152.87V153.71H944.929L859.515 -0.0599365ZM838.477 89.8494L859.515 50.0414L880.553 89.8494H838.477Z" fill="black"/></g><defs><clipPath id="clip-lg-wb"><rect width="945" height="155.856" fill="white"/></clipPath></defs></svg>
     </div>
     <div class="logo-box on-dark">
-      <img src="../assets/logos/icon-white.svg" alt="Nivoda icon white" style="height:24px;"/>
+      <svg style="height:24px;width:auto;" viewBox="0 0 345 169" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 6.60425L88.8292 164.575L177.4 6.60425H0Z" fill="white"/><path d="M260.61 0C214.048 0 176.298 37.7459 176.298 84.3126C176.298 130.875 214.048 168.625 260.61 168.625C307.173 168.625 344.923 130.875 344.923 84.3126C344.923 37.7459 307.173 0 260.61 0Z" fill="white"/></svg>
     </div>
     <div class="logo-box on-white">
-      <img src="../assets/logos/icon-black.svg" alt="Nivoda icon black" style="height:24px;"/>
+      <svg style="height:24px;width:auto;" viewBox="0 0 345 169" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M260.61 0C214.048 0 176.298 37.7459 176.298 84.3126C176.298 130.875 214.048 168.625 260.61 168.625C307.173 168.625 344.923 130.875 344.923 84.3126C344.923 37.7459 307.173 0 260.61 0Z" fill="black"/><path d="M0 6.60425L88.8293 164.575L177.4 6.60425H0Z" fill="black"/></svg>
     </div>
   </div>
 
@@ -1360,43 +1588,43 @@ code {
     <tbody>
       <tr>
         <td class="role-name">Background</td>
-        <td><div class="role-cell on-dark"><span class="chip" style="background:#0c0a09; outline:1px solid var(--stone-800);"></span>stone-950 <span class="token">#0c0a09</span></div></td>
-        <td><div class="role-cell on-light"><span class="chip" style="background:#f5f0ec; outline:1px solid var(--stone-200);"></span>warm <span class="token">#f5f0ec</span></div></td>
+        <td class="on-dark"><div class="role-cell"><span class="chip" style="background:#0c0a09; outline:1px solid var(--stone-800);"></span>stone-950 <span class="token">#0c0a09</span></div></td>
+        <td class="on-light"><div class="role-cell"><span class="chip" style="background:#f5f0ec; outline:1px solid var(--stone-200);"></span>warm <span class="token">#f5f0ec</span></div></td>
       </tr>
       <tr>
         <td class="role-name">Surface / card</td>
-        <td><div class="role-cell on-dark"><span class="chip" style="background:#1c1917;"></span>stone-900 <span class="token">#1c1917</span></div></td>
-        <td><div class="role-cell on-light"><span class="chip" style="background:#ffffff; outline:1px solid var(--stone-200);"></span>white <span class="token">#ffffff</span></div></td>
+        <td class="on-dark"><div class="role-cell"><span class="chip" style="background:#1c1917;"></span>stone-900 <span class="token">#1c1917</span></div></td>
+        <td class="on-light"><div class="role-cell"><span class="chip" style="background:#ffffff; outline:1px solid var(--stone-200);"></span>white <span class="token">#ffffff</span></div></td>
       </tr>
       <tr>
         <td class="role-name">Border</td>
-        <td><div class="role-cell on-dark"><span class="chip" style="background:#44403c;"></span>stone-700 <span class="token">#44403c</span></div></td>
-        <td><div class="role-cell on-light"><span class="chip" style="background:#e7e5e4;"></span>stone-200 <span class="token">#e7e5e4</span></div></td>
+        <td class="on-dark"><div class="role-cell"><span class="chip" style="background:#44403c;"></span>stone-700 <span class="token">#44403c</span></div></td>
+        <td class="on-light"><div class="role-cell"><span class="chip" style="background:#e7e5e4;"></span>stone-200 <span class="token">#e7e5e4</span></div></td>
       </tr>
       <tr>
         <td class="role-name">Text — primary</td>
-        <td><div class="role-cell on-dark"><span class="chip" style="background:#fafaf9;"></span>stone-50 <span class="token">#fafaf9</span></div></td>
-        <td><div class="role-cell on-light"><span class="chip" style="background:#0c0a09;"></span>stone-950 <span class="token">#0c0a09</span></div></td>
+        <td class="on-dark"><div class="role-cell"><span class="chip" style="background:#fafaf9;"></span>stone-50 <span class="token">#fafaf9</span></div></td>
+        <td class="on-light"><div class="role-cell"><span class="chip" style="background:#0c0a09;"></span>stone-950 <span class="token">#0c0a09</span></div></td>
       </tr>
       <tr>
         <td class="role-name">Text — body / muted</td>
-        <td><div class="role-cell on-dark"><span class="chip" style="background:#a8a29e;"></span>stone-400 <span class="token">#a8a29e</span></div></td>
-        <td><div class="role-cell on-light"><span class="chip" style="background:#78716c;"></span>stone-500 <span class="token">#78716c</span></div></td>
+        <td class="on-dark"><div class="role-cell"><span class="chip" style="background:#a8a29e;"></span>stone-400 <span class="token">#a8a29e</span></div></td>
+        <td class="on-light"><div class="role-cell"><span class="chip" style="background:#78716c;"></span>stone-500 <span class="token">#78716c</span></div></td>
       </tr>
       <tr>
         <td class="role-name">Accent — display / fill</td>
-        <td><div class="role-cell on-dark"><span class="chip" style="background:#7655fd;"></span>violet-500 <span class="token">#7655fd</span></div></td>
-        <td><div class="role-cell on-light"><span class="chip" style="background:#6330f5;"></span>violet-600 <span class="token">#6330f5</span></div></td>
+        <td class="on-dark"><div class="role-cell"><span class="chip" style="background:#7655fd;"></span>violet-500 <span class="token">#7655fd</span></div></td>
+        <td class="on-light"><div class="role-cell"><span class="chip" style="background:#6330f5;"></span>violet-600 <span class="token">#6330f5</span></div></td>
       </tr>
       <tr>
         <td class="role-name">Accent — text / thin border</td>
-        <td><div class="role-cell on-dark"><span class="chip" style="background:#9886ff;"></span>violet-400 <span class="token">#9886ff</span></div></td>
-        <td><div class="role-cell on-light"><span class="chip" style="background:#6330f5;"></span>violet-600 <span class="token">#6330f5</span></div></td>
+        <td class="on-dark"><div class="role-cell"><span class="chip" style="background:#9886ff;"></span>violet-400 <span class="token">#9886ff</span></div></td>
+        <td class="on-light"><div class="role-cell"><span class="chip" style="background:#6330f5;"></span>violet-600 <span class="token">#6330f5</span></div></td>
       </tr>
       <tr>
         <td class="role-name">Hover fill</td>
-        <td><div class="role-cell on-dark"><span class="chip" style="background:#7655fd;"></span>violet-500 <span class="token">#7655fd</span></div></td>
-        <td><div class="role-cell on-light"><span class="chip" style="background:#6330f5;"></span>violet-600 <span class="token">#6330f5</span></div></td>
+        <td class="on-dark"><div class="role-cell"><span class="chip" style="background:#7655fd;"></span>violet-500 <span class="token">#7655fd</span></div></td>
+        <td class="on-light"><div class="role-cell"><span class="chip" style="background:#6330f5;"></span>violet-600 <span class="token">#6330f5</span></div></td>
       </tr>
     </tbody>
   </table>
@@ -1533,111 +1761,135 @@ code {
 <section id="buttons">
   <div class="eyebrow">04 · Buttons</div>
   <h2>Buttons</h2>
-  <p class="lede">All buttons are pill-shaped (<code>999px</code> border-radius). Sentence case. No icons in primary buttons unless absolutely necessary. Hover always reveals violet — 500 on dark, 600 on light.</p>
+  <p class="lede">Pill-shaped. Sentence case. No icons in primary buttons unless essential. At rest, every button is neutral — violet appears only on hover and focus.</p>
 
-  <h4>Dark background</h4>
-  <div style="padding:48px; background:var(--stone-950); border-radius:2px; margin:24px 0;">
-    <div class="btn-row">
-      <button class="btn-dark-primary">Place order</button>
-      <button class="btn-dark-secondary">Cancel</button>
-      <button class="btn-dark-sm">Small button</button>
-    </div>
+  <div class="principle">
+    <p><strong>The violet reveal.</strong> Shape signals interactivity — the pill, underline, or border already tells the user "this is touchable." Colour rewards engagement. Buttons, links, and inputs carry no violet at rest. Violet is not a badge; it is the reward of reaching.</p>
   </div>
 
-  <h4>Light background</h4>
-  <div style="padding:48px; background:#ffffff; border:1px solid var(--stone-200); border-radius:2px; margin:24px 0;">
-    <div class="btn-row">
-      <button class="btn-light-primary">Place order</button>
-      <button class="btn-light-secondary">Cancel</button>
-      <button class="btn-light-sm">Small button</button>
+  <h4>Live demo — hover buttons, focus the input</h4>
+  <div class="demo-pair">
+
+    <div class="demo-block is-dark">
+      <div class="demo-header"><span class="demo-surface-tag">Dark surface</span></div>
+      <div class="demo-body">
+        <div class="btn-row">
+          <button class="btn-dark-primary">Place order</button>
+          <button class="btn-dark-secondary">Cancel</button>
+          <button class="btn-dark-sm">Small</button>
+        </div>
+        <input class="ui-input-dark" type="email" placeholder="your@email.com" />
+        <p class="demo-hint">Hover buttons · focus input · tab for keyboard ring</p>
+      </div>
+      <table class="compact-table">
+        <thead><tr><th>Element</th><th>Rest → hover / focus</th></tr></thead>
+        <tbody>
+          <tr><td>Primary</td><td>stone-200 fill → violet-500 fill</td></tr>
+          <tr><td>Secondary</td><td>stone-700 border → violet-400 border + text</td></tr>
+          <tr><td>Input</td><td>stone-700 border → violet-400 border</td></tr>
+          <tr><td>Inline link</td><td>stone-300 → violet-400</td></tr>
+          <tr><td>Focus ring</td><td>2.5px violet-400, 2px offset</td></tr>
+        </tbody>
+      </table>
     </div>
+
+    <div class="demo-block is-light">
+      <div class="demo-header"><span class="demo-surface-tag">Light surface</span></div>
+      <div class="demo-body">
+        <div class="btn-row">
+          <button class="btn-light-primary">Place order</button>
+          <button class="btn-light-secondary">Cancel</button>
+          <button class="btn-light-sm">Small</button>
+        </div>
+        <input class="ui-input" type="email" placeholder="your@email.com" />
+        <p class="demo-hint">Hover buttons · focus input · tab for keyboard ring</p>
+      </div>
+      <table class="compact-table">
+        <thead><tr><th>Element</th><th>Rest → hover / focus</th></tr></thead>
+        <tbody>
+          <tr><td>Primary</td><td>stone-950 fill → violet-600 fill</td></tr>
+          <tr><td>Secondary</td><td>stone-200 border → violet-600 border + text</td></tr>
+          <tr><td>Input</td><td>stone-200 border → violet-600 border</td></tr>
+          <tr><td>Inline link</td><td>stone-600 → violet-600</td></tr>
+          <tr><td>Focus ring</td><td>2.5px violet-600, 2px offset</td></tr>
+        </tbody>
+      </table>
+    </div>
+
   </div>
 
   <h4>Button rules</h4>
   <table>
     <thead><tr><th>Rule</th><th>Detail</th></tr></thead>
     <tbody>
-      <tr><td>Border radius</td><td><code>999px</code> — always pill-shaped. No squared or partially rounded buttons.</td></tr>
+      <tr><td>Shape</td><td><code>999px</code> border-radius — always pill. No squared or partially rounded buttons.</td></tr>
       <tr><td>Label</td><td>Sentence case. One or two words preferred. Never all caps.</td></tr>
-      <tr><td>Font</td><td>Inter, weight 500, 16px (default) or 14px (small).</td></tr>
-      <tr><td>Padding</td><td>12px 32px (default), 8px 20px (small). Generous horizontal for the pill shape.</td></tr>
-      <tr><td>One CTA per view</td><td>One primary button per viewport. Secondary actions use outline or text buttons.</td></tr>
-      <tr><td>Rest (dark bg)</td><td>Primary: stone-200 fill, dark text. Secondary: transparent, stone-700 border.</td></tr>
-      <tr><td>Rest (light bg)</td><td>Primary: stone-950 fill, white text. Secondary: transparent, stone-200 border.</td></tr>
-      <tr><td>Hover (dark bg)</td><td>Primary fills to violet-500. Secondary gets violet-500 text + border.</td></tr>
-      <tr><td>Hover (light bg)</td><td>Primary fills to violet-600. Secondary gets violet-600 text + border.</td></tr>
-      <tr><td>Disabled</td><td>50% opacity, no cursor pointer. Never hide — always show disabled state.</td></tr>
+      <tr><td>Font</td><td>Inter 500, 14px default · 13px small.</td></tr>
+      <tr><td>Padding</td><td>14px 32px default · 8px 20px small.</td></tr>
+      <tr><td>One CTA per view</td><td>One primary button per viewport. Secondary actions use outline or ghost buttons.</td></tr>
+      <tr><td>Disabled</td><td>50% opacity, no pointer cursor. Never hide — always show the disabled state.</td></tr>
     </tbody>
   </table>
 
   <div class="do-dont">
     <div class="do-card">
       <h5>Do</h5>
-      <p>Use pill shape consistently. Keep labels short and action-oriented. One primary CTA per view. Use sentence case.</p>
+      <p>Use pill shape consistently. Keep labels short and action-oriented. One primary CTA per view. Sentence case. Both button types go violet on hover.</p>
     </div>
     <div class="dont-card">
       <h5>Don't</h5>
-      <p>Mix border radius values. Use all caps labels. Stack multiple primary buttons. Use different hover colours for primary and secondary — both go violet.</p>
+      <p>Mix border-radius values. Use all caps. Stack multiple primary buttons. Give primary and secondary different hover colours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CALLOUTS
+     ============================================================ -->
+<section id="callouts">
+  <div class="eyebrow">05 · Callouts</div>
+  <h2>Callouts</h2>
+  <p class="lede">Three callout variants for emphasis and guidance. Each has a distinct colour signal and a consistent JetBrains Mono label.</p>
+
+  <h3>Editorial emphasis</h3>
+  <p>Used for named principles, key rules, or editorial emphasis. No surrounding border — only a violet left stroke. The title is optional but recommended when the callout names a specific principle.</p>
+
+  <div class="principle">
+    <h5>The violet reveal</h5>
+    <p>Shape signals interactivity — the pill, underline, or border already tells the user "this is touchable." Colour rewards engagement. Buttons, links, and inputs carry no violet at rest. Violet is not a badge; it is the reward of reaching.</p>
+  </div>
+
+  <h3 style="margin-top:64px;">Positive and negative</h3>
+  <p>Used in pairs to contrast correct and incorrect usage. Green signals positive; red signals negative. Always pair them — a negative without a positive lacks context, and vice versa. The colour is semantic, not decorative: it carries meaning independent of the label text.</p>
+
+  <div class="do-dont" style="margin-top:32px;">
+    <div class="do-card">
+      <h5>Do</h5>
+      <p>Use this callout to show correct application of a rule — a real example from the system, not a constructed one.</p>
+    </div>
+    <div class="dont-card">
+      <h5>Don't</h5>
+      <p>Use this to show what to avoid. Keep it specific — describe the exact failure, not a general warning.</p>
     </div>
   </div>
 
-  <h3 style="margin-top:96px;">The violet reveal</h3>
-  <p class="lede">Shape signals interactivity. Colour rewards engagement. Buttons, links, and inputs carry no violet at rest — the chrome stays neutral until the moment a user reaches for the element.</p>
-  <p>Hover, focus, active: that is when violet appears. The pill shape, underline, or border already tells the user "this is touchable." Violet is not a badge — it is the reward of touching. This principle applies across all Nivoda surfaces, editorial and product alike.</p>
-
-  <h4>Light surface — live demo</h4>
-  <p>Hover the buttons and link. Focus the input field.</p>
-  <div class="interactive-demo">
-    <p>Inline text with an <a href="#">interactive link</a> — stone at rest, violet on hover. The underline persists in both states.</p>
-    <div class="btn-row" style="margin-top:32px;">
-      <button class="btn-light-primary">Place order</button>
-      <button class="btn-light-secondary">Cancel</button>
-      <button class="btn-light-sm">Small action</button>
-    </div>
-    <input class="ui-input" type="email" placeholder="your.email@nivoda.com" />
-    <p style="font-size:12px; color:var(--stone-500); margin-top:12px; margin-bottom:0;">Focus the input to see the violet border reveal. Tab to buttons to see the focus ring.</p>
-  </div>
-
+  <h3 style="margin-top:64px;">Usage</h3>
   <table>
-    <thead><tr><th>Element</th><th>Rest</th><th>Hover / focus</th></tr></thead>
+    <thead><tr><th>Variant</th><th>When to use</th><th>Border treatment</th></tr></thead>
     <tbody>
-      <tr><td>Inline link</td><td>stone-600 <code>#57534e</code>, underlined</td><td>violet-600 <code>#6330f5</code>, underlined</td></tr>
-      <tr><td>Primary button</td><td>stone-950 fill, white text, pill</td><td>violet-600 fill, white text</td></tr>
-      <tr><td>Secondary button</td><td>transparent, stone-200 border, stone-950 text</td><td>violet-600 border + text</td></tr>
-      <tr><td>Form input</td><td>stone-200 border, white fill</td><td>violet-600 border</td></tr>
-      <tr><td>Focus ring (keyboard)</td><td>—</td><td>2.5px violet-600 outline, 2px offset</td></tr>
+      <tr><td>Editorial emphasis</td><td>Named principles, conceptual rules, key editorial emphasis</td><td>Left stroke only, 3px · no surrounding border</td></tr>
+      <tr><td>Positive</td><td>Example of a rule applied correctly</td><td>Full border + 3px top · always paired with Negative</td></tr>
+      <tr><td>Negative</td><td>Counter-example showing what to avoid</td><td>Full border + 3px top · always paired with Positive</td></tr>
     </tbody>
   </table>
 
-  <h4>Dark surface — live demo</h4>
-  <p>Same principle, inverted surface. Rest states shift — stone-200 fills, stone-700 borders — but violet still appears only on interaction.</p>
-  <div class="interactive-demo-dark">
-    <p>Inline text with an <a href="#">interactive link</a> — stone-300 at rest, violet-400 on hover.</p>
-    <div class="btn-row" style="margin-top:32px;">
-      <button class="btn-dark-primary">Place order</button>
-      <button class="btn-dark-secondary">Cancel</button>
-    </div>
-    <input class="ui-input-dark" type="email" placeholder="your.email@nivoda.com" />
-    <p style="font-size:12px; color:var(--stone-500); margin-top:12px; margin-bottom:0;">Focus the input to see the violet-400 border reveal. Tab to buttons to see the focus ring.</p>
-  </div>
-
-  <table>
-    <thead><tr><th>Element</th><th>Rest</th><th>Hover / focus</th></tr></thead>
-    <tbody>
-      <tr><td>Inline link</td><td>stone-300 <code>#d6d3d1</code>, underlined</td><td>violet-400 <code>#9886ff</code>, underlined</td></tr>
-      <tr><td>Primary button</td><td>stone-200 fill, dark text, pill</td><td>violet-500 fill, white text</td></tr>
-      <tr><td>Secondary button</td><td>transparent, stone-700 border, stone-300 text</td><td>violet-400 border + text</td></tr>
-      <tr><td>Form input</td><td>stone-700 border, stone-900 fill</td><td>violet-400 border</td></tr>
-      <tr><td>Focus ring (keyboard)</td><td>—</td><td>2.5px violet-400 outline, 2px offset</td></tr>
-    </tbody>
-  </table>
 </section>
 
 <!-- ============================================================
      TYPOGRAPHY
      ============================================================ -->
 <section id="typography">
-  <div class="eyebrow">05 · Typography</div>
+  <div class="eyebrow">06 · Typography</div>
   <h2>Typography</h2>
   <p class="lede">Three typefaces, each with a strict role. The serif carries warmth, the sans carries clarity, the mono carries precision.</p>
 
@@ -1722,7 +1974,7 @@ code {
      SPACING & LAYOUT
      ============================================================ -->
 <section id="spacing">
-  <div class="eyebrow">06 · Spacing &amp; Layout</div>
+  <div class="eyebrow">07 · Spacing &amp; Layout</div>
   <h2>Spacing</h2>
   <p class="lede">4px base unit. Consistent padding, margins, and gaps across every surface.</p>
 
@@ -1791,7 +2043,7 @@ code {
      IMAGERY
      ============================================================ -->
 <section id="imagery" class="dark">
-  <div class="eyebrow">07 · Imagery</div>
+  <div class="eyebrow">08 · Imagery</div>
   <h2>Photography</h2>
   <p class="lede">Three principles govern every Nivoda image: <strong>perspective, light, and palette</strong>. Real people in jewellery-trade settings, shot from inside the partner's world, lit like a luxury boutique, rendered in moody golden warmth.</p>
 
@@ -1925,7 +2177,7 @@ code {
      VOICE & TONE
      ============================================================ -->
 <section id="voice">
-  <div class="eyebrow">08 · Voice &amp; Tone</div>
+  <div class="eyebrow">09 · Voice &amp; Tone</div>
   <h2>How Nivoda speaks</h2>
   <p class="lede">Voice is constant — it's who we are. Tone shifts by context — it's how we adapt to the situation.</p>
 
@@ -1970,7 +2222,7 @@ code {
      APPLICATION RULES
      ============================================================ -->
 <section id="application">
-  <div class="eyebrow">09 · Application</div>
+  <div class="eyebrow">10 · Application</div>
   <h2>Context-specific rules</h2>
   <p class="lede">The brand adapts to where it shows up. Different contexts, different lines — same identity.</p>
 
@@ -2014,7 +2266,7 @@ code {
      PRINT & CONFERENCE
      ============================================================ -->
 <section id="print">
-  <div class="eyebrow">10 · Print &amp; Conference</div>
+  <div class="eyebrow">11 · Print &amp; Conference</div>
   <h2>Print applications</h2>
   <p class="lede">Compositional references for the formats produced at trade events. These show the system applied — sketch your own, don't copy these.</p>
 
@@ -2024,7 +2276,7 @@ code {
     <p>850 × 2000 mm typical · single sided · 200 dpi at final size · 5 mm bleed all sides.</p>
     <div class="app-stage app-stage--pullup">
       <div class="pullup">
-        <div class="pullup-logo"><img src="../assets/logos/wordmark-white.svg" alt=""></div>
+        <div class="pullup-logo"><svg style="width:80px;height:auto;" viewBox="0 0 945 156" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip-pu-ww)"><path d="M119.712 2.14577V101.088L0.215668 -0.27002V153.71H27.6703V55.8183L147.166 156.021V2.14577H119.712Z" fill="white"/><path d="M215.856 2.14578H187.034V153.71H215.856V2.14578Z" fill="white"/><path d="M380.373 2.14578L324.517 105.815L269.503 2.98606L269.082 2.14578H238.366L324.622 155.916L410.668 2.14578H380.373Z" fill="white"/><path d="M502.604 0.0450842C481.341 -0.242499 460.811 7.79903 445.414 22.446C430.018 37.093 420.981 57.1797 420.24 78.4006C421.538 99.3189 430.775 118.956 446.069 133.31C461.362 147.665 481.562 155.656 502.552 155.656C523.541 155.656 543.741 147.665 559.035 133.31C574.328 118.956 583.565 99.3189 584.863 78.4006C584.122 57.1981 575.1 37.1272 559.726 22.4831C544.353 7.83904 523.85 -0.214816 502.604 0.0450842ZM502.604 131.758C495.59 131.76 488.646 130.361 482.181 127.643C475.716 124.926 469.861 120.944 464.96 115.933C460.06 110.922 456.212 104.983 453.644 98.4652C451.077 91.9473 449.841 84.9825 450.009 77.9805C450.009 64.0521 455.55 50.6942 465.414 40.8453C475.277 30.9964 488.655 25.4634 502.604 25.4634C516.553 25.4634 529.931 30.9964 539.795 40.8453C549.658 50.6942 555.199 64.0521 555.199 77.9805C555.368 84.9825 554.132 91.9473 551.564 98.4652C548.996 104.983 545.149 110.922 540.248 115.933C535.347 120.944 529.492 124.926 523.027 127.643C516.563 130.361 509.619 131.76 502.604 131.758Z" fill="white"/><path d="M671.329 2.14578H618.734V153.71H671.329C733.076 153.71 767.052 126.821 767.052 77.8755C767.052 28.9295 733.076 2.14578 671.329 2.14578ZM671.329 130.288H646.925V25.8835H671.014C714.563 25.8835 738.441 44.4746 738.441 78.4007C738.441 112.327 714.563 130.288 671.014 130.288H671.329Z" fill="white"/><path d="M859.515 -0.0599365L774.837 151.294L773.469 153.71H803.764L825.643 113.062H893.281L914.319 152.87V153.71H944.929L859.515 -0.0599365ZM838.477 89.8494L859.515 50.0414L880.553 89.8494H838.477Z" fill="white"/></g><defs><clipPath id="clip-pu-ww"><rect width="945" height="155.856" fill="white"/></clipPath></defs></svg></div>
         <div class="pullup-headline">The marketplace<br><em>trusted by<br>jewelers.</em></div>
         <div class="pullup-sub">Diamonds and jewelry from 50+ countries. Certified. Transparent. Yours on memo.</div>
         <div class="pullup-foot">
@@ -2053,7 +2305,7 @@ code {
           <div class="bw-eyebrow" style="font-family: &quot;JetBrains Mono&quot;">NIVODA AT JCK 2026</div>
           <div class="bw-headline">Diamonds on <em style="color: rgb(255, 255, 255)">terms</em><br>that <i style="color: rgb(152, 134, 255)">move with you</i></div>
           <div class="bw-foot" style="height: 60px">
-            <img src="../assets/logos/wordmark-white.svg" class="bw-logo" alt="">
+            <svg style="width:100px;height:auto;" viewBox="0 0 945 156" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip-bw-ww)"><path d="M119.712 2.14577V101.088L0.215668 -0.27002V153.71H27.6703V55.8183L147.166 156.021V2.14577H119.712Z" fill="white"/><path d="M215.856 2.14578H187.034V153.71H215.856V2.14578Z" fill="white"/><path d="M380.373 2.14578L324.517 105.815L269.503 2.98606L269.082 2.14578H238.366L324.622 155.916L410.668 2.14578H380.373Z" fill="white"/><path d="M502.604 0.0450842C481.341 -0.242499 460.811 7.79903 445.414 22.446C430.018 37.093 420.981 57.1797 420.24 78.4006C421.538 99.3189 430.775 118.956 446.069 133.31C461.362 147.665 481.562 155.656 502.552 155.656C523.541 155.656 543.741 147.665 559.035 133.31C574.328 118.956 583.565 99.3189 584.863 78.4006C584.122 57.1981 575.1 37.1272 559.726 22.4831C544.353 7.83904 523.85 -0.214816 502.604 0.0450842ZM502.604 131.758C495.59 131.76 488.646 130.361 482.181 127.643C475.716 124.926 469.861 120.944 464.96 115.933C460.06 110.922 456.212 104.983 453.644 98.4652C451.077 91.9473 449.841 84.9825 450.009 77.9805C450.009 64.0521 455.55 50.6942 465.414 40.8453C475.277 30.9964 488.655 25.4634 502.604 25.4634C516.553 25.4634 529.931 30.9964 539.795 40.8453C549.658 50.6942 555.199 64.0521 555.199 77.9805C555.368 84.9825 554.132 91.9473 551.564 98.4652C548.996 104.983 545.149 110.922 540.248 115.933C535.347 120.944 529.492 124.926 523.027 127.643C516.563 130.361 509.619 131.76 502.604 131.758Z" fill="white"/><path d="M671.329 2.14578H618.734V153.71H671.329C733.076 153.71 767.052 126.821 767.052 77.8755C767.052 28.9295 733.076 2.14578 671.329 2.14578ZM671.329 130.288H646.925V25.8835H671.014C714.563 25.8835 738.441 44.4746 738.441 78.4007C738.441 112.327 714.563 130.288 671.014 130.288H671.329Z" fill="white"/><path d="M859.515 -0.0599365L774.837 151.294L773.469 153.71H803.764L825.643 113.062H893.281L914.319 152.87V153.71H944.929L859.515 -0.0599365ZM838.477 89.8494L859.515 50.0414L880.553 89.8494H838.477Z" fill="white"/></g><defs><clipPath id="clip-bw-ww"><rect width="945" height="155.856" fill="white"/></clipPath></defs></svg>
             <span class="bw-booth" style="font-family: &quot;JetBrains Mono&quot;">Booth B-42 · Hall C</span>
           </div>
         </div>
@@ -2080,7 +2332,7 @@ code {
             <div class="bf-eyebrow">A field guide for jewelers</div>
             <div class="bf-headline-lg">Buying diamonds<br><em>on terms</em></div>
             <div class="bf-foot" style="border-style: none">
-              <img src="../assets/logos/wordmark-black.svg" alt="">
+              <svg style="width:60px;height:auto;" viewBox="0 0 945 156" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip-bf-wb)"><path d="M119.712 2.14577V101.088L0.215668 -0.27002V153.71H27.6703V55.8183L147.166 156.021V2.14577H119.712Z" fill="black"/><path d="M215.856 2.14578H187.034V153.71H215.856V2.14578Z" fill="black"/><path d="M380.373 2.14578L324.517 105.815L269.503 2.98606L269.082 2.14578H238.366L324.622 155.916L410.668 2.14578H380.373Z" fill="black"/><path d="M502.604 0.0450842C481.341 -0.242499 460.811 7.79903 445.414 22.446C430.018 37.093 420.981 57.1797 420.24 78.4006C421.538 99.3189 430.775 118.956 446.069 133.31C461.362 147.665 481.562 155.656 502.552 155.656C523.541 155.656 543.741 147.665 559.035 133.31C574.328 118.956 583.565 99.3189 584.863 78.4006C584.122 57.1981 575.1 37.1272 559.726 22.4831C544.353 7.83904 523.85 -0.214816 502.604 0.0450842ZM502.604 131.758C495.59 131.76 488.646 130.361 482.181 127.643C475.716 124.926 469.861 120.944 464.96 115.933C460.06 110.922 456.212 104.983 453.644 98.4652C451.077 91.9473 449.841 84.9825 450.009 77.9805C450.009 64.0521 455.55 50.6942 465.414 40.8453C475.277 30.9964 488.655 25.4634 502.604 25.4634C516.553 25.4634 529.931 30.9964 539.795 40.8453C549.658 50.6942 555.199 64.0521 555.199 77.9805C555.368 84.9825 554.132 91.9473 551.564 98.4652C548.996 104.983 545.149 110.922 540.248 115.933C535.347 120.944 529.492 124.926 523.027 127.643C516.563 130.361 509.619 131.76 502.604 131.758Z" fill="black"/><path d="M671.329 2.14578H618.734V153.71H671.329C733.076 153.71 767.052 126.821 767.052 77.8755C767.052 28.9295 733.076 2.14578 671.329 2.14578ZM671.329 130.288H646.925V25.8835H671.014C714.563 25.8835 738.441 44.4746 738.441 78.4007C738.441 112.327 714.563 130.288 671.014 130.288H671.329Z" fill="black"/><path d="M859.515 -0.0599365L774.837 151.294L773.469 153.71H803.764L825.643 113.062H893.281L914.319 152.87V153.71H944.929L859.515 -0.0599365ZM838.477 89.8494L859.515 50.0414L880.553 89.8494H838.477Z" fill="black"/></g><defs><clipPath id="clip-bf-wb"><rect width="945" height="155.856" fill="white"/></clipPath></defs></svg>
               <span style="text-align: right">JCK 2026<br>Booth B-42</span>
             </div>
           </div>
@@ -2129,6 +2381,25 @@ code {
 <script>
   if (window.lucide) {
     lucide.createIcons({ attrs: { 'stroke-width': 1.5 } });
+  }
+
+  // Mobile nav hamburger toggle
+  const hamburger = document.querySelector('.nav-hamburger');
+  const navLinks  = document.querySelector('.nav-links');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('is-open');
+      hamburger.classList.toggle('is-open', open);
+      hamburger.setAttribute('aria-expanded', open);
+    });
+    // Close menu when a link is tapped
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('is-open');
+        hamburger.classList.remove('is-open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
   }
 </script>
 
