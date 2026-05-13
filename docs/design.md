@@ -326,7 +326,7 @@ This principle applies across all Nivoda surfaces, editorial and product alike.
 
 ### Buttons
 
-All buttons are pill-shaped (`border-radius: 999px`). Sentence case. One primary button per viewport.
+All buttons are pill-shaped (`border-radius: 999px`). Sentence case. One primary button per viewport. **Secondary** actions use an outline (stroke). **Tertiary** actions use no stroke — transparent at rest; text or icon only; optional subtle violet wash and violet text on hover.
 
 **Shared properties (all buttons):**
 - Font: Inter, weight 500, letter-spacing 0.03em
@@ -353,6 +353,7 @@ All buttons are pill-shaped (`border-radius: 999px`). Sentence case. One primary
 |---------|------|-------|------------|
 | Primary | stone-200 fill `#e7e5e4`, stone-950 text, stone-200 border | violet-500 fill, white text, violet-500 border | 2.5px solid violet-400, 2px offset |
 | Secondary | transparent, stone-700 border `#44403c`, stone-400 text | violet-400 border, violet-400 text | 2.5px solid violet-400, 2px offset |
+| Tertiary | transparent, **no border**, stone-400 text | subtle violet wash, violet-400 text (no stroke) | 2.5px solid violet-400, 2px offset |
 | Small | Same as primary at smaller size | Same hover | Same focus ring |
 
 #### Light background buttons
@@ -361,6 +362,7 @@ All buttons are pill-shaped (`border-radius: 999px`). Sentence case. One primary
 |---------|------|-------|------------|
 | Primary | stone-950 fill `#0c0a09`, white text, stone-950 border | violet-600 fill, white text, violet-600 border | 2.5px solid violet-600, 2px offset |
 | Secondary | transparent, stone-200 border `#e7e5e4`, stone-950 text | violet-600 border, violet-600 text | 2.5px solid violet-600, 2px offset |
+| Tertiary | transparent, **no border**, stone-600 text | subtle violet wash, violet-600 text (no stroke) | 2.5px solid violet-600, 2px offset |
 | Small | Same as primary at smaller size | Same hover | Same focus ring |
 
 ### Form inputs

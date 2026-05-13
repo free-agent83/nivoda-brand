@@ -5,9 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Nivoda — Brand Guidelines (Editorial)</title>
 <style>
-/* ============================================================
-   Self-hosted fonts
-   ============================================================ */
+/* Self-hosted fonts */
 @font-face {
   font-family: 'Inter';
   font-style: normal;
@@ -37,9 +35,7 @@
   src: url('../assets/fonts/NanumMyeongjo-Bold.ttf') format('truetype');
 }
 
-/* ============================================================
-   Tokens
-   ============================================================ */
+/* Tokens */
 :root {
   --violet-50:  #f4f2ff;
   --violet-100: #e9e8ff;
@@ -75,9 +71,7 @@
   --font-mono:  'JetBrains Mono', ui-monospace, monospace;
 }
 
-/* ============================================================
-   Base
-   ============================================================ */
+/* Base */
 *, *::before, *::after { box-sizing: border-box; }
 
 html {
@@ -98,9 +92,7 @@ body {
   overflow-x: clip;
 }
 
-/* ============================================================
-   Layout
-   ============================================================ */
+/* Layout */
 .page {
   max-width: 1200px;
   margin: 0 auto;
@@ -128,9 +120,7 @@ section:last-child { border-bottom: none; }
   color: var(--stone-950);
 }
 
-/* ============================================================
-   Typography
-   ============================================================ */
+/* Typography */
 .hero-title {
   font-family: var(--font-serif);
   font-weight: 400;
@@ -215,9 +205,7 @@ em { font-style: italic; }
 .dark .violet { color: var(--violet-400); }
 .dark h4 { color: var(--stone-400); }
 
-/* ============================================================
-   Nav
-   ============================================================ */
+/* Nav */
 nav {
   position: sticky;
   top: 0;
@@ -250,9 +238,7 @@ nav .brand {
   margin-right: auto;
 }
 
-/* ============================================================
-   Cards & Grids
-   ============================================================ */
+/* Cards & Grids */
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
 .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; }
 .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
@@ -281,9 +267,7 @@ nav .brand {
   background: var(--violet-400);
 }
 
-/* ============================================================
-   Colour swatches
-   ============================================================ */
+/* Colour swatches */
 .swatch-row {
   display: flex;
   gap: 0;
@@ -459,9 +443,7 @@ nav .brand {
   margin-top: 12px;
 }
 
-/* ============================================================
-   Tables
-   ============================================================ */
+/* Tables */
 /* Content tables (rules, specs etc) — scoped away from .compact-table */
 table:not(.compact-table) {
   width: 100%;
@@ -518,9 +500,7 @@ code {
   color: var(--stone-400);
 }
 
-/* ============================================================
-   Do / Don't
-   ============================================================ */
+/* Do / Don't */
 .do-dont {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -552,9 +532,7 @@ code {
 .do-card h5 { color: var(--green-500); }
 .dont-card h5 { color: var(--red-500); }
 
-/* ============================================================
-   Font specimen
-   ============================================================ */
+/* Font specimen */
 .specimen {
   padding: 48px;
   background: rgba(255, 255, 255, 0.70);
@@ -588,9 +566,7 @@ code {
   margin-bottom: 8px;
 }
 
-/* ============================================================
-   Call & Response example
-   ============================================================ */
+/* Call & Response example */
 .cr-example {
   font-family: var(--font-serif);
   font-size: 42px;
@@ -610,9 +586,7 @@ code {
 .dark .cr-example .response { color: var(--violet-500); }
 .dark .specimen-mono { color: var(--stone-400); }
 
-/* ============================================================
-   Cover
-   ============================================================ */
+/* Cover */
 .cover {
   min-height: 80vh;
   display: flex;
@@ -649,9 +623,7 @@ code {
   background: var(--violet-400);
 }
 
-/* ============================================================
-   Logo display
-   ============================================================ */
+/* Logo display */
 .logo-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -676,9 +648,7 @@ code {
 }
 .logo-box img { height: 28px; }
 
-/* ============================================================
-   Spacing specimen
-   ============================================================ */
+/* Spacing specimen */
 .spacing-row {
   display: flex;
   align-items: center;
@@ -692,9 +662,7 @@ code {
   border-radius: 2px;
 }
 
-/* ============================================================
-   Buttons (interactive)
-   ============================================================ */
+/* Buttons (interactive) */
 .btn-row {
   display: flex;
   gap: 16px;
@@ -815,12 +783,50 @@ code {
   border-color: var(--violet-600);
   color: #ffffff;
 }
+
+.btn-dark-tertiary {
+  padding: 14px 32px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 999px;
+  background: transparent;
+  border: none;
+  color: var(--stone-400);
+}
+.btn-dark-tertiary:hover {
+  background: rgba(99, 48, 245, 0.12);
+  color: var(--violet-400);
+}
+
+.btn-light-tertiary {
+  padding: 14px 32px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 999px;
+  background: transparent;
+  border: none;
+  color: var(--stone-600);
+}
+.btn-light-tertiary:hover {
+  background: rgba(99, 48, 245, 0.08);
+  color: var(--violet-600);
+}
 /* Violet focus rings — keyboard parity with hover reveal */
-.btn-dark-primary:focus-visible, .btn-dark-secondary:focus-visible, .btn-dark-sm:focus-visible {
+.btn-dark-primary:focus-visible, .btn-dark-secondary:focus-visible, .btn-dark-sm:focus-visible,
+.btn-dark-tertiary:focus-visible {
   outline: 2.5px solid var(--violet-400);
   outline-offset: 2px;
 }
-.btn-light-primary:focus-visible, .btn-light-secondary:focus-visible, .btn-light-sm:focus-visible {
+.btn-light-primary:focus-visible, .btn-light-secondary:focus-visible, .btn-light-sm:focus-visible,
+.btn-light-tertiary:focus-visible {
   outline: 2.5px solid var(--violet-600);
   outline-offset: 2px;
 }
@@ -831,9 +837,7 @@ code {
   min-width: 80px;
 }
 
-/* ============================================================
-   Interactive demo containers (violet reveal section)
-   ============================================================ */
+/* Interactive demo containers (violet reveal section) */
 .interactive-demo {
   padding: 48px;
   background: rgba(255,255,255,0.7);
@@ -900,9 +904,7 @@ code {
 .ui-input-dark:focus { outline: none; border-color: var(--violet-400); }
 .ui-input-dark:focus-visible { outline: 2.5px solid var(--violet-400); outline-offset: 2px; }
 
-/* ============================================================
-   Principle callout
-   ============================================================ */
+/* Principle callout */
 .principle {
   border-left: 3px solid var(--violet-600);
   padding: 32px;
@@ -922,9 +924,112 @@ code {
 .principle p { margin: 0; color: var(--stone-700); font-size: 17px; line-height: 1.6; }
 .principle strong { color: var(--stone-950); font-weight: 500; }
 
-/* ============================================================
-   Demo blocks (buttons section)
-   ============================================================ */
+/* AI / technical prompt under a specimen (mono snippet, not a card) */
+.prompt-snippet-wrap {
+  margin-top: 14px;
+}
+.prompt-snippet-box {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  margin: 8px 0 0;
+  padding: 12px 14px;
+  border-left: 2px solid var(--violet-400);
+  border-radius: 0 2px 2px 0;
+}
+.prompt-snippet-main {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+}
+.prompt-snippet-toggle {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0 0 1px;
+  padding: 0;
+  border: none;
+  border-radius: 2px;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--stone-400);
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: color 0.15s ease;
+}
+.prompt-snippet-toggle:hover {
+  color: var(--violet-400);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prompt-snippet-toggle:focus-visible {
+  outline: 2.5px solid var(--violet-400);
+  outline-offset: 2px;
+}
+.prompt-snippet-toggle-label {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+.prompt-snippet-chevron {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  transition: transform 0.2s ease;
+}
+.prompt-snippet-wrap.is-expanded .prompt-snippet-toggle svg {
+  transform: rotate(180deg);
+}
+.prompt-snippet-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--stone-500);
+  margin: 0;
+  font-weight: 400;
+}
+.prompt-snippet {
+  margin: 0;
+  padding: 0;
+  border: none;
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.65;
+  color: var(--stone-400);
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-weight: 400;
+  background: transparent;
+  border-radius: 0;
+  overflow-x: auto;
+}
+.prompt-snippet.is-collapsed {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+}
+.prompt-snippet-wrap.is-expanded .prompt-snippet {
+  display: block;
+  -webkit-line-clamp: unset;
+  overflow-x: auto;
+  overflow-y: visible;
+}
+
+/* Demo blocks (buttons section) */
 .demo-pair {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -970,9 +1075,7 @@ code {
   .demo-block.is-light { border-top: none; border-radius: 0 0 6px 6px; }
 }
 
-/* ============================================================
-   Iconography contact sheet
-   ============================================================ */
+/* Iconography contact sheet */
 .icon-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -1010,9 +1113,7 @@ code {
   text-transform: lowercase;
 }
 
-/* ============================================================
-   Print & Conference — exact JCK component CSS
-   ============================================================ */
+/* Print & Conference — exact JCK component CSS */
 .app-block { margin-bottom: 96px; }
 .app-block:last-child { margin-bottom: 0; }
 .app-meta { display: flex; gap: 24px; align-items: flex-start; margin-bottom: 24px; }
@@ -1263,9 +1364,7 @@ code {
   margin-bottom: 6px;
 }
 
-/* ============================================================
-   Responsive
-   ============================================================ */
+/* Responsive */
 
 /* Nav — hamburger menu on mobile */
 .nav-hamburger {
@@ -1416,9 +1515,7 @@ table:not(.compact-table) {
 </head>
 <body>
 
-<!-- ============================================================
-     NAV
-     ============================================================ -->
+<!-- NAV -->
 <nav>
   <a href="#" class="brand" style="text-decoration:none;">
     <!-- Wordmark: shown on tablet/desktop -->
@@ -1446,9 +1543,7 @@ table:not(.compact-table) {
 
 <div class="page">
 
-<!-- ============================================================
-     COVER
-     ============================================================ -->
+<!-- COVER -->
 <div class="cover dark">
   <div class="eyebrow">Brand Guidelines</div>
   <h1 class="hero-title">The Nivoda<br/>brand <em style="color:var(--violet-500); font-style:italic;">system.</em></h1>
@@ -1462,9 +1557,7 @@ table:not(.compact-table) {
   </div>
 </div>
 
-<!-- ============================================================
-     WHERE THIS APPLIES
-     ============================================================ -->
+<!-- WHERE THIS APPLIES -->
 <section id="where">
   <div class="eyebrow">Where this applies</div>
   <h2>Editorial surfaces</h2>
@@ -1482,9 +1575,7 @@ table:not(.compact-table) {
   <p>Editorial is where the brand performs. The full vocabulary is on the table — decorative violet eyebrows, italic call-and-response, mono labels, hairlines, the two-violet rule on dark. Restraint still applies (violet is precious; maximum 2–3 violet roles per composition), but the full toolkit is permitted.</p>
 </section>
 
-<!-- ============================================================
-     BRAND DIRECTION
-     ============================================================ -->
+<!-- BRAND DIRECTION -->
 <section id="identity" class="dark">
   <div class="eyebrow">01 · Identity</div>
   <h2>Brand direction</h2>
@@ -1523,9 +1614,7 @@ table:not(.compact-table) {
   </table>
 </section>
 
-<!-- ============================================================
-     LOGO
-     ============================================================ -->
+<!-- LOGO -->
 <section id="logo">
   <div class="eyebrow">02 · Logo</div>
   <h2>Logo</h2>
@@ -1567,9 +1656,7 @@ table:not(.compact-table) {
   </div>
 </section>
 
-<!-- ============================================================
-     COLOUR
-     ============================================================ -->
+<!-- COLOUR -->
 <section id="colour">
   <div class="eyebrow">03 · Colour</div>
   <h2>Colour</h2>
@@ -1755,9 +1842,7 @@ table:not(.compact-table) {
 
 </section>
 
-<!-- ============================================================
-     BUTTONS
-     ============================================================ -->
+<!-- BUTTONS -->
 <section id="buttons">
   <div class="eyebrow">04 · Buttons</div>
   <h2>Buttons</h2>
@@ -1776,6 +1861,7 @@ table:not(.compact-table) {
         <div class="btn-row">
           <button class="btn-dark-primary">Place order</button>
           <button class="btn-dark-secondary">Cancel</button>
+          <button type="button" class="btn-dark-tertiary">Learn more</button>
           <button class="btn-dark-sm">Small</button>
         </div>
         <input class="ui-input-dark" type="email" placeholder="your@email.com" />
@@ -1786,6 +1872,7 @@ table:not(.compact-table) {
         <tbody>
           <tr><td>Primary</td><td>stone-200 fill → violet-500 fill</td></tr>
           <tr><td>Secondary</td><td>stone-700 border → violet-400 border + text</td></tr>
+          <tr><td>Tertiary</td><td>No stroke · transparent → subtle violet wash + violet-400 text</td></tr>
           <tr><td>Input</td><td>stone-700 border → violet-400 border</td></tr>
           <tr><td>Inline link</td><td>stone-300 → violet-400</td></tr>
           <tr><td>Focus ring</td><td>2.5px violet-400, 2px offset</td></tr>
@@ -1799,6 +1886,7 @@ table:not(.compact-table) {
         <div class="btn-row">
           <button class="btn-light-primary">Place order</button>
           <button class="btn-light-secondary">Cancel</button>
+          <button type="button" class="btn-light-tertiary">Learn more</button>
           <button class="btn-light-sm">Small</button>
         </div>
         <input class="ui-input" type="email" placeholder="your@email.com" />
@@ -1809,6 +1897,7 @@ table:not(.compact-table) {
         <tbody>
           <tr><td>Primary</td><td>stone-950 fill → violet-600 fill</td></tr>
           <tr><td>Secondary</td><td>stone-200 border → violet-600 border + text</td></tr>
+          <tr><td>Tertiary</td><td>No stroke · transparent → subtle violet wash + violet-600 text</td></tr>
           <tr><td>Input</td><td>stone-200 border → violet-600 border</td></tr>
           <tr><td>Inline link</td><td>stone-600 → violet-600</td></tr>
           <tr><td>Focus ring</td><td>2.5px violet-600, 2px offset</td></tr>
@@ -1826,7 +1915,8 @@ table:not(.compact-table) {
       <tr><td>Label</td><td>Sentence case. One or two words preferred. Never all caps.</td></tr>
       <tr><td>Font</td><td>Inter 500, 14px default · 13px small.</td></tr>
       <tr><td>Padding</td><td>14px 32px default · 8px 20px small.</td></tr>
-      <tr><td>One CTA per view</td><td>One primary button per viewport. Secondary actions use outline or ghost buttons.</td></tr>
+      <tr><td>Variants</td><td><strong>Primary</strong> — filled neutral, violet on hover. <strong>Secondary</strong> — outline (stroke). <strong>Tertiary</strong> — no stroke; transparent at rest; text or icon only; violet text and optional subtle wash on hover.</td></tr>
+      <tr><td>One CTA per view</td><td>One primary button per viewport. Secondary actions use outline buttons; low-impact actions use tertiary (no stroke).</td></tr>
       <tr><td>Disabled</td><td>50% opacity, no pointer cursor. Never hide — always show the disabled state.</td></tr>
     </tbody>
   </table>
@@ -1834,7 +1924,7 @@ table:not(.compact-table) {
   <div class="do-dont">
     <div class="do-card">
       <h5>Do</h5>
-      <p>Use pill shape consistently. Keep labels short and action-oriented. One primary CTA per view. Sentence case. Both button types go violet on hover.</p>
+      <p>Use pill shape consistently. Keep labels short and action-oriented. One primary CTA per view. Sentence case. Primary and secondary go violet on hover; tertiary uses no stroke — only colour and optional wash on hover.</p>
     </div>
     <div class="dont-card">
       <h5>Don't</h5>
@@ -1843,9 +1933,7 @@ table:not(.compact-table) {
   </div>
 </section>
 
-<!-- ============================================================
-     CALLOUTS
-     ============================================================ -->
+<!-- CALLOUTS -->
 <section id="callouts">
   <div class="eyebrow">05 · Callouts</div>
   <h2>Callouts</h2>
@@ -1885,9 +1973,7 @@ table:not(.compact-table) {
 
 </section>
 
-<!-- ============================================================
-     TYPOGRAPHY
-     ============================================================ -->
+<!-- TYPOGRAPHY -->
 <section id="typography">
   <div class="eyebrow">06 · Typography</div>
   <h2>Typography</h2>
@@ -1970,9 +2056,7 @@ table:not(.compact-table) {
   </div>
 </section>
 
-<!-- ============================================================
-     SPACING & LAYOUT
-     ============================================================ -->
+<!-- SPACING & LAYOUT -->
 <section id="spacing">
   <div class="eyebrow">07 · Spacing &amp; Layout</div>
   <h2>Spacing</h2>
@@ -2039,19 +2123,31 @@ table:not(.compact-table) {
   </div>
 </section>
 
-<!-- ============================================================
-     IMAGERY
-     ============================================================ -->
+<!-- IMAGERY -->
 <section id="imagery" class="dark">
   <div class="eyebrow">08 · Imagery</div>
   <h2>Photography</h2>
   <p class="lede">Three principles govern every Nivoda image: <strong>perspective, light, and palette</strong>. Real people in jewellery-trade settings, shot from inside the partner's world, lit like a luxury boutique, rendered in moody golden warmth.</p>
 
   <!-- Hero specimen — the reference image -->
-  <figure style="margin: 0 0 32px; padding: 0;">
-    <img src="../assets/photography/customers/consultation-colour.jpg" alt="A consultation moment shot from the jeweller's side of the counter — soft golden studio light, cinematic depth of field, warm palette with measured colour" style="width: 100%; height: auto; display: block; border-radius: 2px;"/>
-    <figcaption style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--stone-500); margin-top: 16px;">Reference · Consultation · All three principles in one frame</figcaption>
-  </figure>
+  <div class="editorial-specimen-group" style="margin: 0 0 32px;">
+    <figure style="margin: 0; padding: 0;">
+      <img src="../assets/photography/customers/consultation-colour.jpg" alt="A consultation moment shot from the jeweller's side of the counter — soft golden studio light, cinematic depth of field, warm palette with measured colour" style="width: 100%; height: auto; display: block; border-radius: 2px;"/>
+      <figcaption style="font-family: var(--font-sans); font-size: 14px; letter-spacing: normal; color: var(--stone-500); margin-top: 16px;">Reference · consultation · all three principles in one frame</figcaption>
+    </figure>
+    <div class="prompt-snippet-wrap" id="prompt-snippet-consultation">
+      <div class="prompt-snippet-box">
+        <p class="prompt-snippet-label">Generation prompt · Midjourney</p>
+        <div class="prompt-snippet-main">
+          <pre class="prompt-snippet is-collapsed" id="prompt-consultation-text">Female jeweller in formal attire stands beside a casually dressed male customer in the foreground, both seen from behind and slightly out of focus. Camera positioned directly behind them, tight over-the-shoulder angle, only the backs of their heads visible. The jeweller holds an iPad between them at chest height as they both look at the screen inside a jewellery store. The iPad screen is the only element in perfect, razor-sharp focus critically sharp, ultra-detailed, high clarity, no blur, no depth-of-field softness. The people are intentionally soft and out of focus, with visible depth blur separating them from the subject. Shallow depth of field explicitly locked onto the iPad screen. Focus priority on device. Background and foreground blur, subject isolation on iPad. Luxury commercial product photography, warm colour and moody lighting, high-end fashion advertising aesthetic, cinematic depth of field, premium editorial style.</pre>
+          <button type="button" class="prompt-snippet-toggle" aria-expanded="false" aria-controls="prompt-consultation-text" id="prompt-consultation-btn">
+            <span class="prompt-snippet-toggle-label">See more</span>
+            <i data-lucide="chevron-down" class="prompt-snippet-chevron" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Principle 1: Perspective -->
   <h3 style="margin-top: 64px;">01 — Perspective: through the jeweller's eyes</h3>
@@ -2068,23 +2164,32 @@ table:not(.compact-table) {
   <p>The dominant tonal vocabulary is <strong>black, white, and golden warmth</strong>. Tungsten skin tones, amber highlights, deep charcoal shadows. Cool whites, fluorescent blues, and clinical lighting are out — they read as retail, not boutique.</p>
   <p>Photography is <strong>not pure monochrome</strong>. Selective colour — a flash of red on a velvet tray, the green of an emerald, the cobalt of a sapphire box, the warmth of skin — is welcome and earns its place. The rule is: warm and golden as the base, with colour as the accent that proves the photograph is alive. Never desaturated, never grayscale.</p>
 
-  <h3 style="margin-top:96px;">AI image generation</h3>
-  <div class="card">
-    <p style="font-size:16px; color:var(--stone-400); margin:0; line-height:1.7;"><span style="font-family:var(--font-mono); font-size:13px; letter-spacing:0.08em; color:var(--violet-400);">[subject/scene]</span>, shot from the jeweller's perspective looking out, soft directional studio light, cinematic depth of field at f/1.4–f/2.8, reflection or refraction in frame, warm golden tonal palette with selective colour accents, high-end fashion-advertising aesthetic, Saul Leiter inspiration, never sterile or retail</p>
-  </div>
-
   <h3 id="banners" style="margin-top:72px;">Promotional banners — the procession</h3>
   <p class="lede">A second photography mode for category banners in the marketplace. No human presence. The product is the subject — arranged in a receding line, one behind the other, the end always out of frame. Three ideas, one frame.</p>
 
   <!-- Banner reference images -->
   <figure style="margin: 32px 0 0;">
     <img src="../assets/photography/banners/Tennis bracelets banner.png" alt="Tennis bracelets arranged in a receding procession on a dark surface — demonstrating scale and consistent supply" style="width:100%; height:auto; display:block; border-radius:2px; border:1px solid var(--stone-800);"/>
-    <figcaption style="font-family:var(--font-mono); font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--stone-500); margin-top:12px;">Tennis bracelets · Scale and infinite supply</figcaption>
+    <figcaption style="font-family: var(--font-sans); font-size: 14px; letter-spacing: normal; color: var(--stone-500); margin-top: 12px;">Tennis bracelets · scale and infinite supply</figcaption>
   </figure>
-  <figure style="margin: 24px 0 40px;">
-    <img src="../assets/photography/banners/TJ Banner.png" alt="Engagement rings arranged in a line receding into depth — demonstrating cadence and repeat purchase" style="width:100%; height:auto; display:block; border-radius:2px; border:1px solid var(--stone-800);"/>
-    <figcaption style="font-family:var(--font-mono); font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--stone-500); margin-top:12px;">Engagement rings · Cadence and repeat purchase</figcaption>
-  </figure>
+  <div class="banner-specimen-group" style="margin:24px 0 40px;">
+    <figure style="margin:0;">
+      <img src="../assets/photography/banners/TJ Banner.png" alt="Engagement rings arranged in a line receding into depth — demonstrating cadence and repeat purchase" style="width:100%; height:auto; display:block; border-radius:2px; border:1px solid var(--stone-800);"/>
+      <figcaption style="font-family: var(--font-sans); font-size: 14px; letter-spacing: normal; color: var(--stone-500); margin-top: 12px;">Engagement rings · cadence and repeat purchase</figcaption>
+    </figure>
+    <div class="prompt-snippet-wrap" id="prompt-snippet-engagement">
+      <div class="prompt-snippet-box">
+        <p class="prompt-snippet-label">Generation prompt · Google Nano Banana</p>
+        <div class="prompt-snippet-main">
+          <pre class="prompt-snippet is-collapsed" id="prompt-engagement-text">Ultra-wide 4:1 panoramic product photography, commercial catalog style. Smooth matte charcoal-black leather surface with a fine texture. Approximately twenty luxury diamond engagement rings — all standing upright on their bands — arranged in a single receding row that angles away from camera at roughly 45 degrees, from lower-centre foreground to upper-left background. The nearest ring is a classic gold simple 4-prong solitaire in razor-sharp focus; subsequent rings — three-stone, pave band, and mixed settings — diminish progressively with the final rings dissolving to blur. All rings are modern brilliant white diamond, strictly round, oval, emerald, cushion, and princess cuts in white gold and platinum. Lighting is clean, brilliant, bright studio white, creating sharp specular highlights on every diamond facet and polished metal surface. The left third of the panoramic frame is an expansive, clean, deep matte charcoal-black negative space for title or copy. Hyper-realistic, 8k resolution. --ar 4:1 --v 6.0 --no dirt, grit, grime, vintage, filigree, milgrain, colored stones, lying flat, scattered arrangement</pre>
+          <button type="button" class="prompt-snippet-toggle" aria-expanded="false" aria-controls="prompt-engagement-text" id="prompt-engagement-btn">
+            <span class="prompt-snippet-toggle-label">See more</span>
+            <i data-lucide="chevron-down" class="prompt-snippet-chevron" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="grid-3" style="margin-top:8px;">
     <div class="card">
@@ -2173,9 +2278,7 @@ table:not(.compact-table) {
   </table>
 </section>
 
-<!-- ============================================================
-     VOICE & TONE
-     ============================================================ -->
+<!-- VOICE & TONE -->
 <section id="voice">
   <div class="eyebrow">09 · Voice &amp; Tone</div>
   <h2>How Nivoda speaks</h2>
@@ -2218,9 +2321,7 @@ table:not(.compact-table) {
   </table>
 </section>
 
-<!-- ============================================================
-     APPLICATION RULES
-     ============================================================ -->
+<!-- APPLICATION RULES -->
 <section id="application">
   <div class="eyebrow">10 · Application</div>
   <h2>Context-specific rules</h2>
@@ -2262,9 +2363,7 @@ table:not(.compact-table) {
   </table>
 </section>
 
-<!-- ============================================================
-     PRINT & CONFERENCE
-     ============================================================ -->
+<!-- PRINT & CONFERENCE -->
 <section id="print">
   <div class="eyebrow">11 · Print &amp; Conference</div>
   <h2>Print applications</h2>
@@ -2366,9 +2465,7 @@ table:not(.compact-table) {
   </div>
 </section>
 
-<!-- ============================================================
-     FOOTER
-     ============================================================ -->
+<!-- FOOTER -->
 <div style="padding:96px 9999px 48px 9999px; margin:0 -9999px; text-align:center; background:var(--stone-950);">
   <div style="width:96px; height:1px; background:var(--violet-400); margin:0 auto 32px auto;"></div>
   <p style="font-family:var(--font-mono); font-size:13px; letter-spacing:0.12em; text-transform:uppercase; color:var(--stone-400);">Nivoda Brand Guidelines · Version 2.0 · May 2026</p>
@@ -2401,6 +2498,20 @@ table:not(.compact-table) {
       });
     });
   }
+
+  document.querySelectorAll('.prompt-snippet-wrap').forEach((wrap) => {
+    const btn = wrap.querySelector('.prompt-snippet-toggle');
+    const preId = btn && btn.getAttribute('aria-controls');
+    const pre = preId ? document.getElementById(preId) : null;
+    const labelEl = btn && btn.querySelector('.prompt-snippet-toggle-label');
+    if (!btn || !pre) return;
+    btn.addEventListener('click', () => {
+      const expanded = wrap.classList.toggle('is-expanded');
+      btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      pre.classList.toggle('is-collapsed', !expanded);
+      if (labelEl) labelEl.textContent = expanded ? 'See less' : 'See more';
+    });
+  });
 </script>
 
 </body>
