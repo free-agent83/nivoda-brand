@@ -205,6 +205,59 @@ em { font-style: italic; }
 .dark .violet { color: var(--violet-400); }
 .dark h4 { color: var(--stone-400); }
 
+/* Imagery subsection intro (under h3 Photography, Banners, etc.) */
+.imagery-mode-intro {
+  font-size: 20px;
+  line-height: 1.55;
+  color: var(--stone-600);
+  margin: 0 0 48px 0;
+  max-width: 800px;
+}
+.dark .imagery-mode-intro {
+  color: var(--stone-400);
+}
+
+/* Card pillar / context pattern — mono kicker (not a heading) + serif title
+   Fixes inverted h4→h3 outline while keeping typography */
+.card-kicker {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--stone-500);
+  margin: 0 0 10px 0;
+  line-height: 1.4;
+}
+.dark .card-kicker { color: var(--stone-400); }
+.card-kicker--positive {
+  color: var(--green-500);
+  margin-bottom: 12px;
+}
+.card > .card-kicker + h3 {
+  /* Space after kicker + hairline; restores ~page rhythm lost when h3 margin-top was zeroed */
+  margin-top: 48px;
+  margin-bottom: 16px;
+}
+
+/* Mono-label demo cards (Colour): kicker + body paragraph */
+.card > .card-kicker + p {
+  margin-top: 32px;
+}
+
+/* h3 tier with mono/label styling — valid outline, no h2→h4 skip */
+h3.section-mono-heading {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--stone-500);
+  line-height: 1.4;
+  margin: 56px 0 20px 0;
+}
+.dark h3.section-mono-heading { color: var(--stone-400); }
+
 /* Nav */
 nav {
   position: sticky;
@@ -254,8 +307,9 @@ nav .brand {
   border-color: var(--stone-700);
 }
 
-/* Card violet divider — sits between h4 eyebrow and the content below */
-.card h4::after {
+/* Card violet divider — sits between mono kicker / h4 eyebrow and the content below */
+.card h4::after,
+.card .card-kicker::after {
   content: '';
   display: block;
   width: 32px;
@@ -263,7 +317,8 @@ nav .brand {
   background: var(--violet-600);
   margin-top: 14px;
 }
-.dark .card h4::after {
+.dark .card h4::after,
+.dark .card .card-kicker::after {
   background: var(--violet-400);
 }
 
@@ -396,7 +451,7 @@ nav .brand {
 }
 .theme-mockup.on-dark .mock-eyebrow::after { background: var(--violet-400); }
 .theme-mockup.on-light .mock-eyebrow::after { background: var(--violet-600); }
-.theme-mockup h4 {
+.theme-mockup .mock-display-headline {
   font-family: var(--font-serif);
   font-size: 36px;
   line-height: 1.1;
@@ -405,11 +460,11 @@ nav .brand {
   text-transform: none;
   letter-spacing: -0.01em;
 }
-.theme-mockup.on-dark h4 { color: var(--stone-50); }
-.theme-mockup.on-light h4 { color: var(--stone-950); }
-.theme-mockup h4 em { font-style: italic; }
-.theme-mockup.on-dark h4 em { color: var(--violet-500); }
-.theme-mockup.on-light h4 em { color: var(--violet-600); }
+.theme-mockup.on-dark .mock-display-headline { color: var(--stone-50); }
+.theme-mockup.on-light .mock-display-headline { color: var(--stone-950); }
+.theme-mockup .mock-display-headline em { font-style: italic; }
+.theme-mockup.on-dark .mock-display-headline em { color: var(--violet-500); }
+.theme-mockup.on-light .mock-display-headline em { color: var(--violet-600); }
 .theme-mockup .mock-actions {
   display: flex;
   gap: 12px;
@@ -926,15 +981,15 @@ code {
 
 /* AI / technical prompt under a specimen (mono snippet, not a card) */
 .prompt-snippet-wrap {
-  margin-top: 14px;
+  margin-top: 24px;
 }
 .prompt-snippet-box {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 10px;
-  margin: 8px 0 0;
-  padding: 12px 14px;
+  gap: 12px;
+  margin: 0;
+  padding: 16px 18px;
   border-left: 2px solid var(--violet-400);
   border-radius: 0 2px 2px 0;
 }
@@ -956,7 +1011,7 @@ code {
   background: transparent;
   cursor: pointer;
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.02em;
   color: var(--stone-400);
@@ -1003,7 +1058,7 @@ code {
   flex: 1;
   min-width: 0;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13px;
   font-style: italic;
   line-height: 1.65;
   color: var(--stone-400);
@@ -1027,6 +1082,17 @@ code {
   -webkit-line-clamp: unset;
   overflow-x: auto;
   overflow-y: visible;
+}
+
+/* Imagery — banners & specimens: band spacing aligned with spacing scale (more air than a single 32px gap) */
+.imagery-banner-principles {
+  margin: 48px 0 64px;
+}
+.imagery-banner-figure {
+  margin: 0 0 48px;
+}
+.imagery-banner-specimen-block {
+  margin: 0 0 64px;
 }
 
 /* Demo blocks (buttons section) */
@@ -1583,17 +1649,17 @@ table:not(.compact-table) {
 
   <div class="grid-3">
     <div class="card">
-      <h4>Human, local, relational</h4>
+      <p class="card-kicker">Human, local, relational</p>
       <h3>People doing business with people</h3>
       <p>Century-old tradition. Independent jewellers, family businesses, trusted suppliers. Manifests in warm photography, friendly imagery, approachable tone.</p>
     </div>
     <div class="card">
-      <h4>Luxury marketplace</h4>
+      <p class="card-kicker">Luxury marketplace</p>
       <h3>High-end products, high-end presentation</h3>
       <p>Diamonds, fine jewellery, certified stones. Manifests in serif display typography, restrained colour, generous whitespace, warm neutral palette.</p>
     </div>
     <div class="card">
-      <h4>Fintech backbone</h4>
+      <p class="card-kicker">Fintech backbone</p>
       <h3>Trust, reliability, infrastructure</h3>
       <p>A serious credit business underpins the platform. Manifests in clean data presentation, confidence in tone, and a dual-context palette that works across light and dark surfaces.</p>
     </div>
@@ -1777,11 +1843,11 @@ table:not(.compact-table) {
 
   <div class="grid-2" style="margin-top:32px;">
     <div class="card">
-      <h4 style="color:var(--green-500);">Violet text</h4>
+      <p class="card-kicker card-kicker--positive">Violet text</p>
       <p><strong>Yes.</strong> On dark: violet-500 <code>#7655fd</code> for display and fills, violet-400 <code>#9886ff</code> for small text and thin borders. On light: violet-600 <code>#6330f5</code> at every size. Used for labels, eyebrows, metadata, and numbered indices — not italic. The italic call-and-response beat is reserved for Nanum Myeongjo titles only.</p>
     </div>
     <div class="card">
-      <h4 style="color:var(--green-500);">Violet button hovers</h4>
+      <p class="card-kicker card-kicker--positive">Violet button hovers</p>
       <p><strong>Yes.</strong> Both contexts use violet fills on hover — violet-500 on dark, violet-600 on light. Lighter on dark, darker on light, to avoid colour vibration against the surface.</p>
     </div>
   </div>
@@ -1793,7 +1859,7 @@ table:not(.compact-table) {
     <div>
       <div class="theme-mockup on-dark">
         <p class="mock-eyebrow">03 — Colour</p>
-        <h4>Design becomes <em>a systems function.</em></h4>
+        <p class="mock-display-headline">Design becomes <em>a systems function.</em></p>
         <div class="mock-actions">
           <button class="mock-btn mock-btn-primary">Get started →</button>
           <button class="mock-btn mock-btn-secondary">View tokens</button>
@@ -1804,7 +1870,7 @@ table:not(.compact-table) {
     <div>
       <div class="theme-mockup on-light">
         <p class="mock-eyebrow">03 — Colour</p>
-        <h4>Design becomes <em>a systems function.</em></h4>
+        <p class="mock-display-headline">Design becomes <em>a systems function.</em></p>
         <div class="mock-actions">
           <button class="mock-btn mock-btn-primary">Get started →</button>
           <button class="mock-btn mock-btn-secondary">View tokens</button>
@@ -1852,7 +1918,7 @@ table:not(.compact-table) {
     <p><strong>The violet reveal.</strong> Shape signals interactivity — the pill, underline, or border already tells the user "this is touchable." Colour rewards engagement. Buttons, links, and inputs carry no violet at rest. Violet is not a badge; it is the reward of reaching.</p>
   </div>
 
-  <h4>Live demo — hover buttons, focus the input</h4>
+  <h3 class="section-mono-heading">Live demo — hover buttons, focus the input</h3>
   <div class="demo-pair">
 
     <div class="demo-block is-dark">
@@ -1907,7 +1973,7 @@ table:not(.compact-table) {
 
   </div>
 
-  <h4>Button rules</h4>
+  <h3 class="section-mono-heading">Button rules</h3>
   <table>
     <thead><tr><th>Rule</th><th>Detail</th></tr></thead>
     <tbody>
@@ -2126,11 +2192,14 @@ table:not(.compact-table) {
 <!-- IMAGERY -->
 <section id="imagery" class="dark">
   <div class="eyebrow">08 · Imagery</div>
-  <h2>Photography</h2>
-  <p class="lede">Three principles govern every Nivoda image: <strong>perspective, light, and palette</strong>. Real people in jewellery-trade settings, shot from inside the partner's world, lit like a luxury boutique, rendered in moody golden warmth.</p>
+  <h2>Imagery</h2>
+  <p class="lede">This section governs three kinds of imagery: <strong>editorial photography</strong>, <strong>promotional banners</strong>, and <strong>iconography</strong>. The principles below expand each mode.</p>
+
+  <h3 id="photography">Photography</h3>
+  <p class="imagery-mode-intro">People-first editorial work rests on <strong>perspective, light, and palette</strong>. Real people in jewellery-trade settings, shot from inside the partner's world, lit like a luxury boutique, rendered in moody golden warmth.</p>
 
   <!-- Hero specimen — the reference image -->
-  <div class="editorial-specimen-group" style="margin: 0 0 32px;">
+  <div class="editorial-specimen-group" style="margin: 0 0 48px;">
     <figure style="margin: 0; padding: 0;">
       <img src="../assets/photography/customers/consultation-colour.jpg" alt="A consultation moment shot from the jeweller's side of the counter — soft golden studio light, cinematic depth of field, warm palette with measured colour" style="width: 100%; height: auto; display: block; border-radius: 2px;"/>
       <figcaption style="font-family: var(--font-sans); font-size: 14px; letter-spacing: normal; color: var(--stone-500); margin-top: 16px;">Reference · consultation · all three principles in one frame</figcaption>
@@ -2149,33 +2218,51 @@ table:not(.compact-table) {
     </div>
   </div>
 
-  <!-- Principle 1: Perspective -->
-  <h3 style="margin-top: 64px;">01 — Perspective: through the jeweller's eyes</h3>
-  <p>Every photograph is shot from <strong>inside the partner's world, looking out</strong>. Never outside, looking in. The jeweller is not a subject we observe from a distance — we are sitting beside them, behind their counter, in their consultation, opening their shop door for the first time. Same posture Shopify takes with merchants: we help <em>you</em> do your business.</p>
-  <p>Practically: position the camera where the jeweller would stand. Subjects face the camera as if greeting the jeweller. Settings are jewellery-trade environments — workbenches, vault rooms, showroom floors, supplier offices, polished consultation desks. Avoid corporate-Nivoda settings; the empathy is always with the retailer.</p>
+  <div class="grid-3 imagery-banner-principles">
+    <div class="card">
+      <h4>01 · Perspective</h4>
+      <p>Every photograph is shot from <strong>inside the partner's world, looking out</strong>. Never outside, looking in. The jeweller is not a subject we observe from a distance — we are sitting beside them, behind their counter, in their consultation, opening their shop door for the first time. Same posture Shopify takes with merchants: we help <em>you</em> do your business.</p>
+      <p>Practically: position the camera where the jeweller would stand. Subjects face the camera as if greeting the jeweller. Settings are jewellery-trade environments — workbenches, vault rooms, showroom floors, supplier offices, polished consultation desks. Avoid corporate-Nivoda settings; the empathy is always with the retailer.</p>
+    </div>
+    <div class="card">
+      <h4>02 · Light</h4>
+      <p>Soft directional studio lighting — <strong>boutique invite, not retail flood</strong>. High-end fashion-advertising aesthetic with cinematic depth of field: subject sharp, foreground and background falling soft. Reflection and refraction are welcomed — through glass, vitrines, polished surfaces, the diamond itself — adding sophistication and tactile richness. <a href="https://www.google.com/search?tbm=isch&amp;q=Saul+Leiter" target="_blank" rel="noopener" style="color: var(--violet-400); text-decoration: underline; text-underline-offset: 3px;">Saul Leiter</a> is the touchstone for the layered, semi-obscured quality.</p>
+      <p>Practically: shoot wide aperture (f/1.4–f/2.8). Diffuse the key light. Allow secondary planes to blur. Look for reflections in vitrines, refractions through diamonds, light catching on glass — anything that adds an extra layer of depth.</p>
+    </div>
+    <div class="card">
+      <h4>03 · Palette</h4>
+      <p>The dominant tonal vocabulary is <strong>black, white, and golden warmth</strong>. Tungsten skin tones, amber highlights, deep charcoal shadows. Cool whites, fluorescent blues, and clinical lighting are out — they read as retail, not boutique.</p>
+      <p>Photography is <strong>not pure monochrome</strong>. Selective colour — a flash of red on a velvet tray, the green of an emerald, the cobalt of a sapphire box, the warmth of skin — is welcome and earns its place. The rule is: warm and golden as the base, with colour as the accent that proves the photograph is alive. Never desaturated, never grayscale.</p>
+    </div>
+  </div>
 
-  <!-- Principle 2: Light -->
-  <h3 style="margin-top:96px;">02 — Light: luxury studio, cinematic depth</h3>
-  <p>Soft directional studio lighting — <strong>boutique invite, not retail flood</strong>. High-end fashion-advertising aesthetic with cinematic depth of field: subject sharp, foreground and background falling soft. Reflection and refraction are welcomed — through glass, vitrines, polished surfaces, the diamond itself — adding sophistication and tactile richness. <a href="https://en.wikipedia.org/wiki/Saul_Leiter" target="_blank" rel="noopener" style="color: var(--violet-400); text-decoration: underline; text-underline-offset: 3px;">Saul Leiter</a> is the touchstone for the layered, semi-obscured quality.</p>
-  <p>Practically: shoot wide aperture (f/1.4–f/2.8). Diffuse the key light. Allow secondary planes to blur. Look for reflections in vitrines, refractions through diamonds, light catching on glass — anything that adds an extra layer of depth.</p>
-
-  <!-- Principle 3: Palette -->
-  <h3 style="margin-top:96px;">03 — Palette: moody and golden, with measured colour</h3>
-  <p>The dominant tonal vocabulary is <strong>black, white, and golden warmth</strong>. Tungsten skin tones, amber highlights, deep charcoal shadows. Cool whites, fluorescent blues, and clinical lighting are out — they read as retail, not boutique.</p>
-  <p>Photography is <strong>not pure monochrome</strong>. Selective colour — a flash of red on a velvet tray, the green of an emerald, the cobalt of a sapphire box, the warmth of skin — is welcome and earns its place. The rule is: warm and golden as the base, with colour as the accent that proves the photograph is alive. Never desaturated, never grayscale.</p>
-
-  <h3 id="banners" style="margin-top:72px;">Promotional banners — the procession</h3>
+  <h3 id="banners" style="margin-top: 96px;">Promotional banners: the procession</h3>
   <p class="lede">A second photography mode for category banners in the marketplace. No human presence. The product is the subject — arranged in a receding line, one behind the other, the end always out of frame. Three ideas, one frame.</p>
 
+  <div class="grid-3 imagery-banner-principles">
+    <div class="card">
+      <h4>01 · Scale</h4>
+      <p>The procession implies a supply chain that doesn't end. Products arranged in a line, receding until soft. The end is always out of frame. This is a big operation — an infinite handoff, always running.</p>
+    </div>
+    <div class="card">
+      <h4>02 · Consistency</h4>
+      <p>Every item in the line is identical. Same bracelet. Same ring setting. Same proportions. Whatever the order number, the quality doesn't vary. Reliability is built into the composition.</p>
+    </div>
+    <div class="card">
+      <h4>03 · Cadence</h4>
+      <p>The spacing between items is the rhythm of repeat business. First order. Second. Third. Fourth. The sequence is already drawn for you. The visual rhythm and the business relationship are the same thing.</p>
+    </div>
+  </div>
+
   <!-- Banner reference images -->
-  <figure style="margin: 32px 0 0;">
+  <figure class="imagery-banner-figure">
     <img src="../assets/photography/banners/Tennis bracelets banner.png" alt="Tennis bracelets arranged in a receding procession on a dark surface — demonstrating scale and consistent supply" style="width:100%; height:auto; display:block; border-radius:2px; border:1px solid var(--stone-800);"/>
-    <figcaption style="font-family: var(--font-sans); font-size: 14px; letter-spacing: normal; color: var(--stone-500); margin-top: 12px;">Tennis bracelets · scale and infinite supply</figcaption>
+    <figcaption style="font-family: var(--font-sans); font-size: 14px; letter-spacing: normal; color: var(--stone-500); margin-top: 16px;">Tennis bracelets · scale and infinite supply</figcaption>
   </figure>
-  <div class="banner-specimen-group" style="margin:24px 0 40px;">
+  <div class="banner-specimen-group imagery-banner-specimen-block">
     <figure style="margin:0;">
       <img src="../assets/photography/banners/TJ Banner.png" alt="Engagement rings arranged in a line receding into depth — demonstrating cadence and repeat purchase" style="width:100%; height:auto; display:block; border-radius:2px; border:1px solid var(--stone-800);"/>
-      <figcaption style="font-family: var(--font-sans); font-size: 14px; letter-spacing: normal; color: var(--stone-500); margin-top: 12px;">Engagement rings · cadence and repeat purchase</figcaption>
+      <figcaption style="font-family: var(--font-sans); font-size: 14px; letter-spacing: normal; color: var(--stone-500); margin-top: 16px;">Engagement rings · cadence and repeat purchase</figcaption>
     </figure>
     <div class="prompt-snippet-wrap" id="prompt-snippet-engagement">
       <div class="prompt-snippet-box">
@@ -2191,22 +2278,7 @@ table:not(.compact-table) {
     </div>
   </div>
 
-  <div class="grid-3" style="margin-top:8px;">
-    <div class="card">
-      <h4>01 · Scale</h4>
-      <p>The procession implies a supply chain that doesn't end. Products arranged in a line, receding until soft. The end is always out of frame. This is a big operation — an infinite handoff, always running.</p>
-    </div>
-    <div class="card">
-      <h4>02 · Consistency</h4>
-      <p>Every item in the line is identical. Same bracelet. Same ring setting. Same proportions. Whatever the order number, the quality doesn't vary. Reliability is built into the composition.</p>
-    </div>
-    <div class="card">
-      <h4>03 · Cadence</h4>
-      <p>The spacing between items is the rhythm of repeat business. First order. Second. Third. Fourth. The sequence is already drawn for you. The visual rhythm and the business relationship are the same thing.</p>
-    </div>
-  </div>
-
-  <h4 style="margin-top:48px;">Spec</h4>
+  <h4 id="banner-spec" style="margin-top: 80px;">Banner specification</h4>
   <table>
     <tr><td>Aspect ratio</td><td>Approximately 5:1 — wide, shallow banner format. Never square, never portrait.</td></tr>
     <tr><td>Background</td><td>Near-black studio surface. No editorial warmth here — the dark field makes the products luminous.</td></tr>
@@ -2216,11 +2288,7 @@ table:not(.compact-table) {
     <tr><td>Colour</td><td>Warm product tones (gold, silver, diamond) against cool dark background. Never add artificial colour overlays.</td></tr>
   </table>
 
-  <div class="card" style="margin-top:8px;">
-    <p style="font-size:16px; color:var(--stone-400); margin:0; line-height:1.7;"><span style="font-family:var(--font-mono); font-size:13px; letter-spacing:0.08em; color:var(--violet-400);">[product category]</span>, arranged in a receding procession on a dark studio surface, cinematic depth of field, sharp foreground softening to blur, warm metallic product tones against near-black background, infinite-supply framing, no human presence, no context, product-only, professional product photography</p>
-  </div>
-
-  <h3 style="margin-top:64px;">Iconography</h3>
+  <h3 id="iconography" style="margin-top:64px;">Iconography</h3>
   <p class="lede">Lucide outlined icons, 1.5px stroke. Curated for <strong>brand-relevant concepts</strong> — gems, marketplace, partnership, craft, certification, origin — never generic UI plumbing. Inherits text colour. Used sparingly, with intent.</p>
 
   <h4>Approved contact sheet</h4>
@@ -2268,7 +2336,7 @@ table:not(.compact-table) {
     <div class="icon-cell"><i data-lucide="history"></i><span class="label">history</span></div>
   </div>
 
-  <h4>Spec</h4>
+  <h4 id="icon-spec">Icon specification</h4>
   <table>
     <tr><td>Icon set</td><td><strong>Lucide</strong> — outlined style only, no filled variants</td></tr>
     <tr><td>Stroke</td><td>1.5px</td></tr>
@@ -2309,7 +2377,7 @@ table:not(.compact-table) {
     </div>
   </div>
 
-  <h3 style="margin-top:48px;">Capitalisation</h3>
+  <h3 style="margin-top:64px;">Capitalisation</h3>
   <table>
     <thead><tr><th>Element</th><th>Style</th><th>Example</th></tr></thead>
     <tbody>
@@ -2329,22 +2397,22 @@ table:not(.compact-table) {
 
   <div class="grid-2">
     <div class="card">
-      <h4>Product UI</h4>
+      <p class="card-kicker">Product UI</p>
       <h3>Tool, not billboard</h3>
       <p>Brand expression is restrained. Professional and functional, not promotional. Logo in nav only. Primary colour used sparingly — CTAs, active states, key accents. Users are here to transact. Brand builds trust, never competes with the task.</p>
     </div>
     <div class="card">
-      <h4>Marketing</h4>
+      <p class="card-kicker">Marketing</p>
       <h3>Story, not shouting</h3>
       <p>Brand expression is confident. Full visual palette available — hero imagery, brand colours, display typography. Polished, intentional, and human. Never generic, never hyperbolic.</p>
     </div>
     <div class="card">
-      <h4>Documentation</h4>
+      <p class="card-kicker">Documentation</p>
       <h3>Precise, patient, structured</h3>
       <p>Step-by-step instructions with numbered lists. Screenshots must use current UI. Technical terms defined on first use. Never assume the reader's expertise level.</p>
     </div>
     <div class="card">
-      <h4>Internal comms</h4>
+      <p class="card-kicker">Internal comms</p>
       <h3>Casual, direct, no inflation</h3>
       <p>Lowest formality but the brand still applies. Never use internal shorthand in any context that might be forwarded externally.</p>
     </div>
