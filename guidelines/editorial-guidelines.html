@@ -245,6 +245,15 @@ em { font-style: italic; }
   margin-top: 32px;
 }
 
+/* All editorial cards: mono kicker aligns to card padding (no stray section-heading margin) */
+.card > .card-kicker:first-child {
+  margin-top: 0;
+}
+
+.dark .card h3 {
+  color: var(--stone-50);
+}
+
 /* h3 tier with mono/label styling — valid outline, no h2→h4 skip */
 h3.section-mono-heading {
   font-family: var(--font-mono);
@@ -2148,13 +2157,13 @@ table:not(.compact-table) {
   <h3>Border radius</h3>
   <div class="grid-2">
     <div class="card">
+      <p class="card-kicker">Buttons &amp; inputs</p>
       <div style="width:120px; height:48px; background:var(--stone-800); border-radius:999px; margin:24px auto;"></div>
-      <h4>Buttons &amp; Inputs</h4>
       <p><code>999px</code> — pill-shaped. Soft, inviting, action-focused.</p>
     </div>
     <div class="card">
-      <div style="width:120px; height:80px; background:var(--stone-800); border:1px solid var(--stone-700); border-radius:2px; margin:0 auto 24px auto;"></div>
-      <h4>Cards</h4>
+      <p class="card-kicker">Cards</p>
+      <div style="width:120px; height:80px; background:var(--stone-800); border:1px solid var(--stone-700); border-radius:2px; margin:24px auto;"></div>
       <p><code>2px</code> — near-square. Formal, structured, content-focused.</p>
     </div>
   </div>
@@ -2223,17 +2232,20 @@ table:not(.compact-table) {
 
   <div class="grid-3 imagery-banner-principles">
     <div class="card">
-      <h4>01 · Perspective</h4>
+      <p class="card-kicker">01 · Perspective</p>
+      <h3>Through the jeweller's eyes</h3>
       <p>Every photograph is shot from <strong>inside the partner's world, looking out</strong>. Never outside, looking in. The jeweller is not a subject we observe from a distance — we are sitting beside them, behind their counter, in their consultation, opening their shop door for the first time. Same posture Shopify takes with merchants: we help <em>you</em> do your business.</p>
       <p>Practically: position the camera where the jeweller would stand. Subjects face the camera as if greeting the jeweller. Settings are jewellery-trade environments — workbenches, vault rooms, showroom floors, supplier offices, polished consultation desks. Avoid corporate-Nivoda settings; the empathy is always with the retailer.</p>
     </div>
     <div class="card">
-      <h4>02 · Light</h4>
+      <p class="card-kicker">02 · Light</p>
+      <h3>Luxury studio, cinematic depth</h3>
       <p>Soft directional studio lighting — <strong>boutique invite, not retail flood</strong>. High-end fashion-advertising aesthetic with cinematic depth of field: subject sharp, foreground and background falling soft. Reflection and refraction are welcomed — through glass, vitrines, polished surfaces, the diamond itself — adding sophistication and tactile richness. <a href="https://www.google.com/search?tbm=isch&amp;q=Saul+Leiter" target="_blank" rel="noopener" style="color: var(--violet-400); text-decoration: underline; text-underline-offset: 3px;">Saul Leiter</a> is the touchstone for the layered, semi-obscured quality.</p>
       <p>Practically: shoot wide aperture (f/1.4–f/2.8). Diffuse the key light. Allow secondary planes to blur. Look for reflections in vitrines, refractions through diamonds, light catching on glass — anything that adds an extra layer of depth.</p>
     </div>
     <div class="card">
-      <h4>03 · Palette</h4>
+      <p class="card-kicker">03 · Palette</p>
+      <h3>Moody and golden, with measured colour</h3>
       <p>The dominant tonal vocabulary is <strong>black, white, and golden warmth</strong>. Tungsten skin tones, amber highlights, deep charcoal shadows. Cool whites, fluorescent blues, and clinical lighting are out — they read as retail, not boutique.</p>
       <p>Photography is <strong>not pure monochrome</strong>. Selective colour — a flash of red on a velvet tray, the green of an emerald, the cobalt of a sapphire box, the warmth of skin — is welcome and earns its place. The rule is: warm and golden as the base, with colour as the accent that proves the photograph is alive. Never desaturated, never grayscale.</p>
     </div>
@@ -2244,15 +2256,18 @@ table:not(.compact-table) {
 
   <div class="grid-3 imagery-banner-principles">
     <div class="card">
-      <h4>01 · Scale</h4>
+      <p class="card-kicker">01 · Scale</p>
+      <h3>Scale</h3>
       <p>The procession implies a supply chain that doesn't end. Products arranged in a line, receding until soft. The end is always out of frame. This is a big operation — an infinite handoff, always running.</p>
     </div>
     <div class="card">
-      <h4>02 · Consistency</h4>
+      <p class="card-kicker">02 · Consistency</p>
+      <h3>Consistency</h3>
       <p>Every item in the line is identical. Same bracelet. Same ring setting. Same proportions. Whatever the order number, the quality doesn't vary. Reliability is built into the composition.</p>
     </div>
     <div class="card">
-      <h4>03 · Cadence</h4>
+      <p class="card-kicker">03 · Cadence</p>
+      <h3>Cadence</h3>
       <p>The spacing between items is the rhythm of repeat business. First order. Second. Third. Fourth. The sequence is already drawn for you. The visual rhythm and the business relationship are the same thing.</p>
     </div>
   </div>
